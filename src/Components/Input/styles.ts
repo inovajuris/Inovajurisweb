@@ -152,7 +152,7 @@ export const PasswordButtonContainer = styled.button`
   }
 
   &:hover {
-    color: #007AFF;
+    color: #BD01F3;
   }
 
  

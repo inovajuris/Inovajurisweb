@@ -67,7 +67,7 @@ const Input: React.FC<InputProps> = ({
       path: "value",
     });
   }, [fieldName, registerField]);
-
+  console.log(error)
   return (
     <Container isErrored={!!error} isFilled={isFilled} isFocused={isFocused}>
       {Icon && iconPosition === "left" && <Icon size={18} />}
@@ -88,13 +88,18 @@ const Input: React.FC<InputProps> = ({
             setCurrentType(currentType === "password" ? "text" : "password")
           }
         />
+        
       )}
-      {error && (
+      {!!error && (
         <Error title={error}>
           <FiAlertCircle color="#FF0045" size={20} />
         </Error>
-      )}
+    
+    )}
+      
     </Container>
-  );
+    
+    );
+    
 };
 export default Input;

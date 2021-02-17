@@ -149,7 +149,7 @@ const NovoCadastro: React.FC = () => {
               /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
               "senha deve conter pelo menos 6 caracteres, um número"
             )
-            .min(8, "No minimo 8 dígitos"),
+            .min(6, "No minimo 6 dígitos"),
         });
 
         await schema.validate(data, {
@@ -247,13 +247,21 @@ const NovoCadastro: React.FC = () => {
           return;
         }
         if (err.response?.data) {
+          if (typeof err.response?.data.erro !== "string") {
+            Object.entries(err.response?.data.erro).map((result) => {
+              addToast({
+                type: "error",
+                title: result[0],
+                description: `${result[1]}`,
+              });
+            });
+return;
+          }
           addToast({
             type: "error",
             title: "Erro no cadastro",
-            description: `Usuário já cadastrado.
-            `,
+            description: err.response?.data.erro,
           });
-          console.log(name + "nome aqui");
         }
       }
     },
@@ -348,7 +356,7 @@ const NovoCadastro: React.FC = () => {
                   icon={FiLock}
                   value={senha}
                   type={inputType}
-                  placeholder="Dica: 8 digitos + 1 caractere especial"
+                  placeholder="Dica: 6 digitos + 1 número"
                   onChange={(e) => setSenha(e.target.value)}
                 />
 

@@ -50,12 +50,12 @@ const Login: React.FC = () => {
         const schema = Yup.object().shape({
           email: Yup.string().required("E-mail obrigatório"),
           senha: Yup.string()
-            .trim()
-            .matches(
-              /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
-              "senha deve conter pelo menos 6 caracteres, um número"
-            )
-            .min(8, "No minimo 8 dígitos"),
+          .trim()
+          .matches(
+            /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+            "senha deve conter pelo menos 6 caracteres, um número"
+          )
+          .min(6, "No minimo 6 dígitos"),
         });
         await schema.validate(data, {
           abortEarly: false,
@@ -157,7 +157,7 @@ const Login: React.FC = () => {
                   name="senha"
                   icon={FiLock}
                   type={inputType}
-                  placeholder="Dica: 8 digitos + 1 caractere especial"
+                  placeholder="Dica: 6 digitos + 1 número"
                 />
 
                 <Button

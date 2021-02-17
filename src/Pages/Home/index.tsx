@@ -43,6 +43,7 @@ import {
   Answer,
   QuestionContent,
   DropdownToggle,
+  ButtonCompra
 } from "./styles";
 
 import Person from "../../assets/person.svg";
@@ -191,17 +192,17 @@ const Home: React.FC = () => {
 
   console.log("daysRemaining", daysRemaining);
 
+  const data = {
+    plano: "plano1",
+    token,
+    officeId: officeData?.id_escritorio,
+    userId: user?.id_usuario,
+    username: user?.nome,
+    userEmail: user?.email,
+    userPhone: officeData?.telefone,
+  };
   useEffect(() => {
     if (daysRemaining === 0 && isTrial) {
-      const data = {
-        plano: "plano1",
-        token,
-        officeId: officeData?.id_escritorio,
-        userId: user?.id_usuario,
-        username: user?.nome,
-        userEmail: user?.email,
-        userPhone: officeData?.telefone,
-      };
       console.log("Data", data);
       history.replace("/planos", data);
       addToast({
@@ -230,12 +231,15 @@ const Home: React.FC = () => {
                 </a>
                 <hr className="linha" />
               </DropdownItem>
+              {(!isTrial &&
               <DropdownItem>
+                
                 <a href="/meuplano" className="cool-link1">
                   Meu Plano
                 </a>
                 <hr className="linha" />
               </DropdownItem>
+              )}
               <DropdownItem>
                 <a href="/" onClick={signOut} className="cool-link1">
                   Sair
@@ -254,13 +258,21 @@ const Home: React.FC = () => {
                 {daysRemaining} dias para o fim do Teste Grátis
               </RemainingDaysText>
             )}
+                {isTrial && (
+              <ButtonCompra onClick={()=>   history.replace(`/planos`,data)}>
+          Adquira seu plano
+          
+              </ButtonCompra>
+            )}
             <DateContainer>
               <DateText>Data: {date}</DateText>
               <DateText>Hora: {time}</DateText>
             </DateContainer>
+           
           </MainHeader>
 
           <Content>
+      
             <TextContainer>
               <Title>Bem-Vindo</Title>
               <Subtitle>

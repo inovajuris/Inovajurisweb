@@ -77,7 +77,13 @@ const RecuperarSenha: React.FC = () => {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
           email: Yup.string().required("E-mail obrigatório"),
-          senha: Yup.string().required("Senha obrigatória"),
+          senha: Yup.string()
+          .trim()
+          .matches(
+            /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+            "senha deve conter pelo menos 6 caracteres, um número"
+          )
+          .min(6, "No minimo 6 dígitos"),
 
           // senha: Yup.string().trim().matches(
           //   /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
@@ -212,7 +218,7 @@ const RecuperarSenha: React.FC = () => {
               icon={FiLock}
               type={inputType}
               onChange={(e) => setSenha(e.target.value)}
-              placeholder="senha"
+              placeholder="Dica: 6 digitos + 1 número"
             />
   
             <Button

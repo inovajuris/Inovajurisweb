@@ -24,8 +24,38 @@ export const MainHeader = styled.header`
 `;
 export const RemainingDaysText = styled.h2`
   font-size: 22px;
+ margin-left:-1px;
   color: #fe2e2e;
   font-weight: 400;
+`;
+export const ButtonCompra = styled.button`
+margin-left:350px;
+margin-top:-36px;
+  font-size: 22px;
+  color:#941af9;
+  cursor: pointer;
+  outline:0;
+  width:200px;
+  height:45px;
+ text-transform: uppercase;
+ border-radius:5px;
+ text-align:center;
+ font-size:16px;
+/* box-shadow: 0px 0px 10px #000; */
+border: 2px solid #941af9;
+background:transparent;
+ /* -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent; */
+
+ 
+  font-weight: 500;
+  &:hover{
+    /* background: -webkit-linear-gradient(left,#e95a0c, #e13d8d ,#694896,#2e1f43 ); */
+ background-color: #941af9;
+     box-shadow: 0px 0px 5px #000; 
+     border:none;
+     color: #fff;
+  }
 `;
 export const DateContainer = styled.div`
   margin-top: 16px;
@@ -47,6 +77,7 @@ export const TextContainer = styled.div`
 
 export const Title = styled.h3`
   font-size: 32px;
+  color: #1C1C1C;
 `;
 
 export const Subtitle = styled.p`
@@ -246,8 +277,9 @@ export const DropdownContainer = styled.div`
   position: absolute;
   right: 0;
   top: 76px;
+
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
 
   z-index: 9999;
   background: #74469a;
@@ -277,6 +309,8 @@ export const DropdownMenu = styled.div`
   margin: 0;
   width: 100%;
 
+
+
 `;
 
 export const DropdownItem = styled.button`
@@ -297,7 +331,9 @@ export const DropdownItem = styled.button`
 
   hr {
     width: 100%;
-    height: 1px;
+    
+    height: 0.5px;
+
     background-color: #fff;
   }
 

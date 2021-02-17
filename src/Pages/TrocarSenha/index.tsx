@@ -77,7 +77,7 @@ const NovoCadastro: React.FC = () => {
               /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
               "senha deve conter pelo menos 6 caracteres, um número"
             )
-            .min(8, "No minimo 8 dígitos"),
+            .min(6, "No minimo 6 dígitos"),
           senha2: Yup.string()
             .oneOf(
               [Yup.ref("senha")],
@@ -181,7 +181,7 @@ const NovoCadastro: React.FC = () => {
                   icon={FiLock}
                   type={inputType}
                   value={senha}
-                  placeholder="Dica: 8 digitos + 1 caractere especial"
+                  placeholder="Dica: 6 digitos + 1 número"
                   onChange={(e) => setSenha(e.target.value)}
                 />
                 <h2>Confirmar Senha</h2>
@@ -191,7 +191,7 @@ const NovoCadastro: React.FC = () => {
                   icon={FiLock}
                   type={inputType}
                   value={senha2}
-                  placeholder="Dica: 8 digitos + 1 caractere especial"
+                  placeholder="Dica: 6 digitos + 1 número"
                   onChange={(e) => setSenha2(e.target.value)}
                 />
 

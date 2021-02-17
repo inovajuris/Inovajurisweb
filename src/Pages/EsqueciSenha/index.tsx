@@ -187,7 +187,7 @@ const EsqueciSenha: React.FC = () => {
     <Container>
       <Blue>
         <div className='formBox'>
-          <h3>Esqueci Senha</h3>
+          <h3>Redefinir Senha</h3>
           <Form ref={formRef} onSubmit={handleSubmit}>
             <div className='input1'>
               <h2>Email</h2>
@@ -213,7 +213,7 @@ const EsqueciSenha: React.FC = () => {
                   handleSubmit2(e);
                 }}
               >
-                Entrar
+                Enviar
               </Button>
             </div>
            
