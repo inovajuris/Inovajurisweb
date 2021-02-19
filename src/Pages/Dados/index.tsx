@@ -306,7 +306,7 @@ const Dados: React.FC = () => {
           },
         ],
       };
-
+console.log("oi")
       await axios.put<VindiCustomerResponse>(
         `https://app.vindi.com.br/api/v1/customers/${customerId}`,
         updatedVindiData,
