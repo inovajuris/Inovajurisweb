@@ -241,7 +241,7 @@ const Dados: React.FC = () => {
       var token64 = btoa(bytes);
 
       if (!customerId) {
-        console.log("Não tem customerId");
+
 
         const responseVindi = await axios.post<VindiCustomerResponse>(
           "https://app.vindi.com.br/api/v1/customers",
@@ -250,7 +250,7 @@ const Dados: React.FC = () => {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Basic ${token64}`,
-              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Origin": "http://localhost:3000/dados",
 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
 "Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
 
@@ -314,7 +314,7 @@ console.log("oi")
           headers: {
             "Content-Type": "application/json",
             Authorization: `Basic ${token64}`,
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "http://localhost:3000/dados",
 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
 "Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
 
