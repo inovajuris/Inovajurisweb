@@ -248,11 +248,9 @@ const Dados: React.FC = () => {
           vindiData,
           {
             headers: {
-              "Content-Type": "application/json",
-              Authorization: `Basic ${token64}`,
-              "Access-Control-Allow-Origin": "http://localhost:3000/dados",
-"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-"Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
+              "Access-Control-Allow-Origin": "https://app.inovajuris.com.br",
+              "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+              "Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
 
 
             },
@@ -314,9 +312,9 @@ console.log("oi")
           headers: {
             "Content-Type": "application/json",
             Authorization: `Basic ${token64}`,
-            "Access-Control-Allow-Origin": "http://localhost:3000/dados",
-"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-"Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
+            "Access-Control-Allow-Origin": "https://app.inovajuris.com.br",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
 
 
           },
