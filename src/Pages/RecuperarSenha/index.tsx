@@ -218,7 +218,7 @@ const RecuperarSenha: React.FC = () => {
               icon={FiLock}
               type={inputType}
               onChange={(e) => setSenha(e.target.value)}
-              placeholder="Dica: 6 digitos + 1 número"
+              placeholder="6 dígitos, mínimo uma letra e um número"
             />
   
             <Button

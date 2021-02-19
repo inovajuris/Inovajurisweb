@@ -244,7 +244,7 @@ const Dados: React.FC = () => {
         console.log("Não tem customerId");
 
         const responseVindi = await axios.post<VindiCustomerResponse>(
-          "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers",
+          "https://app.vindi.com.br/api/v1/customers",
           vindiData,
           {
             headers: {
@@ -304,7 +304,7 @@ const Dados: React.FC = () => {
       };
 
       await axios.put<VindiCustomerResponse>(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers/${customerId}`,
+        `https://app.vindi.com.br/api/v1/customers/${customerId}`,
         updatedVindiData,
         {
           headers: {

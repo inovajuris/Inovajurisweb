@@ -181,7 +181,7 @@ const NovoCadastro: React.FC = () => {
                   icon={FiLock}
                   type={inputType}
                   value={senha}
-                  placeholder="Dica: 6 digitos + 1 número"
+                  placeholder="6 dígitos, mínimo uma letra e um número"
                   onChange={(e) => setSenha(e.target.value)}
                 />
                 <h2>Confirmar Senha</h2>
@@ -191,7 +191,7 @@ const NovoCadastro: React.FC = () => {
                   icon={FiLock}
                   type={inputType}
                   value={senha2}
-                  placeholder="Dica: 6 digitos + 1 número"
+                  placeholder="6 dígitos, mínimo uma letra e um número"
                   onChange={(e) => setSenha2(e.target.value)}
                 />
 

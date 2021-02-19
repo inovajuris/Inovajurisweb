@@ -426,7 +426,7 @@ const Testenovocadastro: React.FC = () => {
                   name="senha"
                   icon={FiLock}
                   type={inputType}
-                  placeholder="Dica: 6 digitos + 1 número"
+                  placeholder="6 dígitos, mínimo uma letra e um número"
                   onChange={(e) => setSenha(e.target.value)}
                 />
                 <div className="div4">

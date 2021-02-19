@@ -356,7 +356,7 @@ return;
                   icon={FiLock}
                   value={senha}
                   type={inputType}
-                  placeholder="Dica: 6 digitos + 1 número"
+                  placeholder="6 dígitos, mínimo uma letra e um número"
                   onChange={(e) => setSenha(e.target.value)}
                 />
 

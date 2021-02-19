@@ -157,7 +157,7 @@ const Login: React.FC = () => {
                   name="senha"
                   icon={FiLock}
                   type={inputType}
-                  placeholder="Dica: 6 digitos + 1 número"
+                  placeholder="6 dígitos, mínimo uma letra e um número"
                 />
 
                 <Button
