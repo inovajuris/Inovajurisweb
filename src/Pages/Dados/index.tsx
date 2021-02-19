@@ -251,6 +251,10 @@ const Dados: React.FC = () => {
               "Content-Type": "application/json",
               Authorization: `Basic ${token64}`,
               "Access-Control-Allow-Origin": "*",
+"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+"Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
+
+
             },
           }
         );
@@ -311,6 +315,10 @@ const Dados: React.FC = () => {
             "Content-Type": "application/json",
             Authorization: `Basic ${token64}`,
             "Access-Control-Allow-Origin": "*",
+"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+"Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
+
+
           },
         }
       );
