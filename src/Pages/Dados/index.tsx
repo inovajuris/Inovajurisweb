@@ -437,7 +437,6 @@ console.log("oi")
         <Blue>
           <div className="formBox">
             <h3>Dados de indentificação</h3>
-            <h3>Testando</h3>
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="radio">
                 <div>
