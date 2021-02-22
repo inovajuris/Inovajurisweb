@@ -2,6 +2,7 @@
   "name": "frontendinova",
   "version": "0.1.0",
   "private": true,
+  
   "dependencies": {
     "@azure/ai-anomaly-detector": "^3.0.0-beta.2",
     "@emotion/react": "^11.1.4",

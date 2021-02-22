@@ -235,25 +235,21 @@ const Dados: React.FC = () => {
         ],
       };
 
-      const text = "tey-UhF26q2TMv6cTF43fcMsGwJEy4cdSZFKh-nPQaQ:";
+      const text = "39zh9E2rTCZAZ_Vu1-qbIbty-7KUciSaw0Ssd7s5bhg:";
 
       var bytes = utf8.encode(text);
       var token64 = btoa(bytes);
 
       if (!customerId) {
 
-
         const responseVindi = await axios.post<VindiCustomerResponse>(
           "https://app.vindi.com.br/api/v1/customers",
           vindiData,
           {
-            headers: {
-              "Access-Control-Allow-Origin": "https://app.inovajuris.com.br",
-              "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-              "Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
-
-
-            },
+            headers: {"Access-Control-Allow-Credentials" : "true",
+            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Methods" : "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+            "Access-Control-Allow-Headers" : "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version", Authorization: "Basic " + token64 },
           }
         );
 
@@ -309,15 +305,9 @@ console.log("oi")
         `https://app.vindi.com.br/api/v1/customers/${customerId}`,
         updatedVindiData,
         {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-            "Access-Control-Allow-Origin": "https://app.inovajuris.com.br",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-            "Access-Control-Allow-Headers": "auth-token, access-control-allow-origin",
+          headers: { "Authorization": "Basic " + token64 },
 
-
-          },
+          
         }
       );
 
