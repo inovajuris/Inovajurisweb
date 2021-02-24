@@ -63,6 +63,10 @@ interface LocationProps {
 }
 
 const Detalhes: React.FC = () => {
+  const nodemailer = require("nodemailer");
+  // const Mailer=[
+  //   host: ""
+  // ]
   const { signIn } = useAuth();
   const {
     state: {

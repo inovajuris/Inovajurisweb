@@ -22,7 +22,7 @@ import { FiMail } from "react-icons/fi";
 import { FiLock } from "react-icons/fi";
 import { Form } from "@unform/web";
 import Logo from "../../assets/principal.png";
-import Inovaback from '../../assets/Juris.png';
+import Inovaback from '../../assets/Juris2.png';
 import {
   Container,
   Blue,
