@@ -48,7 +48,7 @@ const Empresa: React.FC = ({ children }) => {
 
 
 
-
+console.log("algo")
   return (
       
     <div>
