@@ -4,14 +4,16 @@ import { Lock } from "../../styles/icons";
 import { Go } from "../../styles/icons";
 import { face } from "../../styles/icons";
 import { GoogleLogin as CustomGoogleLogin } from "react-google-login";
+import Inovaback from '../../assets/inova.Juris.png';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   height: 100%;
-  max-width: 1350px;
+  /* max-width: 1370px; */
   margin: 0 auto;
   width: 100%;
   z-index: 999;
+  
   @media (max-width: 576px) {
     display: flex;
     justify-content: center;
@@ -26,88 +28,73 @@ export const Blue = styled.div`
 
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   background-color: #fff;
 
   border-radius: 5px 10px 10px 5px;
 
-  width: 70%;
-  height: 480px;
+  width: 100%;
+  height: 510px;
 
-  margin-top:100px;
+  margin-top:680px;
+  background-image: url('../../assets/inova.Juris.png');
+.curva{
+  display:flex;
+  position:relative;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+/* overflow:hidden;
+  background: -webkit-linear-gradient(bottom,  #e95a0c, #e13d8d,#694896, #2e1f43 );
+background: -moz-linear-gradient(bottom, #e95a0c, #e13d8d,#694896, #2e1f43);
+background: linear-gradient(130deg, #FF750C -30%, #e13d8d 55%,#694896,#2e1f43); */
 
-  .formBox {
-    display: flex;
-    padding: 17px;
+width:100%;
 
-    justify-content: center;
-    flex-direction: column;
-    width: 39%;
-    background-color: #ffffff;
-    border-radius: 0px 5px 5px 0px;
+height:500px;
 
-    .redessociais {
-      position: relative;
-      display: flex;
-      align-items: center;
+h1{
+  margin-top:20px;
+  font-size:20px;
+  max-width:1000px;
+}
+p{
+  margin-top:20px;
+  font-size:20px;
+  max-width:1000px
+}
+.fotoinova{
+  width:1000px;
+  height:500px;
+}
 
-      .btngoogle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 60.5px;
-        margin-top: 8px;
 
-        cursor: pointer;
-      }
-      .facebook {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 8px;
-        width: 64.5px;
+section{
+  display:flex;
+  position:relative;
+justify-content:center;
+align-items:center;
 
-        cursor: pointer;
-      }
-    }
-  }
+  margin-top:20px;
+  max-width:1000px;
+font-size:10px;
+width:100%;
+h1{
   
-  h2 {
-    color: #141414;
-    width: 100%;
-    height: 20.7px;
-    font-weight: 400;
-    font-size: 17px;
-    margin-top: 13px;
+  font-size:20px;
+  max-width:1000px;
+  font-weight:400;
+  line-height:35px;
+  p{
+    margin-top:-2px;
+    line-height:30px;
   }
-  h3 {
-    margin-top: 16px;
-    font-size: 30px;
-    text-align: center;
-    font-weight: 400;
-  }
-  h4 {
-    margin-top: 8px;
-    font-weight: 400;
-  }
-  form {
-    margin-top: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    .input1 {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+}
+}
+}
 
-      & + div {
-        margin-top: 4%;
-        border: 1px solid #c4c4c4;
-      }
-    }
+
+    
     button {
       width: fit-content;
       padding: 0 16px;
@@ -121,294 +108,186 @@ export const Blue = styled.div`
     
     }
 
-    .cadastre {
-      width: 100%;
-      margin-top: 0px;
-      a {
-        font-weight: 400;
-        font-size: 20px;
-        color: #101010;
-        text-decoration: none;
-        &:hover {
-          color:#941AF9;
-        }
-      }
-    }
+  
  
-    .esqueci {
-      width: 100%;
-      margin-top: 0px;
-      a {
-        font-weight: 400;
-        font-size: 20px;
-        color: #232326;
-        text-decoration: none;
-        &:hover {
-          color: #941AF9;
-        }
-      }
-    }
-  }
+    
   @media screen and (max-width: 900px) {
-    position: relative;
+    
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
 
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    background-color: #fff;
+  border-radius: 5px 10px 10px 5px;
 
-    border-radius: 5px 10px 10px 5px;
+  width: 100%;
+  height: 600px;
 
-    width: 60%;
-    height: 480px;
+  margin-top:700px;
+  background-image: url('../../assets/inova.Juris.png');
+.curva{
+  display:flex;
+  position:relative;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+/* overflow:hidden;
+  background: -webkit-linear-gradient(bottom,  #e95a0c, #e13d8d,#694896, #2e1f43 );
+background: -moz-linear-gradient(bottom, #e95a0c, #e13d8d,#694896, #2e1f43);
+background: linear-gradient(130deg, #FF750C -30%, #e13d8d 55%,#694896,#2e1f43); */
 
-    margin-top: 100px;
+width:100%;
 
-    .formBox {
-      display: flex;
+height:500px;
 
-      justify-content: center;
-      flex-direction: column;
-      width: 100%;
-      background-color: #ffffff;
+h1{
+  margin-top:20px;
+  font-size:20px;
+  max-width:1000px;
+}
+p{
+  margin-top:20px;
+  font-size:20px;
+  max-width:1000px
+}
+.fotoinova{
+  width:1000px;
+  height:540px;
+}
 
-      border-radius: 0px 5px 5px 0px;
 
-      .redessociais {
-        position: relative;
-        display: flex;
-        align-items: center;
+section{
+  display:flex;
+  position:relative;
+justify-content:center;
+align-items:center;
 
-        .btngoogle {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 60.5px;
-          margin-top: 8px;
-
-          cursor: pointer;
-        }
-        .facebook {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 8px;
-          width: 64.5px;
-
-          cursor: pointer;
-        }
-      }
-    }
-    h2 {
-      color: #141414;
-      width: 100%;
-      height: 20.7px;
-      font-weight: 400;
-      font-size: 17px;
-      margin-top: 13px;
-    }
-    h3 {
-      margin-top: 16px;
-      font-size: 28px;
-      text-align: center;
-      font-weight: 400;
-    }
-    h4 {
-      margin-top: 8px;
-      font-weight: 400;
-    }
-    form {
-      margin-top: 5%;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-
-      button {
-        width: fit-content;
-        padding: 0 16px;
-        width: 65%;
-        height: 40px;
-        text-align: center;
-      }
-      .input1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        & + div {
-          margin-top: 4%;
-          border: 1px solid #c4c4c4;
-        }
-      }
-      input .cadastre {
-        width: 100%;
-        margin-top: 16px;
-        a {
-          font-weight: 450;
-          font-size: 20px;
-          color: #101010;
-          text-decoration: none;
-          &:hover {
-            color: #941AF9;
-          }
-        }
-      }
-      .esqueci {
-        width: 100%;
-        margin-top: 0px;
-        a {
-          font-weight: 450;
-          font-size: 20px;
-          color: #232326;
-          text-decoration: none;
-          &:hover {
-            color:  #941AF9;
-          }
-        }
-      }
-    }
+  margin-top:20px;
+  max-width:1000px;
+font-size:10px;
+width:100%;
+h1{
+  
+  font-size:20px;
+  max-width:1000px;
+  font-weight:400;
+  line-height:35px;
+  p{
+    line-height:30px;
   }
+}
+}
+}
 
+
+    
+    button {
+      width: fit-content;
+      padding: 0 16px;
+      width: 65%;
+      height: 40px;
+      text-align: center;
+    }
+    .btnazul {
+      text-align: center;
+      margin-top: 11%;
+    
+    }
+
+  
+ 
+    
   @media screen and (max-width: 576px) {
-    position: relative;
+    
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
 
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    background-color: #fff;
+  border-radius: 5px 10px 10px 5px;
 
-    border-radius: 5px 10px 10px 5px;
+  width: 100%;
+  height: 600px;
 
-    width: 100%;
-    height: 560px;
+  margin-top:700px;
+  background-image: url('../../assets/inova.Juris.png');
+.curva{
+  display:flex;
+  position:relative;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+/* overflow:hidden;
+  background: -webkit-linear-gradient(bottom,  #e95a0c, #e13d8d,#694896, #2e1f43 );
+background: -moz-linear-gradient(bottom, #e95a0c, #e13d8d,#694896, #2e1f43);
+background: linear-gradient(130deg, #FF750C -30%, #e13d8d 55%,#694896,#2e1f43); */
 
-    margin-top: 90px;
+width:100%;
 
-    .formBox {
-      display: flex;
+height:500px;
 
-      justify-content: center;
-      flex-direction: column;
-      width: 100%;
+h1{
+  margin-top:20px;
+  font-size:20px;
+  max-width:1000px;
+}
+p{
+  margin-top:20px;
+  font-size:20px;
+  max-width:1000px
+}
+.fotoinova{
+  width:1000px;
+  height:540px;
+}
 
-      background-color: #ffffff;
 
-      border-radius: 0px 5px 5px 0px;
+section{
+  display:flex;
+  position:relative;
+justify-content:center;
+align-items:center;
 
-      .redessociais {
-        position: relative;
-        display: flex;
-        align-items: center;
-
-        .btngoogle {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 60.5px;
-          margin-top: 8px;
-
-          cursor: pointer;
-        }
-        .facebook {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 8px;
-          width: 64.5px;
-
-          cursor: pointer;
-        }
-      }
-    }
-    h2 {
-      color: #141414;
-      width: 100%;
-      height: 20.7px;
-      font-weight: 400;
-      font-size: 17px;
-      margin-top: 13px;
-    }
-    h3 {
-      margin-top: 16px;
-      font-size: 28px;
-      text-align: center;
-      font-weight: 400;
-    }
-    h4 {
-      margin-top: 8px;
-      font-weight: 400;
-    }
-
-    form {
-      margin-top: -10%;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-
-      button {
-        width: fit-content;
-        padding: 0 16px;
-        width: 100%;
-        height: 45px;
-        text-align: center;
-      }
-      input {
-        width: fit-content;
-
-        width: 100%;
-        height: 45px;
-      }
-
-      .input1 {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        & + div {
-          margin-top: 4%;
-          border: 1px solid #c4c4c4;
-        }
-      }
-
-      .cadastre {
-        width: 100%;
-        margin-top: 16px;
-
-        a {
-          font-weight: 500;
-
-          font-size: 20px;
-          color: #101010;
-          text-decoration: none;
-          &:hover {
-            color:  #941AF9;
-          }
-        }
-      }
-      .esqueci {
-        width: 100%;
-        margin-top: 0px;
-        a {
-          font-weight: 500;
-          font-size: 20px;
-          color: #232326;
-          text-decoration: none;
-          &:hover {
-            color:  #941AF9;
-          }
-        }
-      }
-    }
+  margin-top:20px;
+  max-width:1000px;
+font-size:10px;
+width:100%;
+h1{
+  
+  font-size:20px;
+  max-width:1000px;
+  font-weight:400;
+  line-height:35px;
+  p{
+    line-height:30px;
   }
+}
+}
+}
+
+
+    
+    button {
+      width: fit-content;
+      padding: 0 16px;
+      width: 65%;
+      height: 40px;
+      text-align: center;
+    }
+    .btnazul {
+      text-align: center;
+      margin-top: 11%;
+    
+    }
+
+  
+ 
+  }}
 `;
+
+
+
+
 
 export const GoogleLogin = styled(CustomGoogleLogin)`
   background-color: red;
@@ -448,11 +327,19 @@ import { FaBars } from "react-icons/fa";
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 75px;
-  background-color: #fff;
+  background: #fff ;
+/* background: -webkit-linear-gradient(bottom,  #e95a0c, #e13d8d,#694896, #2e1f43 );
+background: -moz-linear-gradient(bottom, #e95a0c, #e13d8d,#694896, #2e1f43);
+background: linear-gradient(130deg, #FF750C -30%, #e13d8d 74%,#694896); */
+
+
+
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border-bottom: 0.2px solid #fff  ; */
   box-shadow: 0px 0px 5px;
+  
   position: relative;
   position: fixed;
   top: 0;
@@ -478,7 +365,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #000;
+  color: #8A44C4;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -486,11 +373,11 @@ export const NavLink = styled(Link)`
   cursor: pointer;
   font-family:"Muli";
   &.active {
-    color: #74469A;
+    color: #8A44C4;
   }
 
   &:hover {
-    color: #941AF9;
+    color: #8A44C4;
     text-decoration: underline;
   }
 `;

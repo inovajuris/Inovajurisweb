@@ -187,14 +187,13 @@ const Testenovocadastro: React.FC = () => {
           telefone: Yup.string().required("Telefone é obrigatório"),
           email: Yup.string().required("E-mail é obrigatório"),
           senha: Yup.string()
-            .trim()
-            .matches(
-              /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
-              "senha deve conter pelo menos 8 caracteres, um número e um caractere especial"
-            )
-            .min(8, "No minimo 8 dígitos"),
-          processos: Yup.string().required("Processos é obrigatório"),
-        });
+          .trim()
+          .matches(
+            /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+            "senha deve conter pelo menos 6 caracteres, um número"
+          )
+          .min(6, "No minimo 6 dígitos"),
+      });
 
         await schema.validate(data, {
           abortEarly: false,
