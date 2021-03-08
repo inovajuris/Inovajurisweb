@@ -39,6 +39,7 @@ const Routes: React.FC = () => {
           component={TesteCadastro}
         />
 
+
         <Route path="/faq" exact component={Faq} />
         <Route path="/faq2" exact component={Faq2} />
         <Route path="/esquecisenha" exact component={Esquecisenha} />

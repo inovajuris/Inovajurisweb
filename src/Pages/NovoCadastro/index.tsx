@@ -294,8 +294,7 @@ const NovoCadastro: React.FC = () => {
       temp[0];
     return dataBanco;
   }
-  // console.log(dataFormatadaInicio + "esse");
-  // console.log(dataFormatadaFim + "esse");
+
 
   return (
     <div>
