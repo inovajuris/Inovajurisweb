@@ -30,9 +30,9 @@ const PasswordToggle = ({
   return (
     <PasswordButtonContainer onClick={onToggle} type="button" className="eye">
       {visible ? (
-        <FiEye size={18} width="10px" />
-      ) : (
         <FiEyeOff size={18} width="10px" />
+      ) : (
+        <FiEye size={18} width="10px" />
       )}
     </PasswordButtonContainer>
   );

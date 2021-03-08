@@ -21,7 +21,7 @@ import { useToast } from "../../hooks/toast";
 import { getFormattedDetailedPlans } from "../../data/DetailedPlans";
 import { useAuth } from "../../hooks/auth";
 import { getPlanData } from "../../data";
-
+import emailjs from 'emailjs-com';
 // const CVVIcon: React.FC = (props) => {
 //   // return (
 //   //   <div
@@ -63,10 +63,8 @@ interface LocationProps {
 }
 
 const Detalhes: React.FC = () => {
-  const nodemailer = require("nodemailer");
-  // const Mailer=[
-  //   host: ""
-  // ]
+
+ 
   const { signIn } = useAuth();
   const {
     state: {
@@ -266,6 +264,9 @@ const Detalhes: React.FC = () => {
         }
       );
 
+
+
+
       await api.put(
         `usuarios/${userId}`,
         {
@@ -294,6 +295,20 @@ const Detalhes: React.FC = () => {
           },
         }
       );
+
+      // await api.post(
+      //   `usuarios/bemvindo`,
+      //   {
+      //    email:userEmail,
+      //   },
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Bearer ${token}`,
+      //     },
+      //   }
+      // );
+
 
       if (userPassword) {
         await signIn({ email: userEmail, senha: userPassword });
@@ -332,6 +347,10 @@ const Detalhes: React.FC = () => {
         );
       }
     }
+
+
+
+  
   };
 
   const getCardBrand = (cardNumber: string) => {
@@ -380,6 +399,21 @@ const Detalhes: React.FC = () => {
     setPasswordShown(passwordShown === true ? false : true);
     setInputType(inputType === "password" ? "text" : "password");
   };
+
+
+  // function sendEmail(e:any){
+  //   e.preventDefault();
+
+  //   emailjs.sendForm('gmail', 'template_gpb6n69', e.target, 'user_OjsQ18ohvPDncfExKM86V')
+  //     .then((result) => {
+  //         console.log(result.text);
+  //     }, (error) => {
+  //         console.log(error.text);
+  //     });
+  //     e.target.reset()
+  // }
+
+
 
   return (
     <div>

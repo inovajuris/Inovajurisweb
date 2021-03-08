@@ -284,7 +284,7 @@ const Home: React.FC = () => {
               <StoreButtonsContainer>
                 <GoogleStoreButton
                   className="play"
-                  href="https://play.google.com/store/apps/details?id=com.actionsys.inventario"
+                  href="https://play.google.com/store/apps/details?id=com.inova.juris"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

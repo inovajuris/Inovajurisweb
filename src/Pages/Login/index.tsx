@@ -41,6 +41,7 @@ const Login: React.FC = () => {
   const { addToast } = useToast();
   const history = useHistory();
 
+
   const handleSubmit = useCallback(
     async (data: SigInFormData): Promise<void> => {
       setLoading(true);
@@ -120,6 +121,8 @@ const Login: React.FC = () => {
   const componetClicked = (data: any) => {
     console.warn(data);
   };
+
+
 
   const eye = <FiEyeOff />;
   const [passwordShown, setPasswordShown] = useState(false);

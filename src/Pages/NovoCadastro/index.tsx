@@ -178,7 +178,8 @@ const NovoCadastro: React.FC = () => {
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,
-          telefone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
+          telefone: data.telefone, 
+
           qtde_processos: plansData.qtde_processos,
           quantidade_advogados: plansData.quantidade_advogados,
           tipo_escritorio: plansData.tipo_escritorio,
@@ -210,7 +211,7 @@ const NovoCadastro: React.FC = () => {
             userId: response.data.usuario.id_usuario,
             username: response.data.usuario.nome,
             userEmail: data.email,
-            userPhone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
+            userPhone: data.telefone,
             userPassword: data.senha,
             isPromo,
           });
@@ -222,7 +223,7 @@ const NovoCadastro: React.FC = () => {
           userId: response.data.usuario.id_usuario,
           username: response.data.usuario.nome,
           userEmail: data.email,
-          userPhone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
+          userPhone: data.telefone,
           userPassword: data.senha,
           isPromo,
         });
@@ -255,7 +256,7 @@ const NovoCadastro: React.FC = () => {
                 description: `${result[1]}`,
               });
             });
-return;
+            return;
           }
           addToast({
             type: "error",

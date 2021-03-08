@@ -280,7 +280,7 @@ export const DropdownContainer = styled.div`
 
   width: 100%;
   max-width: 250px;
-
+/* height:105px; */
   z-index: 9999;
   background: #74469a;
   border: 0;

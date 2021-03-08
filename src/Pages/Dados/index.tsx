@@ -235,6 +235,13 @@ const Dados: React.FC = () => {
         ],
       };
 
+      const officeData = {
+        tipo_documento: documentType,
+        documento: documentNumber,
+      };
+
+      console.log("officeData", officeData);
+
       const text = "tey-UhF26q2TMv6cTF43fcMsGwJEy4cdSZFKh-nPQaQ:";
 
       var bytes = utf8.encode(text);
@@ -242,6 +249,20 @@ const Dados: React.FC = () => {
 
       if (!customerId) {
         console.log("Não tem customerId");
+
+        await api.put(`escritorio/${officeId}`, officeData, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        await api.post("enderecos", addressData, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         const responseVindi = await axios.post<VindiCustomerResponse>(
           "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers",
@@ -255,28 +276,7 @@ const Dados: React.FC = () => {
           }
         );
 
-        await api.put(
-          `escritorio/${officeId}`,
-          {
-            tipo_documento: documentType.toLowerCase(),
-            documento: documentNumber.replace(/[/.-]/g, ""),
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        await api.post("enderecos", addressData, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        return history.push("/detalhes", {
+        history.push("/detalhes", {
           plano,
           customerId: responseVindi.data.customer.id,
           phoneId: responseVindi.data.customer.phones[0].id,
@@ -290,6 +290,7 @@ const Dados: React.FC = () => {
           token,
           isPromo,
         });
+        return;
       }
 
       const updatedVindiData = {
@@ -303,6 +304,20 @@ const Dados: React.FC = () => {
         ],
       };
 
+      await api.put(`escritorio/${officeId}`, officeData, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      await api.put(`enderecos/${officeId}/${userId}`, addressData, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       await axios.put<VindiCustomerResponse>(
         `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers/${customerId}`,
         updatedVindiData,
@@ -314,27 +329,6 @@ const Dados: React.FC = () => {
           },
         }
       );
-
-      await api.put(
-        `escritorio/${officeId}`,
-        {
-          tipo_documento: documentType.toLowerCase(),
-          documento: documentNumber.replace(/[/.-]/g, ""),
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      await api.put(`enderecos/${officeId}/${userId}`, addressData, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
 
       history.push("/detalhes", {
         plano,
@@ -434,7 +428,8 @@ const Dados: React.FC = () => {
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="radio">
                 <div>
-                  <Radio className="radiocor"
+                  <Radio
+                    className="radiocor"
                     value="fisica"
                     checked={gender === "fisica"}
                     color="primary"
@@ -443,7 +438,8 @@ const Dados: React.FC = () => {
                   <span>Pessoa Física</span>
                 </div>
                 <div>
-                  <Radio  className="radiocor"
+                  <Radio
+                    className="radiocor"
                     value="juridica"
                     checked={gender === "juridica"}
                     color="primary"
@@ -484,7 +480,7 @@ const Dados: React.FC = () => {
                           e.currentTarget.value = value;
                           return e;
                         }}
-                        value={documentNumber}
+                        // value={documentNumber}
                         onChange={(e) => setDocumentNumber(e.target.value)}
                       />
                     </>
@@ -508,7 +504,7 @@ const Dados: React.FC = () => {
                           e.currentTarget.value = value;
                           return e;
                         }}
-                        value={documentNumber}
+                        // value={documentNumber}
                         onChange={(e) => setDocumentNumber(e.target.value)}
                       />
                     </>
@@ -643,7 +639,7 @@ const Dados: React.FC = () => {
                     });
                   }}
                 >
-               Voltar
+                  Voltar
                 </Button>
                 <Button className="btnazul" isLoading={loading} type="submit">
                   Dados de Pagamento

@@ -177,7 +177,7 @@ const Testenovocadastro: React.FC = () => {
       console.log("tipoPerfil", tipoPerfil);
       console.log("qtdavogados", qtdAdvogados);
       console.log("Plano", planos);
-      console.log("Telefone", data.telefone.replace(/[ ]|[()-]/g, ""));
+      console.log("Telefone", data.telefone);
       setLoading(true);
       try {
         formRef.current?.setErrors({});
@@ -187,13 +187,13 @@ const Testenovocadastro: React.FC = () => {
           telefone: Yup.string().required("Telefone é obrigatório"),
           email: Yup.string().required("E-mail é obrigatório"),
           senha: Yup.string()
-          .trim()
-          .matches(
-            /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
-            "senha deve conter pelo menos 6 caracteres, um número"
-          )
-          .min(6, "No minimo 6 dígitos"),
-      });
+            .trim()
+            .matches(
+              /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+              "senha deve conter pelo menos 6 caracteres, um número"
+            )
+            .min(6, "No minimo 6 dígitos"),
+        });
 
         await schema.validate(data, {
           abortEarly: false,
@@ -228,7 +228,7 @@ const Testenovocadastro: React.FC = () => {
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,
-          telefone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
+          telefone: data.telefone,
           qtde_processos: data.processos,
           quantidade_advogados: qtdAdvogados,
           tipo_escritorio: tipoPerfil,
@@ -355,7 +355,8 @@ const Testenovocadastro: React.FC = () => {
               <div className="radio">
                 <div>
                   <span className="pessoafisica">Pessoa Física</span>
-                  <Radio className="radiobtn"
+                  <Radio
+                    className="radiobtn"
                     value="cpf"
                     checked={gender === "cpf"}
                     color="primary"
@@ -364,7 +365,8 @@ const Testenovocadastro: React.FC = () => {
                 </div>
                 <div>
                   <span className="pessoajuridica">Pessoa Jurídica</span>
-                  <Radio className="radiobtn"
+                  <Radio
+                    className="radiobtn"
                     value="cnpj"
                     checked={gender === "cnpj"}
                     color="primary"

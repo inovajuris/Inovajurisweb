@@ -19,6 +19,7 @@ export const Container = styled.button<ContainerProps>`
   font-weight: 400;
   width: 100%;
   height: 9.5%;
+transition:0.1s;
   > a {
     text-decoration: none;
     color: #fff;
@@ -81,7 +82,7 @@ export const Container = styled.button<ContainerProps>`
       }
     }
   &:hover {
-    background-color: #623984;
+    background-color: #8312E1;
 
    
   }
