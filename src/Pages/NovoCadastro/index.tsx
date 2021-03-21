@@ -295,6 +295,11 @@ const NovoCadastro: React.FC = () => {
       temp[0];
     return dataBanco;
   }
+<<<<<<< HEAD
+=======
+  // console.log(dataFormatadaInicio + "esse");
+  // console.log(dataFormatadaFim + "esse");
+>>>>>>> parent of a636a04... newcorrections
 
   return (
     <div>
