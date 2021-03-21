@@ -43,7 +43,7 @@ import {
   Answer,
   QuestionContent,
   DropdownToggle,
-  ButtonCompra
+  ButtonCompra,
 } from "./styles";
 
 import Person from "../../assets/person.svg";
@@ -52,6 +52,7 @@ import Playstore from "../../assets/play1.svg";
 import api from "../../services/api";
 import { useToast } from "../../hooks/toast";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 interface ReturnDate {
   time: string;
@@ -129,21 +130,88 @@ const Home: React.FC = () => {
   const [isShowMenu, setIsShowMenu] = useState(false);
   const [selectedId, setSelectedId] = useState("");
   const [isTrial, setIsTrial] = useState(false);
+  const [daysRemaining, setDaysRemaining] = useState(15);
+  const [data, setData] = useState({});
   const [officeData, setOfficeData] = useState<{
     id_escritorio: number;
     telefone: number;
   }>();
+
   const [endDate, setEndDate] = useState("");
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const [time, setTime] = useState(new Date().toLocaleTimeString());
+
   const { signOut, user } = useAuth();
   const { addToast } = useToast();
   const history = useHistory();
   const token = localStorage.getItem("@ActionLaw: token");
 
+  async function fetchAPI() {
+    const response = await api.get(`escritorios?nome=${user?.nome}`);
+
+    const {
+      plano,
+      id_escritorio,
+      data_final_trial,
+      telefone,
+    } = response.data[0];
+
+    const data_obj = {
+      plano: "plano1",
+      token,
+      officeId: id_escritorio,
+      userId: user?.id_usuario,
+      username: user?.nome,
+      userEmail: user?.email,
+      userPhone: telefone,
+    };
+
+    setData(data_obj);
+
+    const planIsTrial = plano.includes("trial");
+    setIsTrial(planIsTrial);
+
+    const { data } = await axios.get(
+      `http://localhost:3333/vindi/clientes/inadimplentes/${id_escritorio}`
+    );
+
+    if (!planIsTrial) {
+      const vindi_response = await axios.get(
+        `http://localhost:3333/vindi/pegaridescritorio
+        /${data.customers[0].id}`
+      );
+
+      const { subscriptions } = vindi_response.data;
+
+      if (subscriptions.length === 0) {
+        const today = new Date(
+          convertISOToFormattedDate(new Date(Date.now()).toISOString())
+        ).getTime();
+
+        const formattedEndDate =
+          new Date(data_final_trial).getTime() + 3_600_000 * 3;
+
+        const difference = formattedEndDate - today;
+
+        const remaining =
+          difference < 0 ? 0 : Number((difference / 86_400_000).toFixed(0));
+
+        history.replace("/planos", data_obj);
+        addToast({
+          type: "info",
+          title: "Seu tempo de teste acabou",
+          description: "você será redirecionado para a tela de planos",
+        });
+      }
+    }
+    setEndDate(data_final_trial);
+  }
+
   useEffect(() => {
+    fetchAPI();
+
     const script = document.createElement("script");
-    script.src = 'https://embed.tawk.to/601a14c3c31c9117cb753836/1etiu274n';
+    script.src = "https://embed.tawk.to/601a14c3c31c9117cb753836/1etiu274n";
     script.async = true;
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
@@ -166,52 +234,31 @@ const Home: React.FC = () => {
   const plans = ["plano1", "plano2", "plano3", "promo1", "promo2", "promo3"];
 
   useEffect(() => {
-    api.get(`escritorios?nome=${user?.nome}`).then((response) => {
-      console.log("PLANO: ", response.data[0].plano);
-      setOfficeData(response.data[0]);
-      setIsTrial(!plans.some((plan) => plan === response.data[0].plano));
-      // setEndDate(convertISOToDate(response.data[0].data_final_trial));
-      setEndDate(response.data[0].data_final_trial);
-    });
-  }, []);
+    if (isTrial && endDate.length !== 0) {
+      const today = new Date(
+        convertISOToFormattedDate(new Date(Date.now()).toISOString())
+      ).getTime();
+
+      const formattedEndDate = new Date(endDate).getTime() + 3_600_000 * 3;
+      const difference = formattedEndDate - today;
+
+      const remaining =
+        difference < 0 ? 0 : Number((difference / 86_400_000).toFixed(0));
+      setDaysRemaining(remaining);
+
+      if (remaining === 0 && isTrial) {
+        history.replace("/planos", data);
+        addToast({
+          type: "info",
+          title: "Seu tempo de teste acabou",
+          description: "você será redirecionado para a tela de planos",
+        });
+      }
+    }
+  }, [isTrial, endDate, data]);
 
   const convertISOToFormattedDate = (date: string) =>
     `${date.split("T")[0]}T00:00:00Z`;
-
-  // muda sempre as 21:00:00
-  const today = new Date(
-    convertISOToFormattedDate(new Date(Date.now()).toISOString())
-  ).getTime();
-  console.log("Today", new Date(today).toLocaleDateString());
-
-  const formattedEndDate = new Date(endDate).getTime() + 3_600_000 * 3;
-  const difference = formattedEndDate - today;
-
-  const daysRemaining =
-    difference < 0 ? 0 : Number((difference / 86_400_000).toFixed(0));
-
-  console.log("daysRemaining", daysRemaining);
-
-  const data = {
-    plano: "plano1",
-    token,
-    officeId: officeData?.id_escritorio,
-    userId: user?.id_usuario,
-    username: user?.nome,
-    userEmail: user?.email,
-    userPhone: officeData?.telefone,
-  };
-  useEffect(() => {
-    if (daysRemaining === 0 && isTrial) {
-      console.log("Data", data);
-      history.replace("/planos", data);
-      addToast({
-        type: "info",
-        title: "Seu tempo de teste acabou",
-        description: "você será redirecionado para a tela de planos",
-      });
-    }
-  }, [daysRemaining]);
 
   return (
     <Layout>
@@ -231,14 +278,13 @@ const Home: React.FC = () => {
                 </a>
                 <hr className="linha" />
               </DropdownItem>
-              {(!isTrial &&
-              <DropdownItem>
-                
-                <a href="/meuplano" className="cool-link1">
-                  Meu Plano
-                </a>
-                <hr className="linha" />
-              </DropdownItem>
+              {!isTrial && (
+                <DropdownItem>
+                  <a href="/meuplano" className="cool-link1">
+                    Meu Plano
+                  </a>
+                  <hr className="linha" />
+                </DropdownItem>
               )}
               <DropdownItem>
                 <a href="/" onClick={signOut} className="cool-link1">
@@ -253,26 +299,23 @@ const Home: React.FC = () => {
       <Container>
         <Main>
           <MainHeader>
-            {daysRemaining !== 0 && isTrial && (
+            {daysRemaining !== 15 && isTrial && (
               <RemainingDaysText>
                 {daysRemaining} dias para o fim do Teste Grátis
               </RemainingDaysText>
             )}
-                {isTrial && (
-              <ButtonCompra onClick={()=>   history.replace(`/planos`,data)}>
-          Adquira seu plano
-          
+            {isTrial && (
+              <ButtonCompra onClick={() => history.replace(`/planos`, data)}>
+                Adquira seu plano
               </ButtonCompra>
             )}
             <DateContainer>
               <DateText>Data: {date}</DateText>
               <DateText>Hora: {time}</DateText>
             </DateContainer>
-           
           </MainHeader>
 
           <Content>
-      
             <TextContainer>
               <Title>Bem-Vindo</Title>
               <Subtitle>
@@ -293,7 +336,7 @@ const Home: React.FC = () => {
                 </GoogleStoreButton>
                 <AppStoreButton
                   className="apple"
-                  href="https://play.google.com/store/apps/details?id=com.dts.freefireth"
+                  href="https://apps.apple.com/us/app/inova-juris/id1553522600"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

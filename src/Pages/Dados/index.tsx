@@ -118,7 +118,7 @@ const Dados: React.FC = () => {
     phoneId,
     isPromo
   );
-
+  const [backLoading, setBackLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState({
     logradouro: "",
@@ -264,16 +264,27 @@ const Dados: React.FC = () => {
           },
         });
 
+        // const responseVindi = await axios.post<VindiCustomerResponse>(
+        //   "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers",
+        //   vindiData,
+        //   {
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       Authorization: `Basic ${token64}`,
+        //       "Access-Control-Allow-Origin": "*",
+        //     },
+        //   }
+        // );
         const responseVindi = await axios.post<VindiCustomerResponse>(
-          "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers",
-          vindiData,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Basic ${token64}`,
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
+          "http://localhost:3333/vindi/clientes",
+          vindiData
+          //   {
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //       Authorization: `Basic ${token64}`,
+          //       "Access-Control-Allow-Origin": "*",
+          //     },
+          // }
         );
 
         history.push("/detalhes", {
@@ -317,18 +328,28 @@ const Dados: React.FC = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
       await axios.put<VindiCustomerResponse>(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers/${customerId}`,
-        updatedVindiData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
+        `http://localhost:3333/vindi/clientes/${customerId}`,
+        updatedVindiData
+        //   {
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       Authorization: `Basic ${token64}`,
+        //       "Access-Control-Allow-Origin": "*",
+        //     },
+        // }
       );
+      // await axios.put<VindiCustomerResponse>(
+      //   `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers/${customerId}`,
+      //   updatedVindiData,
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Basic ${token64}`,
+      //       "Access-Control-Allow-Origin": "*",
+      //     },
+      //   }
+      // );
 
       history.push("/detalhes", {
         plano,
@@ -619,10 +640,11 @@ const Dados: React.FC = () => {
               <div className="btnblue">
                 <Button
                   className="btnazul1"
-                  isLoading={loading}
+                  isLoading={backLoading}
                   type="button"
                   disabled={isPromo}
                   onClick={() => {
+                    setBackLoading(true);
                     history.push("/planos", {
                       contractAccepted,
                       customerId,

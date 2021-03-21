@@ -165,7 +165,8 @@ const NovoCadastro: React.FC = () => {
           usuario: UserResponse;
         }>("usuarios", { ...data, perfil: plansData.tipo_escritorio });
 
-        // console.log(response.data);
+        console.log("*************************88");
+        console.log(response.data);
         // console.log(name + "nome aqui");
 
         const sendOfficeData = {
@@ -178,14 +179,14 @@ const NovoCadastro: React.FC = () => {
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,
-          telefone: data.telefone, 
+          telefone: data.telefone,
 
           qtde_processos: plansData.qtde_processos,
           quantidade_advogados: plansData.quantidade_advogados,
           tipo_escritorio: plansData.tipo_escritorio,
         };
 
-        // console.log("sendOfficeData", sendOfficeData);
+        console.log("sendOfficeData", sendOfficeData);
 
         const responseOffice = await api.post<OfficeResponse>(
           "escritorios",
@@ -294,7 +295,6 @@ const NovoCadastro: React.FC = () => {
       temp[0];
     return dataBanco;
   }
-
 
   return (
     <div>

@@ -24,37 +24,36 @@ export const MainHeader = styled.header`
 `;
 export const RemainingDaysText = styled.h2`
   font-size: 22px;
- margin-left:-1px;
+  margin-left: -1px;
   color: #fe2e2e;
   font-weight: 400;
 `;
 export const ButtonCompra = styled.button`
-margin-left:350px;
-margin-top:-36px;
+  margin-left: 350px;
+  margin-top: -36px;
   font-size: 22px;
-  color:#941af9;
+  color: #941af9;
   cursor: pointer;
-  outline:0;
-  width:200px;
-  height:45px;
- text-transform: uppercase;
- border-radius:5px;
- text-align:center;
- font-size:16px;
-/* box-shadow: 0px 0px 10px #000; */
-border: 2px solid #941af9;
-background:transparent;
- /* -webkit-background-clip:text;
+  outline: 0;
+  width: 200px;
+  height: 45px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  /* box-shadow: 0px 0px 10px #000; */
+  border: 2px solid #941af9;
+  background: transparent;
+  /* -webkit-background-clip:text;
  -webkit-text-fill-color:transparent; */
 
- 
   font-weight: 500;
-  &:hover{
+  &:hover {
     /* background: -webkit-linear-gradient(left,#e95a0c, #e13d8d ,#694896,#2e1f43 ); */
- background-color: #941af9;
-     box-shadow: 0px 0px 5px #000; 
-     border:none;
-     color: #fff;
+    background-color: #941af9;
+    box-shadow: 0px 0px 5px #000;
+    border: none;
+    color: #fff;
   }
 `;
 export const DateContainer = styled.div`
@@ -77,7 +76,7 @@ export const TextContainer = styled.div`
 
 export const Title = styled.h3`
   font-size: 32px;
-  color: #1C1C1C;
+  color: #1c1c1c;
 `;
 
 export const Subtitle = styled.p`
@@ -92,7 +91,6 @@ export const ButtonsContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 `;
 
 export const StoreButtonsContainer = styled.div`
@@ -100,8 +98,8 @@ export const StoreButtonsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 48px;
-padding-left: 40px;
-padding-right: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
   @media (min-width: 900px) {
     width: 528px;
     flex-direction: row;
@@ -118,8 +116,8 @@ const buttonStyle = css`
   height: 48px;
   font-size: 20px;
   padding: 6px 32px;
-  padding-top:1px;
-  
+  padding-top: 1px;
+
   text-decoration: none;
   border: 1px solid #941af9;
   border-radius: 24px;
@@ -135,16 +133,14 @@ const buttonStyle = css`
 export const GoogleStoreButton = styled.a`
   ${buttonStyle}
   margin-bottom: 16px;
-display:flex;
-align-items:center;
+  display: flex;
+  align-items: center;
 
+  .playlog {
+    display: flex;
+    width: 18%;
 
-  .playlog{
-    display:flex;
-    width:18%;
-  
-
-padding-top:2px;
+    padding-top: 2px;
   }
   @media (min-width: 900px) {
     margin-bottom: 0;
@@ -154,30 +150,26 @@ padding-top:2px;
 export const AppStoreButton = styled.a`
   ${buttonStyle}
   padding: 0px 38px;
-  padding-bottom:5px;
+  padding-bottom: 5px;
 
-.applelog{
-  display:flex;
+  .applelog {
+    display: flex;
 
-  margin-left:-4px;
-}
-
-
-
+    margin-left: -4px;
+  }
 `;
 
 export const StoreLogo = styled.img`
-display:flex;
-align-items:center;
+  display: flex;
+  align-items: center;
   width: 30px;
   height: 30px;
-  .apple{
-    width:14%;
-  
-    margin-right:25px;
-padding-top:2px;
+  .apple {
+    width: 14%;
+
+    margin-right: 25px;
+    padding-top: 2px;
   }
-  
 `;
 
 export const FaqButton = styled.a`
@@ -265,7 +257,6 @@ export const DropdownToggle = styled.button`
   outline: 0;
   background: transparent;
 
- 
   cursor: pointer;
 
   &:hover {
@@ -280,7 +271,7 @@ export const DropdownContainer = styled.div`
 
   width: 100%;
   max-width: 250px;
-/* height:105px; */
+  /* height:105px; */
   z-index: 9999;
   background: #74469a;
   border: 0;
@@ -308,9 +299,6 @@ export const DropdownMenu = styled.div`
   padding: 0;
   margin: 0;
   width: 100%;
-
-
-
 `;
 
 export const DropdownItem = styled.button`
@@ -331,19 +319,19 @@ export const DropdownItem = styled.button`
 
   hr {
     width: 100%;
-    
-    height: 0.5px;
+
+    height: 0.1px;
 
     background-color: #fff;
   }
 
   a {
-    display:flex;
+    display: flex;
 
     color: #fff;
     font-weight: 500;
 
-    width:100%;
+    width: 100%;
     text-decoration: none;
     font-size: 17px;
     line-height: 35px;

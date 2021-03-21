@@ -21,7 +21,7 @@ import { useToast } from "../../hooks/toast";
 import { getFormattedDetailedPlans } from "../../data/DetailedPlans";
 import { useAuth } from "../../hooks/auth";
 import { getPlanData } from "../../data";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 // const CVVIcon: React.FC = (props) => {
 //   // return (
 //   //   <div
@@ -63,8 +63,6 @@ interface LocationProps {
 }
 
 const Detalhes: React.FC = () => {
-
- 
   const { signIn } = useAuth();
   const {
     state: {
@@ -129,20 +127,17 @@ const Detalhes: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/plans",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
-        }
-      )
+      .get("http://localhost:3333/vindi/planos", {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${token64}`,
+        // },
+      })
       .then((response) => setPlanId(response.data.plans[0].id));
 
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/products?query=name=${plano.replace(
+        `http://localhost:3333/vindi/produtos?query=name=${plano.replace(
           "promo",
           "plano"
         )}`,
@@ -211,16 +206,12 @@ const Detalhes: React.FC = () => {
 
       const responsePaymentProfiles = await axios.post<{
         payment_profile: { gateway_token: string };
-      }>(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/public/payment_profiles`,
-        paymentProfiles,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${publicToken64}`,
-          },
-        }
-      );
+      }>(`http://localhost:3333/vindi/pagamentos`, paymentProfiles, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${publicToken64}`,
+        // },
+      });
 
       console.log("responsePaymentProfiles", responsePaymentProfiles.data);
 
@@ -234,13 +225,13 @@ const Detalhes: React.FC = () => {
       console.log("associateTokenData", associateTokenData);
 
       await axios.post(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/payment_profiles`,
+        `http://localhost:3333/vindi/clientes/pagamentos`,
         associateTokenData,
         {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   Authorization: `Basic ${token64}`,
+          // },
         }
       );
 
@@ -253,19 +244,19 @@ const Detalhes: React.FC = () => {
 
       console.log("subscriptionData", subscriptionData);
 
-      await axios.post(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/subscriptions`,
+      const test = await axios.post(
+        `http://localhost:3333/vindi/assinaturas`,
         subscriptionData,
         {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   Authorization: `Basic ${token64}`,
+          // },
         }
       );
 
-
-
+      console.log("testtesttesttesttesttest");
+      console.log(test);
 
       await api.put(
         `usuarios/${userId}`,
@@ -296,19 +287,17 @@ const Detalhes: React.FC = () => {
         }
       );
 
-      // await api.post(
-      //   `usuarios/bemvindo`,
-      //   {
-      //    email:userEmail,
-      //   },
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: `Bearer ${token}`,
-      //     },
-      //   }
-      // );
-
+      //  await api.post(
+      //    `usuarios/bemvindo`,
+      //    {
+      //     email:userEmail,
+      //    },
+      //      headers: {
+      //        "Content-Type": "application/json",
+      //        Authorization: `Bearer ${token}`,
+      //      },
+      //    }
+      //  );
 
       if (userPassword) {
         await signIn({ email: userEmail, senha: userPassword });
@@ -347,10 +336,6 @@ const Detalhes: React.FC = () => {
         );
       }
     }
-
-
-
-  
   };
 
   const getCardBrand = (cardNumber: string) => {
@@ -400,7 +385,6 @@ const Detalhes: React.FC = () => {
     setInputType(inputType === "password" ? "text" : "password");
   };
 
-
   // function sendEmail(e:any){
   //   e.preventDefault();
 
@@ -412,8 +396,6 @@ const Detalhes: React.FC = () => {
   //     });
   //     e.target.reset()
   // }
-
-
 
   return (
     <div>
