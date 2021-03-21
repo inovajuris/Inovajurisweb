@@ -108,7 +108,7 @@ const MeuPlano: React.FC = () => {
         setOfficeId(response.data[0].id_escritorio);
         axios
           .get(
-            `http://localhost:3333/vindi/clientes/${response.data[0].id_escritorio}`
+            `https://inova-backend-dev.azurewebsites.net/vindi/clientes/${response.data[0].id_escritorio}`
             // {
             //   // headers: {
             //   //   "Content-Type": "application/json",
@@ -126,12 +126,15 @@ const MeuPlano: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3333/vindi/escritorios/${customerId}`, {
-        // headers: {
-        //   "Content-Type": "application/json",
-        //   Authorization: `Basic ${token64}`,
-        // },
-      })
+      .get(
+        `https://inova-backend-dev.azurewebsites.net/vindi/escritorios/${customerId}`,
+        {
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   Authorization: `Basic ${token64}`,
+          // },
+        }
+      )
       .then((response) => {
         console.log("RESPONSE", response);
         setSubscriptionId(response.data.subscriptions[0]?.id);
@@ -192,7 +195,7 @@ const MeuPlano: React.FC = () => {
           metadata: {};
         }[];
       }>(
-        `http://localhost:3333/vindi/produtos?query=name=${plano.replace(
+        `https://inova-backend-dev.azurewebsites.net/vindi/produtos?query=name=${plano.replace(
           "promo",
           "plano"
         )}`
@@ -202,7 +205,7 @@ const MeuPlano: React.FC = () => {
       //deletar o id do produto na vindi
       if (productItemId) {
         await axios.delete(
-          `http://localhost:3333/vindi/planos/deletar/${productItemId}`
+          `https://inova-backend-dev.azurewebsites.net/vindi/planos/deletar/${productItemId}`
         );
       }
 
@@ -215,7 +218,7 @@ const MeuPlano: React.FC = () => {
       // console.log("updatedSubscription", updatedSubscription);
       //atualiza produto na vindi
       const responseSubscriptions = await axios.post(
-        `http://localhost:3333/vindi/produtos`,
+        `https://inova-backend-dev.azurewebsites.net/vindi/produtos`,
         updatedSubscription,
         {
           // headers: {
@@ -264,7 +267,7 @@ const MeuPlano: React.FC = () => {
 
   const handleCancelSubscription = async () => {
     await axios.delete(
-      `http://localhost:3333/vindi/planos/cancelar/${subscriptionId}`,
+      `https://inova-backend-dev.azurewebsites.net/vindi/planos/cancelar/${subscriptionId}`,
 
       {
         // headers: {

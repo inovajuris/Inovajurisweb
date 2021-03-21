@@ -130,7 +130,7 @@ const Home: React.FC = () => {
   const [isShowMenu, setIsShowMenu] = useState(false);
   const [selectedId, setSelectedId] = useState("");
   const [isTrial, setIsTrial] = useState(false);
-  const [daysRemaining, setDaysRemaining] = useState(15);
+  const [daysRemaining, setDaysRemaining] = useState(14);
   const [data, setData] = useState({});
   const [officeData, setOfficeData] = useState<{
     id_escritorio: number;
@@ -149,6 +149,7 @@ const Home: React.FC = () => {
   async function fetchAPI() {
     const response = await api.get(`escritorios?nome=${user?.nome}`);
 
+    console.log("response", response.data[0]);
     const {
       plano,
       id_escritorio,
@@ -156,8 +157,9 @@ const Home: React.FC = () => {
       telefone,
     } = response.data[0];
 
+    console.log("plano", plano);
     const data_obj = {
-      plano: "plano1",
+      plano: plano ? plano : "plano1",
       token,
       officeId: id_escritorio,
       userId: user?.id_usuario,
@@ -168,42 +170,76 @@ const Home: React.FC = () => {
 
     setData(data_obj);
 
-    const planIsTrial = plano.includes("trial");
+    // const planIsTrial = plano.includes("trial");
+    const planIsTrial = !String(plano).match(/(promo|plano)[1-3]/);
+    console.log("planIsTrial", planIsTrial);
+
     setIsTrial(planIsTrial);
 
-    const { data } = await axios.get(
-      `http://localhost:3333/vindi/clientes/inadimplentes/${id_escritorio}`
+    const { data } = await api.get(
+      `vindi/clientes/inadimplentes/${id_escritorio}`
     );
 
+    // console.log("planIsTrial", planIsTrial);
+
     if (!planIsTrial) {
-      const vindi_response = await axios.get(
-        `http://localhost:3333/vindi/pegaridescritorio
-        /${data.customers[0].id}`
+      const isPromo = !!plano.match(/(promo[1-3])/);
+      console.log("Entrou aquii");
+
+      if (!data.customers.length) {
+        if (isPromo) {
+          history.replace("/contrato", {
+            ...data_obj,
+            isPromo,
+          });
+          addToast({
+            type: "info",
+            title: "Você não adicionou dados de identificação",
+            description: "você será redirecionado para a tela de planos",
+          });
+          return;
+        }
+
+        history.replace("/plano", {
+          ...data_obj,
+          isPromo,
+        });
+        addToast({
+          type: "info",
+          title: "Você não adicionou dados de identificação",
+          description: "você será redirecionado para a tela de planos",
+        });
+        return;
+      }
+
+      const vindi_response = await api.get(
+        `vindi/escritorios/inadimplentes/${data.customers[0].id}`
       );
+
+      console.log("data", data);
+      console.log("vindi_response", vindi_response.data);
 
       const { subscriptions } = vindi_response.data;
 
-      if (subscriptions.length === 0) {
-        const today = new Date(
-          convertISOToFormattedDate(new Date(Date.now()).toISOString())
-        ).getTime();
+      if (!subscriptions.length) {
+        const detailsData = {
+          ...data_obj,
+          customerId: data.customers[0].id,
+          phoneId: data.customers[0].phones[0].id,
+          contractAccepted: true,
+          isPromo,
+        };
 
-        const formattedEndDate =
-          new Date(data_final_trial).getTime() + 3_600_000 * 3;
-
-        const difference = formattedEndDate - today;
-
-        const remaining =
-          difference < 0 ? 0 : Number((difference / 86_400_000).toFixed(0));
-
-        history.replace("/planos", data_obj);
+        history.replace("/detalhes", detailsData);
         addToast({
           type: "info",
-          title: "Seu tempo de teste acabou",
-          description: "você será redirecionado para a tela de planos",
+          title: "Você não adicionou dados de pagamento",
+          description: "você será redirecionado para a tela de detalhes",
         });
       }
     }
+
+    // console.log("data_final_trial", data_final_trial);
     setEndDate(data_final_trial);
   }
 
@@ -244,6 +280,7 @@ const Home: React.FC = () => {
 
       const remaining =
         difference < 0 ? 0 : Number((difference / 86_400_000).toFixed(0));
+      console.log("remaining", remaining);
       setDaysRemaining(remaining);
 
       if (remaining === 0 && isTrial) {
@@ -259,6 +296,8 @@ const Home: React.FC = () => {
 
   const convertISOToFormattedDate = (date: string) =>
     `${date.split("T")[0]}T00:00:00Z`;
+
+  // console.log("isTrial", isTrial);
 
   return (
     <Layout>
@@ -299,7 +338,7 @@ const Home: React.FC = () => {
       <Container>
         <Main>
           <MainHeader>
-            {daysRemaining !== 15 && isTrial && (
+            {daysRemaining !== 0 && isTrial && (
               <RemainingDaysText>
                 {daysRemaining} dias para o fim do Teste Grátis
               </RemainingDaysText>

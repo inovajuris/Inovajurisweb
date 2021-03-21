@@ -127,7 +127,7 @@ const Detalhes: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3333/vindi/planos", {
+      .get("https://inova-backend-dev.azurewebsites.net/vindi/planos", {
         // headers: {
         //   "Content-Type": "application/json",
         //   Authorization: `Basic ${token64}`,
@@ -137,7 +137,7 @@ const Detalhes: React.FC = () => {
 
     axios
       .get(
-        `http://localhost:3333/vindi/produtos?query=name=${plano.replace(
+        `https://inova-backend-dev.azurewebsites.net/vindi/produtos?query=name=${plano.replace(
           "promo",
           "plano"
         )}`,
@@ -206,12 +206,16 @@ const Detalhes: React.FC = () => {
 
       const responsePaymentProfiles = await axios.post<{
         payment_profile: { gateway_token: string };
-      }>(`http://localhost:3333/vindi/pagamentos`, paymentProfiles, {
-        // headers: {
-        //   "Content-Type": "application/json",
-        //   Authorization: `Basic ${publicToken64}`,
-        // },
-      });
+      }>(
+        `https://inova-backend-dev.azurewebsites.net/vindi/pagamentos`,
+        paymentProfiles,
+        {
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   Authorization: `Basic ${publicToken64}`,
+          // },
+        }
+      );
 
       console.log("responsePaymentProfiles", responsePaymentProfiles.data);
 
@@ -225,7 +229,7 @@ const Detalhes: React.FC = () => {
       console.log("associateTokenData", associateTokenData);
 
       await axios.post(
-        `http://localhost:3333/vindi/clientes/pagamentos`,
+        `https://inova-backend-dev.azurewebsites.net/vindi/clientes/pagamentos`,
         associateTokenData,
         {
           // headers: {
@@ -245,7 +249,7 @@ const Detalhes: React.FC = () => {
       console.log("subscriptionData", subscriptionData);
 
       const test = await axios.post(
-        `http://localhost:3333/vindi/assinaturas`,
+        `https://inova-backend-dev.azurewebsites.net/vindi/assinaturas`,
         subscriptionData,
         {
           // headers: {

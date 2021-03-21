@@ -276,7 +276,7 @@ const Dados: React.FC = () => {
         //   }
         // );
         const responseVindi = await axios.post<VindiCustomerResponse>(
-          "http://localhost:3333/vindi/clientes",
+          "https://inova-backend-dev.azurewebsites.net/vindi/clientes",
           vindiData
           //   {
           //     headers: {
@@ -329,7 +329,7 @@ const Dados: React.FC = () => {
         },
       });
       await axios.put<VindiCustomerResponse>(
-        `http://localhost:3333/vindi/clientes/${customerId}`,
+        `https://inova-backend-dev.azurewebsites.net/vindi/clientes/${customerId}`,
         updatedVindiData
         //   {
         //     headers: {
