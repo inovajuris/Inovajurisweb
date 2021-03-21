@@ -212,7 +212,7 @@ const Home: React.FC = () => {
       });
     }
   }, [daysRemaining]);
-
+  console.log("fim");
   return (
     <Layout>
       <Header>
