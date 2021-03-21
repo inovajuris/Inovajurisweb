@@ -235,12 +235,17 @@ const Dados: React.FC = () => {
         ],
       };
 
+<<<<<<< HEAD
       const text = "39zh9E2rTCZAZ_Vu1-qbIbty-7KUciSaw0Ssd7s5bhg:";
+=======
+      const text = "tey-UhF26q2TMv6cTF43fcMsGwJEy4cdSZFKh-nPQaQ:";
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
 
       var bytes = utf8.encode(text);
       var token64 = btoa(bytes);
 
       if (!customerId) {
+<<<<<<< HEAD
 
         const responseVindi = await axios.post<VindiCustomerResponse>(
           "https://app.vindi.com.br/api/v1/customers",
@@ -250,6 +255,19 @@ const Dados: React.FC = () => {
             "Access-Control-Allow-Origin" : "*",
             "Access-Control-Allow-Methods" : "GET,OPTIONS,PATCH,DELETE,POST,PUT",
             "Access-Control-Allow-Headers" : "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version", Authorization: "Basic " + token64 },
+=======
+        console.log("Não tem customerId");
+
+        const responseVindi = await axios.post<VindiCustomerResponse>(
+          "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers",
+          vindiData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Basic ${token64}`,
+              "Access-Control-Allow-Origin": "*",
+            },
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
           }
         );
 
@@ -300,6 +318,7 @@ const Dados: React.FC = () => {
           },
         ],
       };
+<<<<<<< HEAD
 console.log("oi")
       await axios.put<VindiCustomerResponse>(
         `https://app.vindi.com.br/api/v1/customers/${customerId}`,
@@ -308,6 +327,18 @@ console.log("oi")
           headers: { "Authorization": "Basic " + token64 },
 
           
+=======
+
+      await axios.put<VindiCustomerResponse>(
+        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers/${customerId}`,
+        updatedVindiData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Basic ${token64}`,
+            "Access-Control-Allow-Origin": "*",
+          },
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
         }
       );
 

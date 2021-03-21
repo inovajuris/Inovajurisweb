@@ -36,7 +36,11 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
+<<<<<<< HEAD
   color: #74469A;
+=======
+  color: #000;
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
   display: flex;
   align-items: center;
   padding: 0 1rem;

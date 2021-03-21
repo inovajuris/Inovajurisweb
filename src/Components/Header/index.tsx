@@ -37,9 +37,15 @@ const Header: React.FC = ({ children }) => {
             <NavLink to="#" className="cool-link1">
               Site da Empresa/Produto
             </NavLink>
+<<<<<<< HEAD
             {/* <NavLink to="/#" className="cool-link">
               Planos
             </NavLink> */}
+=======
+            <NavLink to="/meuplano" className="cool-link">
+              Planos
+            </NavLink>
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
             <NavLink to="#" className="cool-link2">
               Perguntas Frequentes
             </NavLink>
@@ -69,7 +75,11 @@ const Header: React.FC = ({ children }) => {
                   <DropdownMenu>
                     <DropdownItem>
                       <a
+<<<<<<< HEAD
                         href="/meuplano"
+=======
+                        href="/about"
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
                         className="cool-DropdownItDropdownItemnk1"
                       >
                         Planos

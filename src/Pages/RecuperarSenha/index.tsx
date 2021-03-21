@@ -201,7 +201,11 @@ const RecuperarSenha: React.FC = () => {
           
          
 
+<<<<<<< HEAD
             <h2>Informar endereçe E-mail</h2>
+=======
+            <h2>Informar endereço de E-mail</h2>
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
             <Input
               name="email"
               value={mail}

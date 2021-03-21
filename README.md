@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 ![icone_principal](https://user-images.githubusercontent.com/79163501/108414109-9467c480-720a-11eb-817e-c4a2bc656aeb.png)
 
+=======
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

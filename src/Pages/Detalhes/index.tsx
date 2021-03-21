@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
+<<<<<<< HEAD
 import { FaCreditCard } from "react-icons/fa";
+=======
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
 import { Form } from "@unform/web";
 import creditCardType from "credit-card-type";
 import { FormHandles } from "@unform/core";

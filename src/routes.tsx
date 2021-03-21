@@ -1,7 +1,11 @@
 import React from "react";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+<<<<<<< HEAD
 
+=======
+import Empresa from "./Pages/Empresa";
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
 import Login from "./Pages/Login";
 import NovoCadastro from "./Pages/NovoCadastro";
 import TesteCadastro from "./Pages/TesteCadastro";
@@ -27,6 +31,10 @@ const Routes: React.FC = () => {
         <PrivateRoute path="/trocarsenha" exact component={TrocarSenha} />
         <PrivateRoute path="/meuplano" exact component={Meuplano} />
         <Route path="/" exact component={Login} />
+<<<<<<< HEAD
+=======
+        <Route path="/empresa" exact component={Empresa} />
+>>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
         <Route
           path="/novocadastro/plano=:plano"
           exact
