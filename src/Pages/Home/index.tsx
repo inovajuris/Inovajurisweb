@@ -43,7 +43,7 @@ import {
   Answer,
   QuestionContent,
   DropdownToggle,
-  ButtonCompra
+  ButtonCompra,
 } from "./styles";
 
 import Person from "../../assets/person.svg";
@@ -143,7 +143,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = 'https://embed.tawk.to/601a14c3c31c9117cb753836/1etiu274n';
+    script.src = "https://embed.tawk.to/601a14c3c31c9117cb753836/1etiu274n";
     script.async = true;
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
@@ -191,7 +191,7 @@ const Home: React.FC = () => {
     difference < 0 ? 0 : Number((difference / 86_400_000).toFixed(0));
 
   console.log("daysRemaining", daysRemaining);
-
+  console.log("oi");
   const data = {
     plano: "plano1",
     token,
@@ -231,14 +231,13 @@ const Home: React.FC = () => {
                 </a>
                 <hr className="linha" />
               </DropdownItem>
-              {(!isTrial &&
-              <DropdownItem>
-                
-                <a href="/meuplano" className="cool-link1">
-                  Meu Plano
-                </a>
-                <hr className="linha" />
-              </DropdownItem>
+              {!isTrial && (
+                <DropdownItem>
+                  <a href="/meuplano" className="cool-link1">
+                    Meu Plano
+                  </a>
+                  <hr className="linha" />
+                </DropdownItem>
               )}
               <DropdownItem>
                 <a href="/" onClick={signOut} className="cool-link1">
@@ -258,21 +257,18 @@ const Home: React.FC = () => {
                 {daysRemaining} dias para o fim do Teste Grátis
               </RemainingDaysText>
             )}
-                {isTrial && (
-              <ButtonCompra onClick={()=>   history.replace(`/planos`,data)}>
-          Adquira seu plano
-          
+            {isTrial && (
+              <ButtonCompra onClick={() => history.replace(`/planos`, data)}>
+                Adquira seu plano
               </ButtonCompra>
             )}
             <DateContainer>
               <DateText>Data: {date}</DateText>
               <DateText>Hora: {time}</DateText>
             </DateContainer>
-           
           </MainHeader>
 
           <Content>
-      
             <TextContainer>
               <Title>Bem-Vindo</Title>
               <Subtitle>
