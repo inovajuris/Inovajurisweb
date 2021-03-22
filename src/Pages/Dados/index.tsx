@@ -118,7 +118,7 @@ const Dados: React.FC = () => {
     phoneId,
     isPromo
   );
-  const [backLoading, setBackLoading] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState({
     logradouro: "",
@@ -235,27 +235,54 @@ const Dados: React.FC = () => {
         ],
       };
 
-      const officeData = {
-        tipo_documento: documentType,
-        documento: documentNumber,
-      };
+      console.log("vindiData", vindiData);
 
-      console.log("officeData", officeData);
-
-      const text = "tey-UhF26q2TMv6cTF43fcMsGwJEy4cdSZFKh-nPQaQ:";
+      const text = "39zh9E2rTCZAZ_Vu1-qbIbty-7KUciSaw0Ssd7s5bhg:";
 
       var bytes = utf8.encode(text);
       var token64 = btoa(bytes);
 
       if (!customerId) {
-        console.log("Não tem customerId");
+        // const responseVindi = await axios.post<VindiCustomerResponse>(
+        //   "https://inova-apis-prod.azurewebsites.net/vindi/clientes",
+        //   vindiData,
+        //   {
+        //     headers: {"Access-Control-Allow-Credentials" : "true",
+        //     "Access-Control-Allow-Origin" : "*",
+        //     "Access-Control-Allow-Methods" : "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+        //     "Access-Control-Allow-Headers" : "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version", Authorization: "Basic " + token64 },
+        //   }
+        // );
+        console.log("AQUIII");
+        const responseVindi = await api.post<VindiCustomerResponse>(
+          "vindi/clientes",
+          vindiData,
+          {
+            headers: {
+              "Access-Control-Allow-Credentials": "true",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods":
+                "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+              "Access-Control-Allow-Headers":
+                "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+              Authorization: "Basic " + token64,
+            },
+          }
+        );
 
-        await api.put(`escritorio/${officeId}`, officeData, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+        await api.put(
+          `escritorio/${officeId}`,
+          {
+            tipo_documento: documentType.toLowerCase(),
+            documento: documentNumber.replace(/[/.-]/g, ""),
           },
-        });
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         await api.post("enderecos", addressData, {
           headers: {
@@ -264,30 +291,7 @@ const Dados: React.FC = () => {
           },
         });
 
-        // const responseVindi = await axios.post<VindiCustomerResponse>(
-        //   "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers",
-        //   vindiData,
-        //   {
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       Authorization: `Basic ${token64}`,
-        //       "Access-Control-Allow-Origin": "*",
-        //     },
-        //   }
-        // );
-        const responseVindi = await axios.post<VindiCustomerResponse>(
-          "https://inova-backend-dev.azurewebsites.net/vindi/clientes",
-          vindiData
-          //   {
-          //     headers: {
-          //       "Content-Type": "application/json",
-          //       Authorization: `Basic ${token64}`,
-          //       "Access-Control-Allow-Origin": "*",
-          //     },
-          // }
-        );
-
-        history.push("/detalhes", {
+        return history.push("/detalhes", {
           plano,
           customerId: responseVindi.data.customer.id,
           phoneId: responseVindi.data.customer.phones[0].id,
@@ -301,7 +305,6 @@ const Dados: React.FC = () => {
           token,
           isPromo,
         });
-        return;
       }
 
       const updatedVindiData = {
@@ -314,13 +317,28 @@ const Dados: React.FC = () => {
           },
         ],
       };
+      console.log("oi");
+      await axios.put<VindiCustomerResponse>(
+        `https://app.vindi.com.br/api/v1/customers/${customerId}`,
+        updatedVindiData,
+        {
+          headers: { Authorization: "Basic " + token64 },
+        }
+      );
 
-      await api.put(`escritorio/${officeId}`, officeData, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      await api.put(
+        `escritorio/${officeId}`,
+        {
+          tipo_documento: documentType.toLowerCase(),
+          documento: documentNumber.replace(/[/.-]/g, ""),
         },
-      });
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       await api.put(`enderecos/${officeId}/${userId}`, addressData, {
         headers: {
@@ -328,28 +346,6 @@ const Dados: React.FC = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      await axios.put<VindiCustomerResponse>(
-        `https://inova-backend-dev.azurewebsites.net/vindi/clientes/${customerId}`,
-        updatedVindiData
-        //   {
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       Authorization: `Basic ${token64}`,
-        //       "Access-Control-Allow-Origin": "*",
-        //     },
-        // }
-      );
-      // await axios.put<VindiCustomerResponse>(
-      //   `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers/${customerId}`,
-      //   updatedVindiData,
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: `Basic ${token64}`,
-      //       "Access-Control-Allow-Origin": "*",
-      //     },
-      //   }
-      // );
 
       history.push("/detalhes", {
         plano,
@@ -501,7 +497,7 @@ const Dados: React.FC = () => {
                           e.currentTarget.value = value;
                           return e;
                         }}
-                        // value={documentNumber}
+                        value={documentNumber}
                         onChange={(e) => setDocumentNumber(e.target.value)}
                       />
                     </>
@@ -525,7 +521,7 @@ const Dados: React.FC = () => {
                           e.currentTarget.value = value;
                           return e;
                         }}
-                        // value={documentNumber}
+                        value={documentNumber}
                         onChange={(e) => setDocumentNumber(e.target.value)}
                       />
                     </>
@@ -640,11 +636,10 @@ const Dados: React.FC = () => {
               <div className="btnblue">
                 <Button
                   className="btnazul1"
-                  isLoading={backLoading}
+                  isLoading={loading}
                   type="button"
                   disabled={isPromo}
                   onClick={() => {
-                    setBackLoading(true);
                     history.push("/planos", {
                       contractAccepted,
                       customerId,

@@ -165,8 +165,7 @@ const NovoCadastro: React.FC = () => {
           usuario: UserResponse;
         }>("usuarios", { ...data, perfil: plansData.tipo_escritorio });
 
-        console.log("*************************88");
-        console.log(response.data);
+        // console.log(response.data);
         // console.log(name + "nome aqui");
 
         const sendOfficeData = {
@@ -179,14 +178,13 @@ const NovoCadastro: React.FC = () => {
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,
-          telefone: data.telefone,
-
+          telefone: data.telefone.replace(/[ ]|[()-]/g, ""),
           qtde_processos: plansData.qtde_processos,
           quantidade_advogados: plansData.quantidade_advogados,
           tipo_escritorio: plansData.tipo_escritorio,
         };
 
-        console.log("sendOfficeData", sendOfficeData);
+        // console.log("sendOfficeData", sendOfficeData);
 
         const responseOffice = await api.post<OfficeResponse>(
           "escritorios",
@@ -212,7 +210,7 @@ const NovoCadastro: React.FC = () => {
             userId: response.data.usuario.id_usuario,
             username: response.data.usuario.nome,
             userEmail: data.email,
-            userPhone: data.telefone,
+            userPhone: data.telefone.replace(/[ ]|[()-]/g, ""),
             userPassword: data.senha,
             isPromo,
           });
@@ -224,7 +222,7 @@ const NovoCadastro: React.FC = () => {
           userId: response.data.usuario.id_usuario,
           username: response.data.usuario.nome,
           userEmail: data.email,
-          userPhone: data.telefone,
+          userPhone: data.telefone.replace(/[ ]|[()-]/g, ""),
           userPassword: data.senha,
           isPromo,
         });
@@ -295,6 +293,8 @@ const NovoCadastro: React.FC = () => {
       temp[0];
     return dataBanco;
   }
+  // console.log(dataFormatadaInicio + "esse");
+  // console.log(dataFormatadaFim + "esse");
 
   return (
     <div>
