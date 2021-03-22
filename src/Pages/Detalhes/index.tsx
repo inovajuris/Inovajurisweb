@@ -306,7 +306,18 @@ const Detalhes: React.FC = () => {
       if (userPassword) {
         await signIn({ email: userEmail, senha: userPassword });
       }
-
+      await api.post(
+        `envioemail/bemvindo`,
+        {
+          email: userEmail,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${response.data.token}`,
+          },
+        }
+      );
       history.push("/home");
 
       addToast({

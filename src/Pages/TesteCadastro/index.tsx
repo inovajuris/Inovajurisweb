@@ -278,6 +278,7 @@ const Testenovocadastro: React.FC = () => {
             description: `Ocorreu um erro ao fazer cadastro, tente novamente.`,
           });
         }
+
         if (err.response?.data) {
           addToast({
             type: "error",

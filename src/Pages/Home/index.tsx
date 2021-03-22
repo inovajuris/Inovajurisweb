@@ -195,7 +195,7 @@ const Home: React.FC = () => {
           addToast({
             type: "info",
             title: "Você não adicionou dados de identificação",
-            description: "você será redirecionado para a tela de planos",
+            description: "você será redirecionado para a tela de contrato",
           });
           return;
         }
@@ -234,7 +234,7 @@ const Home: React.FC = () => {
         addToast({
           type: "info",
           title: "Você não adicionou dados de pagamento",
-          description: "você será redirecionado para a tela de detalhes",
+          description: "você será redirecionado para a tela de pagamento",
         });
       }
     }
