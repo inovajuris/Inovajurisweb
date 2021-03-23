@@ -61,7 +61,7 @@ interface SigInFormData {
   email: string;
   senha: string;
 }
-
+console.log("oi");
 const MeuPlano: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [planId, setPlanId] = useState(0);
