@@ -106,16 +106,8 @@ const MeuPlano: React.FC = () => {
         console.log("EscritorioID", response.data[0].id_escritorio);
         setPlano(response.data[0].plano);
         setOfficeId(response.data[0].id_escritorio);
-        axios
-          .get(
-            `https://inova-backend-dev.azurewebsites.net/vindi/clientes/${response.data[0].id_escritorio}`
-            // {
-            //   // headers: {
-            //   //   "Content-Type": "application/json",
-            //   //   Authorization: `Basic ${token64}`,
-            //   // },
-            // }
-          )
+        api
+          .get(`vindi/clientes/${response.data[0].id_escritorio}`)
           .then((response) => {
             console.log("CustomerResponse", response.data);
             setCustomerId(response.data.customers[0].id);
@@ -125,16 +117,14 @@ const MeuPlano: React.FC = () => {
   //pega o id do usuario na vindi
 
   useEffect(() => {
-    axios
-      .get(
-        `https://inova-backend-dev.azurewebsites.net/vindi/escritorios/${customerId}`,
-        {
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   Authorization: `Basic ${token64}`,
-          // },
-        }
-      )
+    console.log("Bem aqui");
+    api
+      .get(`vindi/escritorios/inadimplentes/${customerId}`, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${token64}`,
+        // },
+      })
       .then((response) => {
         console.log("RESPONSE", response);
         setSubscriptionId(response.data.subscriptions[0]?.id);
