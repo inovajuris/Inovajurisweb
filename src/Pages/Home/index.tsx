@@ -200,7 +200,7 @@ const Home: React.FC = () => {
           return;
         }
 
-        history.replace("/plano", {
+        history.replace("/planos", {
           ...data_obj,
           isPromo,
         });
