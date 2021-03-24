@@ -501,7 +501,15 @@ const Testenovocadastro: React.FC = () => {
               <div className="politica">
                 <h4>Ao continuar, você concorda com a&nbsp;</h4>
 
-                <h4 className="policticablue"> Política de Privacidade</h4>
+                <a
+                  className="policticablue"
+                  href="https://www.notion.so/Pol-tica-de-Privacidade-Inova-Juris-6bb6ba55e47a4dc2b35cd4401dd74252"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  Política de Privacidade
+                </a>
               </div>
 
               <button className="possuilogin">

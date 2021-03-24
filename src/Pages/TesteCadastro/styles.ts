@@ -1,4 +1,3 @@
-
 import styled, { css } from "styled-components";
 import { DrawCadastro } from "../../styles/icons";
 import { Go } from "../../styles/icons";
@@ -37,102 +36,95 @@ export const Blue = styled.div`
   height: 730px;
 
   margin-top: 85px;
-  margin-left:1%;
-.radiobtn{
-
-color:  #8A44C4;
-svg{
-  color:  #8A44C4; 
-}
-
-
-}
-  .div4{
-
-margin-top:-0%;
-display:flex;
-flex-direction:row;
-justify-content:space-between;
-align-items:center;
-
-width:100%;
-
-}
-select{
-  background-color: #fff;
-  padding-left: 5px;
-  position: relative;
-
-  margin-top: 5px;
-  width: 100%;
-  height: 40px;
-  border-radius: 5px;
-
-  outline: 0;
-  display: flex;
-  align-items: center;
-border: 1px solid #C4C4C4;
-
-}
-.qtd{
-  /* background-color:red; */
-  width:100%;
- margin-left:6%;
-}
-.radio{
-  display:flex;
-  justify-content:center;
-
-  margin-right:2%;
-}
-.radiocor{
-    color:#941AF9;
-svg{
-  color:#941AF9;
-}
+  margin-left: 1%;
+  .radiobtn {
+    color: #8a44c4;
+    svg {
+      color: #8a44c4;
+    }
   }
-.inputsel1{
-  width: 99%;
-      margin-right:90px;
-      display: flex;
-     
-      justify-content: center;
-      align-items: center;
-   
+  .div4 {
+    margin-top: -0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
   }
-  .policticablue{
-font-size:17px;
-color: #007aff;
-font-weight:400;
+  select {
+    background-color: #fff;
+    padding-left: 5px;
+    position: relative;
+
+    margin-top: 5px;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+
+    outline: 0;
+    display: flex;
+    align-items: center;
+    border: 1px solid #c4c4c4;
   }
-  .politica{
-    margin-top:10px;
-    display:flex;
-    flex-direction:row;
-
-    align-items:center;
-    justify-content:center;
-    width:145%;
+  .qtd {
+    /* background-color:red; */
+    width: 100%;
+    margin-left: 6%;
   }
-  .inputsel2{
-width: 95%;
-      margin-left:10px;
-      display: flex;
- 
-      justify-content: center;
-      align-items: center;
-  
-}
+  .radio {
+    display: flex;
+    justify-content: center;
 
-.div5{
-  display:flex;
-flex-direction:column;
-justify-content:space-between;
-align-items:center;
+    margin-right: 2%;
+  }
+  .radiocor {
+    color: #941af9;
+    svg {
+      color: #941af9;
+    }
+  }
+  .inputsel1 {
+    width: 99%;
+    margin-right: 90px;
+    display: flex;
 
-width:100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .policticablue {
+    font-size: 17px;
+    color: #007aff;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .politica {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
 
-}
+    align-items: center;
+    justify-content: center;
+    width: 145%;
+  }
+  .inputsel2 {
+    width: 95%;
+    margin-left: 10px;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .div5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+  }
   .formBox {
     display: flex;
     padding: 17px;
@@ -142,7 +134,6 @@ width:100%;
     width: 39%;
     background-color: #ffffff;
     border-radius: 0px 5px 5px 0px;
-
 
     .redessociais {
       position: relative;
@@ -176,14 +167,12 @@ width:100%;
     font-weight: 400;
     font-size: 17px;
     margin-top: 13px;
-
   }
   h3 {
     margin-top: 6px;
     font-size: 29px;
     text-align: center;
     font-weight: 400;
-
   }
   h4 {
     margin-top: 0px;
@@ -201,8 +190,6 @@ width:100%;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-     
     }
     button {
       width: fit-content;
@@ -238,7 +225,7 @@ width:100%;
         color: #232326;
         text-decoration: none;
         &:hover {
-          color: #941AF9;
+          color: #941af9;
         }
       }
     }
@@ -257,57 +244,53 @@ width:100%;
     height: 600px;
 
     margin-top: 50px;
-    .div4{
+    .div4 {
+      margin-top: -0%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
 
-margin-top:-0%;
-display:flex;
-flex-direction:row;
-justify-content:space-between;
-align-items:center;
+      width: 100%;
+    }
+    .radio {
+      display: flex;
+      justify-content: center;
+      width: 100%;
 
-width:100%;
+      margin-right: 0%;
 
-}
-.radio{
-  display:flex;
-  justify-content:center;
-  width:100%;
+      margin-top: 40%;
+      .pessoafisica {
+        font-size: 22px;
+      }
+      .pessoajuridica {
+        font-size: 22px;
+      }
+    }
+    select {
+      background-color: #fff;
+      padding-left: 5px;
+      position: relative;
 
-  margin-right:0%;
+      margin-top: 5px;
+      width: 100%;
+      height: 40px;
+      border-radius: 5px;
 
-margin-top:40%;
-.pessoafisica{
-font-size:22px;
-}
-.pessoajuridica{
-  font-size:22px;
-}
-}
-select{
-  background-color: #fff;
-  padding-left: 5px;
-  position: relative;
-
-  margin-top: 5px;
-  width: 100%;
-  height: 40px;
-  border-radius: 5px;
-
-  outline: 0;
-  display: flex;
-  align-items: center;
-border: 1px solid #C4C4C4;
-
- 
-}
-.inputsel1{
-  width: 100%;
-      margin-right:112px;
+      outline: 0;
+      display: flex;
+      align-items: center;
+      border: 1px solid #c4c4c4;
+    }
+    .inputsel1 {
+      width: 100%;
+      margin-right: 112px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-  }
+    }
     .formBox {
       display: flex;
 
@@ -356,7 +339,6 @@ border: 1px solid #C4C4C4;
       font-size: 32px;
       text-align: center;
       font-weight: 400;
-     
     }
     h4 {
       margin-top: 8px;
@@ -383,8 +365,6 @@ border: 1px solid #C4C4C4;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-     
       }
       input .cadastre {
         width: 100%;
@@ -395,7 +375,7 @@ border: 1px solid #C4C4C4;
           color: #101010;
           text-decoration: none;
           &:hover {
-            color: #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -408,7 +388,7 @@ border: 1px solid #C4C4C4;
           color: #232326;
           text-decoration: none;
           &:hover {
-            color: #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -455,7 +435,7 @@ border: 1px solid #C4C4C4;
 
           cursor: pointer;
         }
-        
+
         .facebook {
           display: flex;
           align-items: center;
@@ -481,35 +461,37 @@ border: 1px solid #C4C4C4;
       text-align: center;
       font-weight: 400;
     }
-    .radio{
-  display:flex;
-  justify-content:center;
-  flex-direction:row;
-  width:100%;
+    .radio {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      width: 100%;
 
-  margin-right:0%;
+      margin-right: 0%;
 
-margin-top:40%;
-.pessoafisica{
-font-size:18px;
-}
-.pessoajuridica{
-  font-size:18px;
-}
-}
-.policticablue{
-font-size:17px;
-color: #007aff;
-font-weight:400;
-  }
-  .politica{
-    display:flex;
-    flex-direction:column;
+      margin-top: 40%;
+      .pessoafisica {
+        font-size: 18px;
+      }
+      .pessoajuridica {
+        font-size: 18px;
+      }
+    }
+    .policticablue {
+      font-size: 17px;
+      color: #007aff;
+      font-weight: 400;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .politica {
+      display: flex;
+      flex-direction: column;
 
-    align-items:center;
-    justify-content:center;
-    width:100%;
-  }
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
     h4 {
       margin-top: 8px;
       font-weight: 400;
@@ -523,14 +505,12 @@ font-weight:400;
       align-items: center;
       height: 100%;
       .input1 {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-  
-    }
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
       button {
         width: fit-content;
         padding: 0 16px;
@@ -551,8 +531,6 @@ font-weight:400;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-  
       }
 
       .cadastre {
@@ -566,7 +544,7 @@ font-weight:400;
           color: #101010;
           text-decoration: none;
           &:hover {
-            color: #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -579,39 +557,37 @@ font-weight:400;
           color: #232326;
           text-decoration: none;
           &:hover {
-            color: #941AF9;
+            color: #941af9;
           }
         }
       }
     }
   }
-
-  
 `;
 
 export const GoogleLogin = styled(CustomGoogleLogin)`
   background-color: red;
   margin-left: 200px;
   margin-top: -20%;
-position: fixed;
+  position: fixed;
   > button {
     background-color: red;
     margin-top: -30%;
   }
 `;
 export const Entra = styled.div`
-display:flex;
-justify-content:center;
-margin-top:-0.5%;
- margin-left:250px;
-a{
-  text-decoration:none;
-  color:#000;
-  font-size:20px;
-  &:hover {
-          color: #941AF9;
-        }
-}
+  display: flex;
+  justify-content: center;
+  margin-top: -0.5%;
+  margin-left: 250px;
+  a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    &:hover {
+      color: #941af9;
+    }
+  }
 `;
 export const Draw = styled(DrawCadastro)``;
 export const Facebokcion = styled(face)``;
