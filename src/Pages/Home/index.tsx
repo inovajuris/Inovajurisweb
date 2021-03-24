@@ -400,7 +400,7 @@ const Home: React.FC = () => {
                 (Manual do aplicativo)
               </FaqButton>
             </ButtonsContainer>
-            <QAContainer>
+            {/* <QAContainer>
               {qaData.map((qa) => (
                 <QuestionContainer key={qa.id}>
                   <QuestionContent
@@ -426,7 +426,7 @@ const Home: React.FC = () => {
                   )}
                 </QuestionContainer>
               ))}
-            </QAContainer>
+            </QAContainer> */}
           </Content>
         </Main>
       </Container>
