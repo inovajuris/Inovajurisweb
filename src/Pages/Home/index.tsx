@@ -384,7 +384,7 @@ const Home: React.FC = () => {
                 </AppStoreButton>
               </StoreButtonsContainer>
 
-              <FaqButton
+              {/* <FaqButton
                 href="https://inova.blob.core.windows.net/uploadinova/file-02613ae6-5720-466c-b697-ec26a67e2097.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -398,7 +398,7 @@ const Home: React.FC = () => {
                   }}
                 />
                 (Manual do aplicativo)
-              </FaqButton>
+              </FaqButton> */}
             </ButtonsContainer>
             {/* <QAContainer>
               {qaData.map((qa) => (
