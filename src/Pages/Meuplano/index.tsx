@@ -162,7 +162,7 @@ const MeuPlano: React.FC = () => {
 
       // console.log("Aqui", officeId, plano, subscriptionId);
       //pega os plano do produto vindi
-      const responseProduct = await axios.get<{
+      const responseProduct = await api.get<{
         products: {
           id: number;
           name: string;
@@ -184,19 +184,12 @@ const MeuPlano: React.FC = () => {
           };
           metadata: {};
         }[];
-      }>(
-        `https://inova-backend-dev.azurewebsites.net/vindi/produtos?query=name=${plano.replace(
-          "promo",
-          "plano"
-        )}`
-      );
+      }>(`/vindi/produtos?query=name=${plano.replace("promo", "plano")}`);
 
       // console.log("ProductId", responseProduct.data.products[0].id);
       //deletar o id do produto na vindi
       if (productItemId) {
-        await axios.delete(
-          `https://inova-backend-dev.azurewebsites.net/vindi/planos/deletar/${productItemId}`
-        );
+        await api.delete(`/vindi/planos/deletar/${productItemId}`);
       }
 
       const updatedSubscription = {
@@ -207,8 +200,8 @@ const MeuPlano: React.FC = () => {
 
       // console.log("updatedSubscription", updatedSubscription);
       //atualiza produto na vindi
-      const responseSubscriptions = await axios.post(
-        `https://inova-backend-dev.azurewebsites.net/vindi/produtos`,
+      const responseSubscriptions = await api.post(
+        `/vindi/produtos`,
         updatedSubscription,
         {
           // headers: {
