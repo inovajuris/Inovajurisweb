@@ -40,7 +40,7 @@ import emailjs from "emailjs-com";
 interface ChosenPlanOptions {
   id: string;
   name: string;
-  value: number;
+  value: string;
   offers: {
     id: string;
     name: string;

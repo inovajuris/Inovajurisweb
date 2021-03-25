@@ -257,6 +257,7 @@ const MeuPlano: React.FC = () => {
           },
         }
       );
+      history.push("/home");
       addToast({
         type: "sucess",
         title: "Plano atualizado com sucesso",
@@ -315,6 +316,7 @@ const MeuPlano: React.FC = () => {
     if (response) {
       await handleCancelSubscription();
     }
+    signOut();
   }
 
   const [isShow, setIsShow] = useState(false);
