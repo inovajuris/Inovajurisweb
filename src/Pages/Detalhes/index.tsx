@@ -170,7 +170,7 @@ const Detalhes: React.FC = () => {
   }, []);
 
   console.log("Plan e Product Ids", planId, productId);
-  console.log("aqui");
+
   const handleSubmit = async () => {
     setLoading(true);
     try {
