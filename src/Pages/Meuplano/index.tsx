@@ -160,8 +160,9 @@ const MeuPlano: React.FC = () => {
     try {
       formRef.current?.setErrors({});
 
-      // console.log("Aqui", officeId, plano, subscriptionId);
-      //pega os plano do produto vindi
+      console.log("Aqui", officeId, plano, subscriptionId);
+      // pega os plano do produto vindi
+      // ###########
       const responseProduct = await api.get<{
         products: {
           id: number;
@@ -186,19 +187,49 @@ const MeuPlano: React.FC = () => {
         }[];
       }>(`/vindi/produtos?query=name=${plano.replace("promo", "plano")}`);
 
-      // console.log("ProductId", responseProduct.data.products[0].id);
+      // const responseProduct = await axios.get<{
+      //   products: {
+      //     id: number;
+      //     name: string;
+      //     code: null;
+      //     unit: string;
+      //     status: string;
+      //     description: string;
+      //     invoice: string;
+      //     created_at: string;
+      //     updated_at: string;
+      //     pricing_schema: {
+      //       id: number;
+      //       short_format: string;
+      //       price: string;
+      //       minimum_price: null;
+      //       schema_type: string;
+      //       pricing_ranges: [];
+      //       created_at: string;
+      //     };
+      //     metadata: {};
+      //   }[];
+      // }>(
+      //   `http://localhost:3333/vindi/produtos?query=name=${plano.replace(
+      //     "promo",
+      //     "plano"
+      //   )}`
+      // );
+
+      console.log("ProductId", responseProduct.data.products[0].id);
       //deletar o id do produto na vindi
       if (productItemId) {
         await api.delete(`/vindi/planos/deletar/${productItemId}`);
       }
 
+      console.log("product_id", responseProduct.data.products[0].id);
       const updatedSubscription = {
         product_id: responseProduct.data.products[0].id,
         subscription_id: subscriptionId,
         quantity: 1,
       };
 
-      // console.log("updatedSubscription", updatedSubscription);
+      console.log("updatedSubscription", updatedSubscription);
       //atualiza produto na vindi
       const responseSubscriptions = await api.post(
         `/vindi/produtos`,
@@ -249,16 +280,11 @@ const MeuPlano: React.FC = () => {
   };
 
   const handleCancelSubscription = async () => {
-    await axios.delete(
-      `https://inova-backend-dev.azurewebsites.net/vindi/planos/cancelar/${subscriptionId}`,
+    await api.delete(`vindi/planos/cancelar/${subscriptionId}`);
 
-      {
-        // headers: {
-        //   "Content-Type": "application/json",
-        //   Authorization: `Basic ${token64}`,
-        // },
-      }
-    );
+    // await axios.delete(
+    //   `http://localhost:3333/vindi/planos/cancelar/${subscriptionId}`
+    // );
 
     await api.put(
       `escritorio/${officeId}`,

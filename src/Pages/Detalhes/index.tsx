@@ -135,6 +135,30 @@ const Detalhes: React.FC = () => {
       })
       .then((response) => setPlanId(response.data.plans[0].id));
 
+    // api
+    //   .get(`/vindi/produtos?query=name=${plano.replace("promo", "plano")}`, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Basic ${token64}`,
+    //     },
+    //   })
+    //   .then((response) => setProductId(response.data.products[0].id));
+
+    //   axios
+    //     .get(
+    //       `http://localhost:3333/vindi/produtos?query=name=${plano.replace(
+    //         "promo",
+    //         "plano"
+    //       )}`,
+    //       {
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //           Authorization: `Basic ${token64}`,
+    //         },
+    //       }
+    //     )
+    //     .then((response) => setProductId(response.data.products[0].id));
+    // }, []);
     api
       .get(`/vindi/produtos/?query=name=${plano.replace("promo", "plano")}`, {
         headers: {
