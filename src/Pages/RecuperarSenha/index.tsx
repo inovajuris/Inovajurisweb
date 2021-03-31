@@ -83,11 +83,11 @@ const RecuperarSenha: React.FC = () => {
         token: token,
       });
 
-      addToast({
-        type: "sucess",
-        title:
-          "Você estará recebendo um e-mail com um link para redefinir sua senha",
-      });
+      // addToast({
+      //   type: "sucess",
+      //   title:
+      //     "Você estará recebendo um e-mail com um link para redefinir sua senha",
+      // });
 
       addToast({
         type: "sucess",
@@ -95,7 +95,7 @@ const RecuperarSenha: React.FC = () => {
       });
 
       setLoading(false);
-      history.push("/");
+      // history.push("/");
     } catch (err) {
       setLoading(false);
       console.log(err);

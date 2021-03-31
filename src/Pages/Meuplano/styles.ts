@@ -99,7 +99,7 @@ export const Plan = styled.div<GradientConfig>`
 `;
 
 export const GradientText = styled.h4<GradientConfig>`
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background: ${(props) =>
     props.code !== props.plano
       ? `linear-gradient(
@@ -124,10 +124,10 @@ export const OffersContainer = styled.ul`
 `;
 
 export const Offer = styled.li`
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   list-style: none;
-  font-size: 15px;
-  line-height: 31px;
+  font-size: 13px;
+  line-height: 29px;
   font-weight: 500;
   color: #ffffff;
 `;

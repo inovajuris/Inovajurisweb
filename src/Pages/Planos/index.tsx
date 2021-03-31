@@ -196,7 +196,7 @@ const Planos: React.FC = () => {
                       onClick={() => setPlanos(plan.code)}
                     >
                       <GradientText
-                        style={{ fontSize: 16 }}
+                        style={{ fontSize: 19 }}
                         code={plan.code}
                         plano={planos}
                       >

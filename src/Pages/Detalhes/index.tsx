@@ -40,7 +40,7 @@ import emailjs from "emailjs-com";
 interface ChosenPlanOptions {
   id: string;
   name: string;
-  value: number;
+  value: string;
   offers: {
     id: string;
     name: string;
@@ -126,8 +126,8 @@ const Detalhes: React.FC = () => {
   console.log(token64 + "esse token");
 
   useEffect(() => {
-    axios
-      .get("https://inova-backend-dev.azurewebsites.net/vindi/planos", {
+    api
+      .get("/vindi/planos", {
         // headers: {
         //   "Content-Type": "application/json",
         //   Authorization: `Basic ${token64}`,
@@ -135,19 +135,37 @@ const Detalhes: React.FC = () => {
       })
       .then((response) => setPlanId(response.data.plans[0].id));
 
-    axios
-      .get(
-        `https://inova-backend-dev.azurewebsites.net/vindi/produtos?query=name=${plano.replace(
-          "promo",
-          "plano"
-        )}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
-        }
-      )
+    // api
+    //   .get(`/vindi/produtos?query=name=${plano.replace("promo", "plano")}`, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Basic ${token64}`,
+    //     },
+    //   })
+    //   .then((response) => setProductId(response.data.products[0].id));
+
+    //   axios
+    //     .get(
+    //       `http://localhost:3333/vindi/produtos?query=name=${plano.replace(
+    //         "promo",
+    //         "plano"
+    //       )}`,
+    //       {
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //           Authorization: `Basic ${token64}`,
+    //         },
+    //       }
+    //     )
+    //     .then((response) => setProductId(response.data.products[0].id));
+    // }, []);
+    api
+      .get(`/vindi/produtos/?query=name=${plano.replace("promo", "plano")}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Basic ${token64}`,
+        },
+      })
       .then((response) => setProductId(response.data.products[0].id));
   }, []);
 
@@ -204,18 +222,14 @@ const Detalhes: React.FC = () => {
 
       console.log("paymentProfiles", paymentProfiles);
 
-      const responsePaymentProfiles = await axios.post<{
+      const responsePaymentProfiles = await api.post<{
         payment_profile: { gateway_token: string };
-      }>(
-        `https://inova-backend-dev.azurewebsites.net/vindi/pagamentos`,
-        paymentProfiles,
-        {
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   Authorization: `Basic ${publicToken64}`,
-          // },
-        }
-      );
+      }>(`/vindi/pagamentos/`, paymentProfiles, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${publicToken64}`,
+        // },
+      });
 
       console.log("responsePaymentProfiles", responsePaymentProfiles.data);
 
@@ -228,16 +242,12 @@ const Detalhes: React.FC = () => {
 
       console.log("associateTokenData", associateTokenData);
 
-      await axios.post(
-        `https://inova-backend-dev.azurewebsites.net/vindi/clientes/pagamentos`,
-        associateTokenData,
-        {
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   Authorization: `Basic ${token64}`,
-          // },
-        }
-      );
+      await api.post(`/vindi/clientes/pagamentos`, associateTokenData, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${token64}`,
+        // },
+      });
 
       const subscriptionData = {
         plan_id: planId,
@@ -248,16 +258,12 @@ const Detalhes: React.FC = () => {
 
       console.log("subscriptionData", subscriptionData);
 
-      const test = await axios.post(
-        `https://inova-backend-dev.azurewebsites.net/vindi/assinaturas`,
-        subscriptionData,
-        {
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   Authorization: `Basic ${token64}`,
-          // },
-        }
-      );
+      const test = await api.post(`/vindi/assinaturas/`, subscriptionData, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${token64}`,
+        // },
+      });
 
       console.log("testtesttesttesttesttest");
       console.log(test);
@@ -306,7 +312,18 @@ const Detalhes: React.FC = () => {
       if (userPassword) {
         await signIn({ email: userEmail, senha: userPassword });
       }
-
+      await api.post(
+        `envioemail/bemvindo`,
+        {
+          email: userEmail,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${response.data.token}`,
+          },
+        }
+      );
       history.push("/home");
 
       addToast({

@@ -195,12 +195,12 @@ const Home: React.FC = () => {
           addToast({
             type: "info",
             title: "Você não adicionou dados de identificação",
-            description: "você será redirecionado para a tela de planos",
+            description: "você será redirecionado para a tela de contrato",
           });
           return;
         }
 
-        history.replace("/plano", {
+        history.replace("/planos", {
           ...data_obj,
           isPromo,
         });
@@ -234,7 +234,7 @@ const Home: React.FC = () => {
         addToast({
           type: "info",
           title: "Você não adicionou dados de pagamento",
-          description: "você será redirecionado para a tela de detalhes",
+          description: "você será redirecionado para a tela de pagamento",
         });
       }
     }
@@ -384,7 +384,7 @@ const Home: React.FC = () => {
                 </AppStoreButton>
               </StoreButtonsContainer>
 
-              <FaqButton
+              {/* <FaqButton
                 href="https://inova.blob.core.windows.net/uploadinova/file-02613ae6-5720-466c-b697-ec26a67e2097.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -398,9 +398,9 @@ const Home: React.FC = () => {
                   }}
                 />
                 (Manual do aplicativo)
-              </FaqButton>
+              </FaqButton> */}
             </ButtonsContainer>
-            <QAContainer>
+            {/* <QAContainer>
               {qaData.map((qa) => (
                 <QuestionContainer key={qa.id}>
                   <QuestionContent
@@ -426,7 +426,7 @@ const Home: React.FC = () => {
                   )}
                 </QuestionContainer>
               ))}
-            </QAContainer>
+            </QAContainer> */}
           </Content>
         </Main>
       </Container>

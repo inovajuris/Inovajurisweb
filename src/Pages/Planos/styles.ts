@@ -22,39 +22,31 @@ export const Container = styled.div`
   max-width: 1050px;
   max-height: 700px;
   height: 560px;
-
-
 `;
 
 export const Main = styled.main`
   width: 100%;
-  
+
   margin-bottom: 29px;
 
   @media (min-width: 900px) {
     margin-bottom: 0;
   }
-
 `;
 export const FormContainer = styled(Form)`
-
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-
 `;
 
 export const PricingContainer = styled.section`
-
   text-align: center;
   width: 100%;
-  
-
 `;
 
 export const PricingContainerTitle = styled.h1`
-margin-top:-10px;
+  margin-top: -10px;
   font-size: 32px;
   font-weight: 400;
 `;
@@ -66,7 +58,6 @@ export const PlansContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
-
 
   @media (min-width: 576px) {
     grid-template-columns: 1fr 1fr;
@@ -80,7 +71,7 @@ export const PlansContainer = styled.div`
 `;
 
 export const Plan = styled.div<GradientConfig>`
-  height: 425px;
+  height: 435px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -88,7 +79,8 @@ export const Plan = styled.div<GradientConfig>`
   margin: 32px 16px;
   border-radius: 8px;
   padding: 16px 0;
-cursor: pointer;
+
+  cursor: pointer;
   background: ${(props) =>
     props.code !== props.plano
       ? "#F6F6F6"
@@ -106,7 +98,7 @@ cursor: pointer;
 `;
 
 export const GradientText = styled.h4<GradientConfig>`
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background: ${(props) =>
     props.code !== props.plano
       ? `linear-gradient(
@@ -117,7 +109,7 @@ export const GradientText = styled.h4<GradientConfig>`
     #2e1f43 100%
   )`
       : "#ffffff"};
-       margin-top: -5px;
+  margin-top: -5px;
   font-size: 29px;
   line-height: 34px;
   font-weight: 500;
@@ -127,15 +119,14 @@ export const GradientText = styled.h4<GradientConfig>`
 
 export const OffersContainer = styled.ul`
   margin: 0 16px;
-  margin-top: 5px;
+  margin-top: 0px;
 `;
 
 export const Offer = styled.li`
- 
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   list-style: none;
-  font-size: 15px;
-  line-height: 31px;
+  font-size: 13px;
+  line-height: 29px;
   font-weight: 500;
   color: #ffffff;
 `;
@@ -144,11 +135,11 @@ export const ConfirmButton = styled(Button)`
   height: 40px;
   width: 50%;
   max-width: 219px;
-  margin-top:-1%;
+  margin-top: -1%;
 
   @media (max-width: 576px) {
     width: 90%;
-  max-width: 330px;
-  height: 40px;
+    max-width: 330px;
+    height: 40px;
   }
 `;
