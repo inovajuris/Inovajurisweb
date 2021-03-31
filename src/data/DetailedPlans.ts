@@ -22,7 +22,7 @@ export const getFormattedDetailedPlans = (isPromo: boolean) => {
     },
     {
       id: "2",
-      name: "office one",
+      name: "office Plus",
       code: "plano3",
       value: "79,90",
       offers: [

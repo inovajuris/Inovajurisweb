@@ -2,7 +2,7 @@ export const getFormattedPlansData = (isPromo: boolean) => {
   const PlansData = [
     {
       id: "0",
-      name: "one",
+      name: "One",
       code: isPromo ? "promo1" : "plano1",
       value: " 49,90",
       offers: [
@@ -32,7 +32,7 @@ export const getFormattedPlansData = (isPromo: boolean) => {
     },
     {
       id: "1",
-      name: "office",
+      name: "Office",
       code: isPromo ? "promo2" : "plano2",
       value: " 64,90",
       offers: [
@@ -59,7 +59,7 @@ export const getFormattedPlansData = (isPromo: boolean) => {
     },
     {
       id: "2",
-      name: "office one",
+      name: "Office Plus",
       code: isPromo ? "promo3" : "plano3",
       value: " 79,90",
       offers: [
