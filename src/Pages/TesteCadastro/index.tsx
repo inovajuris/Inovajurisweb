@@ -217,7 +217,7 @@ const Testenovocadastro: React.FC = () => {
           senha: data.senha,
           perfil,
         });
-        console.log("veja esse console aqui man" + response.data);
+        console.log("veja esse console aqui mann" + response.data);
 
         const sendOfficeData = {
           tipo_documento: gender,
