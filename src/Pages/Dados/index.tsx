@@ -319,17 +319,16 @@ const Dados: React.FC = () => {
       };
       console.log("oi");
 
-      await axios.put<VindiCustomerResponse>(
-        `https://app.vindi.com.br/api/v1/customers/${customerId}`,
+      // await axios.put<VindiCustomerResponse>(
+      //   `https://app.vindi.com.br/api/v1/customers/${customerId}`,
 
-        await api.put<VindiCustomerResponse>(
-          `/vindi/clientes/${customerId}`,
+      await api.put<VindiCustomerResponse>(
+        `/vindi/clientes/${customerId}`,
 
-          updatedVindiData,
-          {
-            headers: { Authorization: "Basic " + token64 },
-          }
-        )
+        updatedVindiData,
+        {
+          headers: { Authorization: "Basic " + token64 },
+        }
       );
 
       await api.put(
@@ -642,7 +641,6 @@ const Dados: React.FC = () => {
               <div className="btnblue">
                 <Button
                   className="btnazul1"
-                  isLoading={loading}
                   type="button"
                   disabled={isPromo}
                   onClick={() => {

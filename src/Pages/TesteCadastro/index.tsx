@@ -217,6 +217,7 @@ const Testenovocadastro: React.FC = () => {
           senha: data.senha,
           perfil,
         });
+        console.log("veja esse console" + response.data);
 
         const sendOfficeData = {
           tipo_documento: gender,
@@ -235,7 +236,7 @@ const Testenovocadastro: React.FC = () => {
         };
 
         console.log("sendOfficeData", sendOfficeData);
-
+        console.log("veja esse console do oficee data" + response.data);
         await api.post<OfficeResponse>("escritorios", sendOfficeData, {
           headers: {
             "Content-Type": "application/json",

@@ -147,7 +147,7 @@ const Home: React.FC = () => {
   const token = localStorage.getItem("@ActionLaw: token");
 
   async function fetchAPI() {
-    const response = await api.get(`escritorios?nome=${user?.nome}`);
+    const response = await api.get(`escritorios?email=${user?.email}`);
 
     console.log("response", response.data[0]);
     const {
@@ -216,7 +216,7 @@ const Home: React.FC = () => {
         `vindi/escritorios/inadimplentes/${data.customers[0].id}`
       );
 
-      console.log("data", data);
+      console.log("data aqui", data);
       console.log("vindi_response", vindi_response.data);
 
       const { subscriptions } = vindi_response.data;
@@ -284,7 +284,10 @@ const Home: React.FC = () => {
       setDaysRemaining(remaining);
 
       if (remaining === 0 && isTrial) {
-        history.replace("/planos", data);
+        console.log(data);
+        const plans2 = "plano2";
+        history.replace("/planos", [data, plans2]);
+
         addToast({
           type: "info",
           title: "Seu tempo de teste acabou",
