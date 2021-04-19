@@ -16,10 +16,9 @@ export const HeaderContainer = styled.header`
   top: 0;
   z-index: 9999;
 
-  .btnimg{
-    outline:0;
-    cursor:pointer;
-  
+  .btnimg {
+    outline: 0;
+    cursor: pointer;
   }
 `;
 
@@ -36,19 +35,19 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #74469A;
+  color: #74469a;
   display: flex;
   align-items: center;
   padding: 0 1rem;
   text-decoration: none;
   cursor: pointer;
-  font-family:"Muli";
+  font-family: "Muli";
   &.active {
-    color: #74469A;
+    color: #74469a;
   }
 
   &:hover {
-    color: #941AF9;
+    color: #941af9;
     text-decoration: underline;
   }
 `;
@@ -60,18 +59,17 @@ export const Bars = styled(FaBars)`
 export const NavItems = styled.div`
   display: flex;
   align-items: center;
-button{
-
-  margin-left:-3%;
-  margin-top:3px;
-}
+  button {
+    margin-left: -3%;
+    margin-top: 3px;
+  }
 `;
 
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
   white-space: nowrap;
-margin-left:1%;
+  margin-left: 1%;
   @media screen and (max-width: 900px) {
     display: none;
   }
@@ -125,7 +123,7 @@ export const DropdownContainer = styled.div`
   max-width: 320px;
 
   z-index: 9999;
-  background: #74469A;
+  background: #74469a;
   border: 0;
   outline: 0;
   font: 500 16px Roboto;
@@ -165,8 +163,8 @@ export const DropdownItem = styled.button`
   color: #ffffff;
 
   &:hover {
-    margin-left:0%;
-    background: #941AF9;
+    margin-left: 0%;
+    background: #941af9;
     cursor: pointer;
   }
 
@@ -182,6 +180,6 @@ export const DropdownItem = styled.button`
     text-decoration: none;
     font-size: 20px;
     line-height: 35px;
-        margin-left: 15px;
+    margin-left: 15px;
   }
 `;

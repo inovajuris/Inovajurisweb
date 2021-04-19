@@ -23,7 +23,6 @@ export const Container = styled.div`
   }
 `;
 export const Blue = styled.div`
-
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -34,7 +33,7 @@ export const Blue = styled.div`
   width: 70%;
   height: 480px;
 
-  margin-top:100px;
+  margin-top: 100px;
 
   .formBox {
     display: flex;
@@ -71,7 +70,7 @@ export const Blue = styled.div`
       }
     }
   }
-  
+
   h2 {
     color: #141414;
     width: 100%;
@@ -118,7 +117,6 @@ export const Blue = styled.div`
     .btnazul {
       text-align: center;
       margin-top: 11%;
-    
     }
 
     .cadastre {
@@ -130,11 +128,11 @@ export const Blue = styled.div`
         color: #101010;
         text-decoration: none;
         &:hover {
-          color:#941AF9;
+          color: #941af9;
         }
       }
     }
- 
+
     .esqueci {
       width: 100%;
       margin-top: 0px;
@@ -144,7 +142,7 @@ export const Blue = styled.div`
         color: #232326;
         text-decoration: none;
         &:hover {
-          color: #941AF9;
+          color: #941af9;
         }
       }
     }
@@ -253,7 +251,7 @@ export const Blue = styled.div`
           color: #101010;
           text-decoration: none;
           &:hover {
-            color: #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -266,7 +264,7 @@ export const Blue = styled.div`
           color: #232326;
           text-decoration: none;
           &:hover {
-            color:  #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -389,7 +387,7 @@ export const Blue = styled.div`
           color: #101010;
           text-decoration: none;
           &:hover {
-            color:  #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -402,7 +400,7 @@ export const Blue = styled.div`
           color: #232326;
           text-decoration: none;
           &:hover {
-            color:  #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -424,15 +422,14 @@ export const Draw = styled(DrawCadastro)`
   }
 `;
 export const Entra = styled.div`
-display:flex;
-justify-content:center;
+  display: flex;
+  justify-content: center;
 
-
-a{
-  text-decoration:none;
-  color:#000;
-  font-size:20px;
-}
+  a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+  }
 `;
 
 export const Lockicon1 = styled(Lock)``;
