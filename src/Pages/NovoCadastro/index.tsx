@@ -131,7 +131,7 @@ const NovoCadastro: React.FC = () => {
       telefone: string;
       senha: string;
     }): Promise<void> => {
-      console.log("Dataa", data);
+      console.log("Data", data);
 
       setLoading(true);
       try {
