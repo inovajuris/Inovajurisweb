@@ -303,7 +303,7 @@ const NovoCadastro: React.FC = () => {
         <Blue>
           <div className="formBox">
             <h3>Cadastrar</h3>
-
+            <h3>ola mundo</h3>
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="input1">
                 <h2>Nome</h2>
