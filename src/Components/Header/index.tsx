@@ -38,20 +38,24 @@ const Header: React.FC = ({ children }) => {
               Site da Empresa/Produto
             </NavLink>
 <<<<<<< HEAD
+<<<<<<< HEAD
             {/* <NavLink to="/#" className="cool-link">
               Planos
             </NavLink> */}
 =======
             <NavLink to="/meuplano" className="cool-link">
+=======
+            <NavLink to="#" className="cool-link">
+>>>>>>> main
               Planos
             </NavLink>
 >>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
             <NavLink to="#" className="cool-link2">
               Perguntas Frequentes
             </NavLink>
-            <NavLink to="#" className="cool-link3">
+            {/* <NavLink to="#" className="cool-link3">
               Casos de Sucesso
-            </NavLink>
+            </NavLink> */}
             {/* <div>{children}</div> */}
             {/* <NavLink to="/about" className="cool-link4">
               Entrar

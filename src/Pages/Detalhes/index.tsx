@@ -25,7 +25,7 @@ import { useToast } from "../../hooks/toast";
 import { getFormattedDetailedPlans } from "../../data/DetailedPlans";
 import { useAuth } from "../../hooks/auth";
 import { getPlanData } from "../../data";
-
+import emailjs from "emailjs-com";
 // const CVVIcon: React.FC = (props) => {
 //   // return (
 //   //   <div
@@ -44,7 +44,7 @@ import { getPlanData } from "../../data";
 interface ChosenPlanOptions {
   id: string;
   name: string;
-  value: number;
+  value: string;
   offers: {
     id: string;
     name: string;
@@ -130,31 +130,46 @@ const Detalhes: React.FC = () => {
   console.log(token64 + "esse token");
 
   useEffect(() => {
-    axios
-      .get(
-        "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/plans",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
-        }
-      )
+    api
+      .get("/vindi/planos", {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${token64}`,
+        // },
+      })
       .then((response) => setPlanId(response.data.plans[0].id));
 
-    axios
-      .get(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/products?query=name=${plano.replace(
-          "promo",
-          "plano"
-        )}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
-        }
-      )
+    // api
+    //   .get(`/vindi/produtos?query=name=${plano.replace("promo", "plano")}`, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Basic ${token64}`,
+    //     },
+    //   })
+    //   .then((response) => setProductId(response.data.products[0].id));
+
+    //   axios
+    //     .get(
+    //       `http://localhost:3333/vindi/produtos?query=name=${plano.replace(
+    //         "promo",
+    //         "plano"
+    //       )}`,
+    //       {
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //           Authorization: `Basic ${token64}`,
+    //         },
+    //       }
+    //     )
+    //     .then((response) => setProductId(response.data.products[0].id));
+    // }, []);
+    api
+      .get(`/vindi/produtos/?query=name=${plano.replace("promo", "plano")}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Basic ${token64}`,
+        },
+      })
       .then((response) => setProductId(response.data.products[0].id));
   }, []);
 
@@ -211,18 +226,14 @@ const Detalhes: React.FC = () => {
 
       console.log("paymentProfiles", paymentProfiles);
 
-      const responsePaymentProfiles = await axios.post<{
+      const responsePaymentProfiles = await api.post<{
         payment_profile: { gateway_token: string };
-      }>(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/public/payment_profiles`,
-        paymentProfiles,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${publicToken64}`,
-          },
-        }
-      );
+      }>(`/vindi/pagamentos/`, paymentProfiles, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${publicToken64}`,
+        // },
+      });
 
       console.log("responsePaymentProfiles", responsePaymentProfiles.data);
 
@@ -235,16 +246,12 @@ const Detalhes: React.FC = () => {
 
       console.log("associateTokenData", associateTokenData);
 
-      await axios.post(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/payment_profiles`,
-        associateTokenData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
-        }
-      );
+      await api.post(`/vindi/clientes/pagamentos`, associateTokenData, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${token64}`,
+        // },
+      });
 
       const subscriptionData = {
         plan_id: planId,
@@ -255,16 +262,15 @@ const Detalhes: React.FC = () => {
 
       console.log("subscriptionData", subscriptionData);
 
-      await axios.post(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/subscriptions`,
-        subscriptionData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
-        }
-      );
+      const test = await api.post(`/vindi/assinaturas/`, subscriptionData, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${token64}`,
+        // },
+      });
+
+      console.log("testtesttesttesttesttest");
+      console.log(test);
 
       await api.put(
         `usuarios/${userId}`,
@@ -295,10 +301,33 @@ const Detalhes: React.FC = () => {
         }
       );
 
+      //  await api.post(
+      //    `usuarios/bemvindo`,
+      //    {
+      //     email:userEmail,
+      //    },
+      //      headers: {
+      //        "Content-Type": "application/json",
+      //        Authorization: `Bearer ${token}`,
+      //      },
+      //    }
+      //  );
+
       if (userPassword) {
         await signIn({ email: userEmail, senha: userPassword });
       }
-
+      await api.post(
+        `envioemail/bemvindo`,
+        {
+          email: userEmail,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${response.data.token}`,
+          },
+        }
+      );
       history.push("/home");
 
       addToast({
@@ -380,6 +409,18 @@ const Detalhes: React.FC = () => {
     setPasswordShown(passwordShown === true ? false : true);
     setInputType(inputType === "password" ? "text" : "password");
   };
+
+  // function sendEmail(e:any){
+  //   e.preventDefault();
+
+  //   emailjs.sendForm('gmail', 'template_gpb6n69', e.target, 'user_OjsQ18ohvPDncfExKM86V')
+  //     .then((result) => {
+  //         console.log(result.text);
+  //     }, (error) => {
+  //         console.log(error.text);
+  //     });
+  //     e.target.reset()
+  // }
 
   return (
     <div>

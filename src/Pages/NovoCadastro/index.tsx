@@ -131,7 +131,7 @@ const NovoCadastro: React.FC = () => {
       telefone: string;
       senha: string;
     }): Promise<void> => {
-      console.log("Data", data);
+      console.log("Datateste", data);
 
       setLoading(true);
       try {
@@ -178,7 +178,7 @@ const NovoCadastro: React.FC = () => {
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,
-          telefone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
+          telefone: data.telefone.replace(/[ ]|[()-]/g, ""),
           qtde_processos: plansData.qtde_processos,
           quantidade_advogados: plansData.quantidade_advogados,
           tipo_escritorio: plansData.tipo_escritorio,
@@ -210,7 +210,7 @@ const NovoCadastro: React.FC = () => {
             userId: response.data.usuario.id_usuario,
             username: response.data.usuario.nome,
             userEmail: data.email,
-            userPhone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
+            userPhone: data.telefone.replace(/[ ]|[()-]/g, ""),
             userPassword: data.senha,
             isPromo,
           });
@@ -222,7 +222,7 @@ const NovoCadastro: React.FC = () => {
           userId: response.data.usuario.id_usuario,
           username: response.data.usuario.nome,
           userEmail: data.email,
-          userPhone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
+          userPhone: data.telefone.replace(/[ ]|[()-]/g, ""),
           userPassword: data.senha,
           isPromo,
         });
@@ -255,7 +255,7 @@ const NovoCadastro: React.FC = () => {
                 description: `${result[1]}`,
               });
             });
-return;
+            return;
           }
           addToast({
             type: "error",
@@ -367,7 +367,15 @@ return;
               <div className="politica">
                 <h4>Ao continuar, você concorda com a&nbsp;</h4>
 
-                <h4 className="policticablue"> Política de Privacidade</h4>
+                <a
+                  className="policticablue"
+                  href="https://www.notion.so/Pol-tica-de-Privacidade-Inova-Juris-6bb6ba55e47a4dc2b35cd4401dd74252"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  Política de Privacidade
+                </a>
               </div>
 
               <button type="button" className="possuilogin">

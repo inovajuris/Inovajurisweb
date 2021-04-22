@@ -11,7 +11,7 @@ import { useToast } from "../../hooks/toast";
 import { useAuth } from "../../hooks/auth";
 import api from "../../services/api";
 import * as Yup from "yup";
-
+import axios from "axios";
 import { FiEyeOff } from "react-icons/fi";
 import Header from "../../Components/Header";
 import Button from "../../Components/Button";
@@ -50,13 +50,14 @@ const Login: React.FC = () => {
         const schema = Yup.object().shape({
           email: Yup.string().required("E-mail obrigatório"),
           senha: Yup.string()
-          .trim()
-          .matches(
-            /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
-            "senha deve conter pelo menos 6 caracteres, um número"
-          )
-          .min(6, "No minimo 6 dígitos"),
+            .trim()
+            .matches(
+              /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+              "senha deve conter pelo menos 6 caracteres, um número"
+            )
+            .min(6, "No minimo 6 dígitos"),
         });
+
         await schema.validate(data, {
           abortEarly: false,
         });

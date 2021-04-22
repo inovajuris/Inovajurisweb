@@ -177,7 +177,7 @@ const Testenovocadastro: React.FC = () => {
       console.log("tipoPerfil", tipoPerfil);
       console.log("qtdavogados", qtdAdvogados);
       console.log("Plano", planos);
-      console.log("Telefone", data.telefone.replace(/[ ]|[()-]/g, ""));
+      console.log("Telefone", data.telefone);
       setLoading(true);
       try {
         formRef.current?.setErrors({});
@@ -187,6 +187,7 @@ const Testenovocadastro: React.FC = () => {
           telefone: Yup.string().required("Telefone é obrigatório"),
           email: Yup.string().required("E-mail é obrigatório"),
           senha: Yup.string()
+<<<<<<< HEAD
 <<<<<<< HEAD
             .trim()
             .matches(
@@ -205,6 +206,15 @@ const Testenovocadastro: React.FC = () => {
           .min(6, "No minimo 6 dígitos"),
       });
 >>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
+=======
+            .trim()
+            .matches(
+              /^.*(?=.{6,})((){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+              "senha deve conter pelo menos 6 caracteres, um número"
+            )
+            .min(6, "No minimo 6 dígitos"),
+        });
+>>>>>>> main
 
         await schema.validate(data, {
           abortEarly: false,
@@ -228,6 +238,7 @@ const Testenovocadastro: React.FC = () => {
           senha: data.senha,
           perfil,
         });
+        console.log("veja esse console aqui man" + response.data);
 
         const sendOfficeData = {
           tipo_documento: gender,
@@ -239,21 +250,32 @@ const Testenovocadastro: React.FC = () => {
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,
-          telefone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
+          telefone: data.telefone,
           qtde_processos: data.processos,
           quantidade_advogados: qtdAdvogados,
           tipo_escritorio: tipoPerfil,
         };
 
         console.log("sendOfficeData", sendOfficeData);
-
+        console.log("veja esse console do oficee data" + response.data);
         await api.post<OfficeResponse>("escritorios", sendOfficeData, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${response.data.token}`,
           },
         });
-
+        await api.post(
+          `envioemail/bemvindo`,
+          {
+            email: email,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              // Authorization: `Bearer ${response.data.token}`,
+            },
+          }
+        );
         await signIn({
           email: data.email,
           senha: data.senha,
@@ -278,6 +300,7 @@ const Testenovocadastro: React.FC = () => {
             description: `Ocorreu um erro ao fazer cadastro, tente novamente.`,
           });
         }
+
         if (err.response?.data) {
           addToast({
             type: "error",
@@ -366,7 +389,8 @@ const Testenovocadastro: React.FC = () => {
               <div className="radio">
                 <div>
                   <span className="pessoafisica">Pessoa Física</span>
-                  <Radio className="radiobtn"
+                  <Radio
+                    className="radiobtn"
                     value="cpf"
                     checked={gender === "cpf"}
                     color="primary"
@@ -375,7 +399,8 @@ const Testenovocadastro: React.FC = () => {
                 </div>
                 <div>
                   <span className="pessoajuridica">Pessoa Jurídica</span>
-                  <Radio className="radiobtn"
+                  <Radio
+                    className="radiobtn"
                     value="cnpj"
                     checked={gender === "cnpj"}
                     color="primary"
@@ -498,7 +523,15 @@ const Testenovocadastro: React.FC = () => {
               <div className="politica">
                 <h4>Ao continuar, você concorda com a&nbsp;</h4>
 
-                <h4 className="policticablue"> Política de Privacidade</h4>
+                <a
+                  className="policticablue"
+                  href="https://www.notion.so/Pol-tica-de-Privacidade-Inova-Juris-6bb6ba55e47a4dc2b35cd4401dd74252"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  Política de Privacidade
+                </a>
               </div>
 
               <button className="possuilogin">

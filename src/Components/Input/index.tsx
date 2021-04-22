@@ -11,7 +11,7 @@ import { useField } from "@unform/core";
 import { Container, Error, PasswordButtonContainer } from "./styles";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
-import CCV from '../../assets/ccv.svg'
+import CCV from "../../assets/ccv.svg";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
@@ -30,9 +30,9 @@ const PasswordToggle = ({
   return (
     <PasswordButtonContainer onClick={onToggle} type="button" className="eye">
       {visible ? (
-        <FiEye size={18} width="10px" />
-      ) : (
         <FiEyeOff size={18} width="10px" />
+      ) : (
+        <FiEye size={18} width="10px" />
       )}
     </PasswordButtonContainer>
   );
@@ -56,7 +56,7 @@ const Input: React.FC<InputProps> = ({
   }, []);
 
   const handleInputBlur = useCallback(() => {
-    setIsFocused(false);
+    setIsFocused(true);
     setIsFilled(!!inputRef.current?.value);
   }, []);
 
@@ -67,7 +67,7 @@ const Input: React.FC<InputProps> = ({
       path: "value",
     });
   }, [fieldName, registerField]);
-  console.log(error)
+  console.log(error);
   return (
     <Container isErrored={!!error} isFilled={isFilled} isFocused={isFocused}>
       {Icon && iconPosition === "left" && <Icon size={18} />}
@@ -88,18 +88,13 @@ const Input: React.FC<InputProps> = ({
             setCurrentType(currentType === "password" ? "text" : "password")
           }
         />
-        
       )}
       {!!error && (
         <Error title={error}>
           <FiAlertCircle color="#FF0045" size={20} />
         </Error>
-    
-    )}
-      
+      )}
     </Container>
-    
-    );
-    
+  );
 };
 export default Input;

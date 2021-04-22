@@ -22,7 +22,6 @@ export const Container = styled.div`
   max-width: 1050px;
   max-height: 700px;
   height: 560px;
-
 `;
 
 export const Main = styled.main`
@@ -39,8 +38,7 @@ export const FormContainer = styled(Form)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height:100%;
-
+  height: 100%;
 `;
 
 export const PricingContainer = styled.section`
@@ -101,7 +99,7 @@ export const Plan = styled.div<GradientConfig>`
 `;
 
 export const GradientText = styled.h4<GradientConfig>`
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   background: ${(props) =>
     props.code !== props.plano
       ? `linear-gradient(
@@ -126,10 +124,10 @@ export const OffersContainer = styled.ul`
 `;
 
 export const Offer = styled.li`
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   list-style: none;
-  font-size: 15px;
-  line-height: 31px;
+  font-size: 13px;
+  line-height: 29px;
   font-weight: 500;
   color: #ffffff;
 `;
@@ -140,9 +138,9 @@ export const ButtonsContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 80%;
-  gap:40px;
+  gap: 40px;
   margin-bottom: 48px;
-  margin-top:-2%;
+  margin-top: -2%;
 
   @media (min-width: 576px) {
     flex-direction: row;
@@ -152,24 +150,22 @@ export const ButtonsContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 100%;
-  gap:5px;
+    gap: 5px;
   }
 `;
 
 export const ConfirmButton = styled(Button)`
- height: 40px;
+  height: 40px;
   width: 150%;
-  font-size:15px;
-  background-color: #8A44C4;
-font-weight:500;
+  font-size: 15px;
+  background-color: #8a44c4;
+  font-weight: 500;
   @media (min-width: 576px) {
     max-width: 195px;
     margin-right: 20px;
   }
   @media (max-width: 576px) {
     max-width: 90%;
-
-    
   }
 `;
 
@@ -177,11 +173,11 @@ export const CancelPlanButton = styled(Button)`
   height: 40px;
   width: 195%;
   color: #000;
-  background-color: #F8F8F8;
-  font-size:15px;
-font-weight:500;
+  background-color: #f8f8f8;
+  font-size: 15px;
+  font-weight: 500;
   &:hover {
-    background-color: #F3F3F3 !important;
+    background-color: #f3f3f3 !important;
   }
 
   @media (min-width: 576px) {
@@ -189,8 +185,6 @@ font-weight:500;
   }
   @media (max-width: 576px) {
     max-width: 90%;
-
-    
   }
 `;
 
@@ -228,7 +222,6 @@ export const DropdownMenu = styled.div`
   padding: 0;
   margin: 0;
   width: 100%;
-
 `;
 
 export const DropdownItem = styled.button`
@@ -249,17 +242,19 @@ export const DropdownItem = styled.button`
 
   hr {
     width: 100%;
-    height: 1px;
+
+    height: 0.1px;
+
     background-color: #fff;
   }
 
   a {
-    display:flex;
+    display: flex;
 
     color: #fff;
     font-weight: 500;
 
-    width:100%;
+    width: 100%;
     text-decoration: none;
     font-size: 17px;
     line-height: 35px;
@@ -275,7 +270,6 @@ export const DropdownToggle = styled.button`
 
   background: transparent;
 
- 
   cursor: pointer;
 
   &:hover {

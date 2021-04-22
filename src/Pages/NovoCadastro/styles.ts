@@ -103,8 +103,6 @@ export const Blue = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-   
     }
     button {
       width: fit-content;
@@ -113,27 +111,27 @@ export const Blue = styled.div`
       height: 40px;
       text-align: center;
     }
-    .policticablue{
-font-size:17px;
-color: #007aff;
-font-weight:400;
-outline:0;
-border: none; 
-  }
-  .politica{
-    display:flex;
-    flex-direction:row;
-    outline:none;
+    .policticablue {
+      font-size: 17px;
+      cursor: pointer;
+      color: #007aff;
+      font-weight: 400;
+      outline: 0;
+      border: none;
+      text-decoration: none;
+    }
+    .politica {
+      display: flex;
+      flex-direction: row;
+      outline: none;
 
-margin-top:3px;
-    align-items:center;
-    justify-content:center;
-    width:145%;
-    outline:0;
-    border: none;
-
-   
-  }
+      margin-top: 3px;
+      align-items: center;
+      justify-content: center;
+      width: 145%;
+      outline: 0;
+      border: none;
+    }
     .btnazul {
       text-align: center;
       margin-top: 24px;
@@ -148,7 +146,7 @@ margin-top:3px;
         color: #101010;
         text-decoration: none;
         &:hover {
-          color:  #941AF9;
+          color: #941af9;
         }
       }
     }
@@ -161,7 +159,7 @@ margin-top:3px;
         color: #232326;
         text-decoration: none;
         &:hover {
-          color:  #941AF9;
+          color: #941af9;
         }
       }
     }
@@ -255,8 +253,6 @@ margin-top:3px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-    
       }
       input .cadastre {
         width: 100%;
@@ -267,7 +263,7 @@ margin-top:3px;
           color: #101010;
           text-decoration: none;
           &:hover {
-            color:  #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -280,7 +276,7 @@ margin-top:3px;
           color: #232326;
           text-decoration: none;
           &:hover {
-            color:  #941AF9;
+            color: #941af9;
           }
         }
       }
@@ -289,7 +285,7 @@ margin-top:3px;
 
   @media screen and (max-width: 576px) {
     position: relative;
-    
+
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -312,7 +308,7 @@ margin-top:3px;
       background-color: #ffffff;
 
       border-radius: 0px 5px 5px 0px;
-     
+
       .redessociais {
         position: relative;
         display: flex;
@@ -365,14 +361,12 @@ margin-top:3px;
       align-items: center;
       height: 100%;
       .input1 {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  
-      
-    }
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
       button {
         width: fit-content;
         padding: 0 16px;
@@ -393,15 +387,12 @@ margin-top:3px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-      
       }
-      .possuilogin{
-        a{
-   font-weight:600;
+      .possuilogin {
+        a {
+          font-weight: 600;
         }
-
-  }
+      }
       .cadastre {
         width: 100%;
         margin-top: 16px;
@@ -413,25 +404,22 @@ margin-top:3px;
           color: #101010;
           text-decoration: none;
           &:hover {
-            color: #941AF9;
+            color: #941af9;
           }
         }
       }
-      .politica{
-    display:flex;
-    flex-direction:column;
-    outline:none;
+      .politica {
+        display: flex;
+        flex-direction: column;
+        outline: none;
 
+        align-items: center;
+        justify-content: center;
+        width: 85%;
+        outline: 0;
+        border: none;
+      }
 
-    align-items:center;
-    justify-content:center;
-    width:85%;
-    outline:0;
-    border: none;
-
-   
-  }
-  
       .esqueci {
         width: 100%;
         margin-top: 0px;
@@ -441,48 +429,46 @@ margin-top:3px;
           color: #232326;
           text-decoration: none;
           &:hover {
-            color:  #941AF9;
+            color: #941af9;
           }
         }
       }
     }
   }
-
-  
 `;
 export const Entra = styled.div`
-display:flex;
-justify-content:center;
-margin-top:-0.5%;
- margin-left:250px;
-a{
-  text-decoration:none;
-  color:#000;
-  font-size:20px;
-  &:hover {
-          color:  #941AF9;
-        }
-}
+  display: flex;
+  justify-content: center;
+  margin-top: -0.5%;
+  margin-left: 250px;
+  a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    &:hover {
+      color: #941af9;
+    }
+  }
 `;
 export const Prefix = styled.div`
-display:flex;
-justify-content:center;
+  display: flex;
+  justify-content: center;
 
- margin-left:250px;
-a{
-  text-decoration:none;
-  color:#000;
-  font-size:20px;
-  &:hover {
-          color:  #941AF9;
-        }
-}
+  margin-left: 250px;
+  a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    &:hover {
+      color: #941af9;
+    }
+  }
 `;
 export const GoogleLogin = styled(CustomGoogleLogin)`
   background-color: red;
   margin-left: 200px;
   margin-top: -20%;
-position: fixed;
+  position: fixed;
   > button {
     background-color: red;
     margin-top: -30%;

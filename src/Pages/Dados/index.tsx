@@ -236,15 +236,22 @@ const Dados: React.FC = () => {
       };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       const text = "39zh9E2rTCZAZ_Vu1-qbIbty-7KUciSaw0Ssd7s5bhg:";
 =======
       const text = "tey-UhF26q2TMv6cTF43fcMsGwJEy4cdSZFKh-nPQaQ:";
 >>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
+=======
+      console.log("vindiData", vindiData);
+
+      const text = "39zh9E2rTCZAZ_Vu1-qbIbty-7KUciSaw0Ssd7s5bhg:";
+>>>>>>> main
 
       var bytes = utf8.encode(text);
       var token64 = btoa(bytes);
 
       if (!customerId) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         const responseVindi = await axios.post<VindiCustomerResponse>(
@@ -260,12 +267,31 @@ const Dados: React.FC = () => {
 
         const responseVindi = await axios.post<VindiCustomerResponse>(
           "https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers",
+=======
+        // const responseVindi = await axios.post<VindiCustomerResponse>(
+        //   "https://inova-apis-prod.azurewebsites.net/vindi/clientes",
+        //   vindiData,
+        //   {
+        //     headers: {"Access-Control-Allow-Credentials" : "true",
+        //     "Access-Control-Allow-Origin" : "*",
+        //     "Access-Control-Allow-Methods" : "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+        //     "Access-Control-Allow-Headers" : "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version", Authorization: "Basic " + token64 },
+        //   }
+        // );
+        console.log("AQUIII");
+        const responseVindi = await api.post<VindiCustomerResponse>(
+          "vindi/clientes",
+>>>>>>> main
           vindiData,
           {
             headers: {
-              "Content-Type": "application/json",
-              Authorization: `Basic ${token64}`,
+              "Access-Control-Allow-Credentials": "true",
               "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods":
+                "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+              "Access-Control-Allow-Headers":
+                "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+              Authorization: "Basic " + token64,
             },
 >>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
           }
@@ -319,6 +345,7 @@ const Dados: React.FC = () => {
         ],
       };
 <<<<<<< HEAD
+<<<<<<< HEAD
 console.log("oi")
       await axios.put<VindiCustomerResponse>(
         `https://app.vindi.com.br/api/v1/customers/${customerId}`,
@@ -328,17 +355,28 @@ console.log("oi")
 
           
 =======
+=======
+      console.log("oi");
 
-      await axios.put<VindiCustomerResponse>(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers/${customerId}`,
+      // await axios.put<VindiCustomerResponse>(
+      //   `https://app.vindi.com.br/api/v1/customers/${customerId}`,
+
+      await api.put<VindiCustomerResponse>(
+        `/vindi/clientes/${customerId}`,
+>>>>>>> main
+
         updatedVindiData,
         {
+<<<<<<< HEAD
           headers: {
             "Content-Type": "application/json",
             Authorization: `Basic ${token64}`,
             "Access-Control-Allow-Origin": "*",
           },
 >>>>>>> 9baa6d89c73b6c2dd0c01c222e9df59b80dcd6f5
+=======
+          headers: { Authorization: "Basic " + token64 },
+>>>>>>> main
         }
       );
 
@@ -461,7 +499,8 @@ console.log("oi")
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="radio">
                 <div>
-                  <Radio className="radiocor"
+                  <Radio
+                    className="radiocor"
                     value="fisica"
                     checked={gender === "fisica"}
                     color="primary"
@@ -470,7 +509,8 @@ console.log("oi")
                   <span>Pessoa Física</span>
                 </div>
                 <div>
-                  <Radio  className="radiocor"
+                  <Radio
+                    className="radiocor"
                     value="juridica"
                     checked={gender === "juridica"}
                     color="primary"
@@ -650,7 +690,6 @@ console.log("oi")
               <div className="btnblue">
                 <Button
                   className="btnazul1"
-                  isLoading={loading}
                   type="button"
                   disabled={isPromo}
                   onClick={() => {
@@ -670,7 +709,7 @@ console.log("oi")
                     });
                   }}
                 >
-               Voltar
+                  Voltar
                 </Button>
                 <Button className="btnazul" isLoading={loading} type="submit">
                   Dados de Pagamento

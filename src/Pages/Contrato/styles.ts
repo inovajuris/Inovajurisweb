@@ -36,7 +36,6 @@ export const Blue = styled.div`
 
   margin-top: 60px;
 
-
   .formBox {
     margin-top: 64px;
     display: flex;
@@ -80,7 +79,7 @@ export const Blue = styled.div`
 
         align-items: center;
         margin-top: 2%;
-        width: 65%;
+        width: 68%;
         height: 400px;
         border-radius: 2px;
 
@@ -103,11 +102,13 @@ export const Blue = styled.div`
         width: 100%;
         height: 90%;
       }
+      p {
+      }
       .contrato {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 90%;
         margin-top: 1%;
       }
 
@@ -165,7 +166,9 @@ export const Blue = styled.div`
         height: 550px;
 
         .contrato {
-          width: 100%;
+          width: 63%;
+          margin-left: 5px;
+          margin-top: 10px;
         }
 
         .formBox {
@@ -296,7 +299,6 @@ export const Blue = styled.div`
           .texto {
             margin-top: 0;
             max-width: 95%;
-            
           }
           .input1 {
             width: 340px;
@@ -313,7 +315,7 @@ export const Blue = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 85%;
+            width: 89%;
             margin-top: 3%;
           }
 

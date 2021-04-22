@@ -3,7 +3,7 @@ import React, { useState, useCallback, useRef, useEffect } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import Logo from "../../assets/logolaw.svg";
 import Header2 from "../../Components/Header";
-import { FiUser } from "react-icons/fi"
+import { FiUser } from "react-icons/fi";
 import {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
@@ -91,7 +91,7 @@ const MeuPlano: React.FC = () => {
     tipo_conta: string;
     perfil: string;
   } = user && JSON.parse(user);
-  console.log("User", parsedUser);
+  // console.log("User", parsedUser);
 
   useEffect(() => {
     api
@@ -100,35 +100,31 @@ const MeuPlano: React.FC = () => {
           Authorization: `Bearer ${token}`,
         },
       })
+
+      //pega id do escritorio na vindi
       .then((response) => {
         console.log("EscritorioID", response.data[0].id_escritorio);
         setPlano(response.data[0].plano);
         setOfficeId(response.data[0].id_escritorio);
-        axios
-          .get(
-            `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/customers?query=code=${response.data[0].id_escritorio}`,
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Basic ${token64}`,
-              },
-            }
-          )
-          .then((response) => setCustomerId(response.data.customers[0].id));
+        api
+          .get(`vindi/clientes/${response.data[0].id_escritorio}`)
+          .then((response) => {
+            console.log("CustomerResponse", response.data);
+            setCustomerId(response.data.customers[0].id);
+          });
       });
   }, []);
+  //pega o id do usuario na vindi
 
   useEffect(() => {
-    axios
-      .get(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/subscriptions?query=customer_id=${customerId}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
-        }
-      )
+    console.log("Bem aqui");
+    api
+      .get(`vindi/escritorios/inadimplentes/${customerId}`, {
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Basic ${token64}`,
+        // },
+      })
       .then((response) => {
         console.log("RESPONSE", response);
         setSubscriptionId(response.data.subscriptions[0]?.id);
@@ -142,7 +138,7 @@ const MeuPlano: React.FC = () => {
   console.log("Subscription", subscriptionId);
   console.log("ProductItemId", productItemId);
 
-  console.log("PLANO", plano);
+  // console.log("PLANO", plano);
 
   const formattedDate = (date: string, time: string) => {
     const splitedDate = date.split("/");
@@ -150,13 +146,13 @@ const MeuPlano: React.FC = () => {
     return `${changedDate}T${time}:03.000-03:00`;
   };
 
-  console.log(
-    "Data:",
-    formattedDate(
-      new Date().toLocaleDateString(),
-      new Date().toLocaleTimeString()
-    )
-  );
+  // console.log(
+  //   "Data:",
+  //   formattedDate(
+  //     new Date().toLocaleDateString(),
+  //     new Date().toLocaleTimeString()
+  //   )
+  // );
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -165,8 +161,9 @@ const MeuPlano: React.FC = () => {
       formRef.current?.setErrors({});
 
       console.log("Aqui", officeId, plano, subscriptionId);
-
-      const responseProduct = await axios.get<{
+      // pega os plano do produto vindi
+      // ###########
+      const responseProduct = await api.get<{
         products: {
           id: number;
           name: string;
@@ -188,33 +185,44 @@ const MeuPlano: React.FC = () => {
           };
           metadata: {};
         }[];
-      }>(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/products?query=name=${plano.replace(
-          "promo",
-          "plano"
-        )}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
-        }
-      );
+      }>(`/vindi/produtos?query=name=${plano.replace("promo", "plano")}`);
+
+      // const responseProduct = await axios.get<{
+      //   products: {
+      //     id: number;
+      //     name: string;
+      //     code: null;
+      //     unit: string;
+      //     status: string;
+      //     description: string;
+      //     invoice: string;
+      //     created_at: string;
+      //     updated_at: string;
+      //     pricing_schema: {
+      //       id: number;
+      //       short_format: string;
+      //       price: string;
+      //       minimum_price: null;
+      //       schema_type: string;
+      //       pricing_ranges: [];
+      //       created_at: string;
+      //     };
+      //     metadata: {};
+      //   }[];
+      // }>(
+      //   `http://localhost:3333/vindi/produtos?query=name=${plano.replace(
+      //     "promo",
+      //     "plano"
+      //   )}`
+      // );
 
       console.log("ProductId", responseProduct.data.products[0].id);
-
+      //deletar o id do produto na vindi
       if (productItemId) {
-        await axios.delete(
-          `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/product_items/${productItemId}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Basic ${token64}`,
-            },
-          }
-        );
+        await api.delete(`/vindi/planos/deletar/${productItemId}`);
       }
 
+      console.log("product_id", responseProduct.data.products[0].id);
       const updatedSubscription = {
         product_id: responseProduct.data.products[0].id,
         subscription_id: subscriptionId,
@@ -222,15 +230,15 @@ const MeuPlano: React.FC = () => {
       };
 
       console.log("updatedSubscription", updatedSubscription);
-
-      const responseSubscriptions = await axios.post(
-        `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/product_items`,
+      //atualiza produto na vindi
+      const responseSubscriptions = await api.post(
+        `/vindi/produtos`,
         updatedSubscription,
         {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Basic ${token64}`,
-          },
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   Authorization: `Basic ${token64}`,
+          // },
         }
       );
 
@@ -249,6 +257,7 @@ const MeuPlano: React.FC = () => {
           },
         }
       );
+      history.push("/home");
       addToast({
         type: "sucess",
         title: "Plano atualizado com sucesso",
@@ -272,21 +281,16 @@ const MeuPlano: React.FC = () => {
   };
 
   const handleCancelSubscription = async () => {
-    await axios.delete(
-      `https://cors-anywhere.herokuapp.com/https://app.vindi.com.br/api/v1/subscriptions/${subscriptionId}`,
+    await api.delete(`vindi/planos/cancelar/${subscriptionId}`);
 
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Basic ${token64}`,
-        },
-      }
-    );
+    // await axios.delete(
+    //   `http://localhost:3333/vindi/planos/cancelar/${subscriptionId}`
+    // );
 
     await api.put(
       `escritorio/${officeId}`,
       {
-        status_plano: "desabilitado"
+        status_plano: "desabilitado",
       },
       {
         headers: {
@@ -303,23 +307,28 @@ const MeuPlano: React.FC = () => {
 
     setLoading(false);
   };
-function HandleConfirm(){
-  if (window.confirm("Você tem certeza que deseja cancelar o plano? Isso fará com que você seus escritórios e seus clientes percam o acesso ao aplicativo móvel.")) {
-    handleCancelSubscription()
-  } 
-    
-  
-}
-const [isShow, setIsShow] = useState(false);
-const [isShowMenu, setIsShowMenu] = useState(false);
-const { signOut } = useAuth();
+
+  async function handleConfirm() {
+    console.log("Estou aqui!");
+    const response = window.confirm(
+      "Você tem certeza que deseja cancelar o plano? Isso fará com que você seus escritórios e seus clientes percam o acesso ao aplicativo móvel."
+    );
+    if (response) {
+      await handleCancelSubscription();
+    }
+    signOut();
+  }
+
+  const [isShow, setIsShow] = useState(false);
+  const [isShowMenu, setIsShowMenu] = useState(false);
+  const { signOut } = useAuth();
   return (
     <>
-     <Header2>
-      <DropdownToggle onClick={() => setIsShowMenu(!isShowMenu)}>
-         <FiUser size={24} className="logo2" />
-         </DropdownToggle>
-      {isShowMenu && (
+      <Header2>
+        <DropdownToggle onClick={() => setIsShowMenu(!isShowMenu)}>
+          <FiUser size={24} className="logo2" />
+        </DropdownToggle>
+        {isShowMenu && (
           <DropdownContainer>
             <DropdownMenu>
               <DropdownItem>
@@ -393,16 +402,15 @@ const { signOut } = useAuth();
                 </PlansContainer>
               </PricingContainer>
               <ButtonsContainer>
-          
-              <CancelPlanButton
-                disabled={!planId && !productItemId}
-                onClick={HandleConfirm}
-                type="button"
-                isLoading={loading}
-              >
-                Cancelar Plano
-              </CancelPlanButton>
-              <ConfirmButton
+                <CancelPlanButton
+                  disabled={!planId && !productItemId}
+                  onClick={handleConfirm}
+                  type="button"
+                  isLoading={loading}
+                >
+                  Cancelar Plano
+                </CancelPlanButton>
+                <ConfirmButton
                   disabled={!planId && !productItemId}
                   type="submit"
                   isLoading={loading}
