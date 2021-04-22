@@ -210,7 +210,7 @@ const NovoCadastro: React.FC = () => {
             userId: response.data.usuario.id_usuario,
             username: response.data.usuario.nome,
             userEmail: data.email,
-            userPhone: data.telefone.replace(/[ ]|[()-]/g, ""),
+            userPhone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
             userPassword: data.senha,
             isPromo,
           });
@@ -222,7 +222,7 @@ const NovoCadastro: React.FC = () => {
           userId: response.data.usuario.id_usuario,
           username: response.data.usuario.nome,
           userEmail: data.email,
-          userPhone: data.telefone.replace(/[ ]|[()-]/g, ""),
+          userPhone: "55" + data.telefone.replace(/[ ]|[()-]/g, ""),
           userPassword: data.senha,
           isPromo,
         });

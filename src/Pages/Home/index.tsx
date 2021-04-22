@@ -149,14 +149,16 @@ const Home: React.FC = () => {
   async function fetchAPI() {
     const response = await api.get(`escritorios?email=${user?.email}`);
 
-    console.log("response", response.data[0]);
+    console.log("responsee", response.data[0]);
+
     const {
       plano,
       id_escritorio,
       data_final_trial,
       telefone,
     } = response.data[0];
-
+    console.log("data finale igual a", data_final_trial);
+    setEndDate(data_final_trial);
     console.log("plano", plano);
     const data_obj = {
       plano: plano ? plano : "plano1",
@@ -270,6 +272,7 @@ const Home: React.FC = () => {
   const plans = ["plano1", "plano2", "plano3", "promo1", "promo2", "promo3"];
 
   useEffect(() => {
+    console.log("aqui a valor que vc quer" + endDate);
     if (isTrial && endDate.length !== 0) {
       const today = new Date(
         convertISOToFormattedDate(new Date(Date.now()).toISOString())

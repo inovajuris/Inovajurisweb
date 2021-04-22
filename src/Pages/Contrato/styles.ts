@@ -322,7 +322,7 @@ export const Blue = styled.div`
           button {
             width: fit-content;
             padding: 0 16px;
-            width: 90%;
+            width: 100%;
             height: 45px;
             text-align: center;
           }

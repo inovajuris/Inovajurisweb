@@ -331,7 +331,7 @@ const Testenovocadastro: React.FC = () => {
     : new Date(new Date().getTime() + 31_536_000_000).toISOString();
   const endTrialDate = amountDays
     ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
-    : new Date(new Date().getTime() + 1_209_600_000).toISOString();
+    : new Date(new Date().getTime() + 1_814_400_000).toISOString();
 
   const startDate = new Date(new Date()).toISOString();
 

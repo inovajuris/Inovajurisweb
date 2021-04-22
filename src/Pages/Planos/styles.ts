@@ -22,6 +22,16 @@ export const Container = styled.div`
   max-width: 1050px;
   max-height: 700px;
   height: 560px;
+  @media (max-width: 576px) {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    max-width: 1050px;
+    max-height: 700px;
+    height: 520px;
+  }
 `;
 
 export const Main = styled.main`
@@ -38,6 +48,14 @@ export const FormContainer = styled(Form)`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    height: 1650px;
+  }
 `;
 
 export const PricingContainer = styled.section`
@@ -61,7 +79,7 @@ export const PlansContainer = styled.div`
 
   @media (min-width: 576px) {
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 10px;
   }
 
   @media (min-width: 900px) {
@@ -129,6 +147,13 @@ export const Offer = styled.li`
   line-height: 29px;
   font-weight: 500;
   color: #ffffff;
+  @media (max-width: 576px) {
+    list-style: none;
+    font-size: 14px;
+    line-height: 33px;
+    font-weight: 500;
+    color: #ffffff;
+  }
 `;
 
 export const ConfirmButton = styled(Button)`
@@ -138,8 +163,9 @@ export const ConfirmButton = styled(Button)`
   margin-top: -1%;
 
   @media (max-width: 576px) {
-    width: 90%;
-    max-width: 330px;
+    width: 100%;
+    max-width: 370px;
+
     height: 40px;
   }
 `;
