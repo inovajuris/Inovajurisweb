@@ -215,7 +215,12 @@ const Dados: React.FC = () => {
         pais: "Brasil",
         cep: address.cep,
       };
-      console.log("estamos querendo ver esse coneole" + tel);
+
+      let telefoneFormatado = tel
+        .replace(/\D/g, "")
+        .replace(/(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d)/, "$1-$2");
+      console.log("estamos querendo ver esse console" + telefoneFormatado);
       const vindiData = {
         name: name,
         code: officeId,
@@ -231,8 +236,8 @@ const Dados: React.FC = () => {
         },
         phones: [
           {
-            phone_type: tel.length === 10 ? "landline" : "mobile",
-            number: tel,
+            phone_type: telefoneFormatado.length === 10 ? "landline" : "mobile",
+            number: telefoneFormatado,
           },
         ],
       };
@@ -306,7 +311,7 @@ const Dados: React.FC = () => {
           userId,
           userEmail,
           userPassword,
-          userPhone,
+          userPhone: telefoneFormatado,
           username,
           token,
           isPromo,
@@ -318,8 +323,8 @@ const Dados: React.FC = () => {
         phones: [
           {
             id: phoneId,
-            phone_type: tel.length === 10 ? "landline" : "mobile",
-            number: tel,
+            phone_type: telefoneFormatado.length === 10 ? "landline" : "mobile",
+            number: telefoneFormatado,
           },
         ],
       };
@@ -341,7 +346,7 @@ const Dados: React.FC = () => {
         `escritorio/${officeId}`,
         {
           nome: name,
-          telefone: tel.replace(/[ ]|[()-]/g, ""),
+          telefone: telefoneFormatado.replace(/[ ]|[()-]/g, ""),
           tipo_documento: documentType.toLowerCase(),
           documento: documentNumber.replace(/[/.-]/g, ""),
         },
@@ -369,7 +374,7 @@ const Dados: React.FC = () => {
         userId,
         userEmail,
         userPassword,
-        userPhone,
+        userPhone: telefoneFormatado,
         username,
         token,
         isPromo,

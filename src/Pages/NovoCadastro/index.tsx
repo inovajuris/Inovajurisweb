@@ -201,7 +201,10 @@ const NovoCadastro: React.FC = () => {
         // console.log("TOKEN", response.data);
         // console.log(responseOffice.data);
         // console.log(data.nome + "nome aqui");
-
+        let telefoneFormatado = data.telefone
+          .replace(/\D/g, "")
+          .replace(/(\d{2})(\d)/, "($1) $2")
+          .replace(/(\d{5})(\d)/, "$1-$2");
         if (isPromo) {
           return history.push("/contrato", {
             plano,
@@ -210,7 +213,7 @@ const NovoCadastro: React.FC = () => {
             userId: response.data.usuario.id_usuario,
             username: response.data.usuario.nome,
             userEmail: data.email,
-            userPhone: data.telefone.replace(/[ ]|[()-]/g, ""),
+            userPhone: telefoneFormatado,
             userPassword: data.senha,
             isPromo,
           });
@@ -222,7 +225,7 @@ const NovoCadastro: React.FC = () => {
           userId: response.data.usuario.id_usuario,
           username: response.data.usuario.nome,
           userEmail: data.email,
-          userPhone: data.telefone.replace(/[ ]|[()-]/g, ""),
+          userPhone: telefoneFormatado,
           userPassword: data.senha,
           isPromo,
         });
