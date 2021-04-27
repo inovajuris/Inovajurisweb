@@ -184,8 +184,11 @@ const Testenovocadastro: React.FC = () => {
 
         const schema = Yup.object().shape({
           nome: Yup.string().required("Nome é obrigatório"),
-          telefone: Yup.string().required("Telefone é obrigatório"),
+          telefone: Yup.string()
+            .required("Telefone é obrigatório")
+            .min(12, "Telefone tem que ter no minimo 8 dígitos"),
           email: Yup.string().required("E-mail é obrigatório"),
+
           senha: Yup.string()
             .trim()
             .matches(
@@ -224,8 +227,8 @@ const Testenovocadastro: React.FC = () => {
           documento: "",
           nome: data.nome,
           plano: plano === "beta" ? "beta" : planos,
-          data_inicio_plano: startDate,
-          data_final_trial: plano === "beta" ? endBetaDate : endTrialDate,
+          // data_inicio_plano: startDate,
+          // data_final_trial: plano === "beta" ? endBetaDate : endTrialDate,
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,

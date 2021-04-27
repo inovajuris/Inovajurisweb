@@ -142,7 +142,7 @@ const NovoCadastro: React.FC = () => {
           email: Yup.string().required("E-mail é obrigatório"),
           telefone: Yup.string()
             .required("Telefone é obrigatório")
-            .length(14, "Telefone tem que ter 10 dígitos"),
+            .min(12, "Telefone tem que ter no minimo 8 dígitos"),
           senha: Yup.string()
             .trim()
             .matches(
@@ -173,8 +173,8 @@ const NovoCadastro: React.FC = () => {
           nome: data.nome,
           documento: "cnpj",
           plano: plano,
-          data_inicio_plano: dataFormatadaInicio,
-          data_final_trial: dataFormatadaFim,
+          // data_inicio_plano: dataFormatadaInicio,
+          // data_final_trial: dataFormatadaFim,
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,

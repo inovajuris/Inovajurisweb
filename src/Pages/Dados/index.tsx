@@ -180,6 +180,10 @@ const Dados: React.FC = () => {
           ),
         // telefone: Yup.string().required("Telefone é obrigatório"),
         cep: Yup.string().required("CEP é obrigatório"),
+        telefone: Yup.string().min(
+          12,
+          "Telefone tem que ter no minimo 8 dígitos"
+        ),
         logradouro: Yup.string().required("Logradouro é obrigatório"),
         bairro: Yup.string().required("Bairro é obrigatório"),
         cidade: Yup.string().required("Cidade é obrigatório"),

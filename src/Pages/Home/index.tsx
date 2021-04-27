@@ -156,8 +156,10 @@ const Home: React.FC = () => {
       id_escritorio,
       data_final_trial,
       telefone,
+      qtde_dias_faltando,
     } = response.data[0];
     console.log("data finale igual a", data_final_trial);
+    console.log("quantidade de dias faltando e iguak a", qtde_dias_faltando);
     setEndDate(data_final_trial);
     console.log("plano", plano);
     const data_obj = {
