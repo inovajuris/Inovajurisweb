@@ -692,7 +692,7 @@ export const Blue = styled.div`
       height: 940px;
 
       margin-top: 100px;
-      background-color: red;
+
       .radio {
         display: flex;
         justify-content: center;

@@ -671,6 +671,7 @@ export const Blue = styled.div`
         }
         .resumo {
           margin-top: -5%;
+          margin-left: -2%;
           display: flex;
           flex-direction: column;
           justify-content: center;
