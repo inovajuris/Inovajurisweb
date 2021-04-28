@@ -15,7 +15,6 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   z-index: 9999;
-
   .btnimg {
     outline: 0;
     cursor: pointer;
@@ -45,7 +44,6 @@ export const NavLink = styled(Link)`
   &.active {
     color: #74469a;
   }
-
   &:hover {
     color: #941af9;
     text-decoration: underline;
@@ -86,7 +84,6 @@ export const NavBtnLink = styled(Link)`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   white-space: nowrap;
-
   svg {
     color: #000;
   }
@@ -121,7 +118,6 @@ export const DropdownContainer = styled.div`
   top: 76px;
   width: 100%;
   max-width: 320px;
-
   z-index: 9999;
   background: #74469a;
   border: 0;
@@ -132,12 +128,10 @@ export const DropdownContainer = styled.div`
   display: flex;
   align-items: center;
   animation: drop 0.5s ease;
-
   @keyframes drop {
     0% {
       transform: translateX(160px);
     }
-
     100% {
       transform: translateX(0);
     }
@@ -161,19 +155,16 @@ export const DropdownItem = styled.button`
   border: 0;
   outline: 0;
   color: #ffffff;
-
   &:hover {
     margin-left: 0%;
     background: #941af9;
     cursor: pointer;
   }
-
   hr {
     width: 100%;
     height: 1px;
     background-color: #fff;
   }
-
   a {
     color: #fff;
     font-weight: 500;

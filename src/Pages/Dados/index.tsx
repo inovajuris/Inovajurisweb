@@ -128,6 +128,7 @@ const Dados: React.FC = () => {
     complemento: "",
   });
   const [name, setName] = useState(username);
+  const [tel, setTelefone] = useState(userPhone);
   const [documentNumber, setDocumentNumber] = useState("");
   const [selectedUF, setSelectedUF] = useState("0");
   const [selectedCity, setSelectedCity] = useState("0");
@@ -177,7 +178,12 @@ const Dados: React.FC = () => {
             lengthDocumentNumber,
             `O Tamanho do ${documentType} tem que ser ${lengthDocumentNumber}`
           ),
+        // telefone: Yup.string().required("Telefone é obrigatório"),
         cep: Yup.string().required("CEP é obrigatório"),
+        telefone: Yup.string().min(
+          12,
+          "Telefone tem que ter no minimo 8 dígitos"
+        ),
         logradouro: Yup.string().required("Logradouro é obrigatório"),
         bairro: Yup.string().required("Bairro é obrigatório"),
         cidade: Yup.string().required("Cidade é obrigatório"),
@@ -214,8 +220,13 @@ const Dados: React.FC = () => {
         cep: address.cep,
       };
 
+      let telefoneFormatado = tel
+        .replace(/\D/g, "")
+        .replace(/(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d)/, "$1-$2");
+      console.log("estamos querendo ver esse console" + telefoneFormatado);
       const vindiData = {
-        name,
+        name: name,
         code: officeId,
         email: userEmail,
         address: {
@@ -229,8 +240,8 @@ const Dados: React.FC = () => {
         },
         phones: [
           {
-            phone_type: "mobile",
-            number: userPhone,
+            phone_type: telefoneFormatado.length === 10 ? "landline" : "mobile",
+            number: telefoneFormatado,
           },
         ],
       };
@@ -254,8 +265,10 @@ const Dados: React.FC = () => {
         //   }
         // );
         console.log("AQUIII");
+
         const responseVindi = await api.post<VindiCustomerResponse>(
           "vindi/clientes",
+
           vindiData,
           {
             headers: {
@@ -272,10 +285,12 @@ const Dados: React.FC = () => {
 
         await api.put(
           `escritorio/${officeId}`,
+
           {
             tipo_documento: documentType.toLowerCase(),
             documento: documentNumber.replace(/[/.-]/g, ""),
           },
+
           {
             headers: {
               "Content-Type": "application/json",
@@ -283,7 +298,7 @@ const Dados: React.FC = () => {
             },
           }
         );
-
+        console.log(tel);
         await api.post("enderecos", addressData, {
           headers: {
             "Content-Type": "application/json",
@@ -300,7 +315,7 @@ const Dados: React.FC = () => {
           userId,
           userEmail,
           userPassword,
-          userPhone,
+          userPhone: telefoneFormatado,
           username,
           token,
           isPromo,
@@ -312,12 +327,12 @@ const Dados: React.FC = () => {
         phones: [
           {
             id: phoneId,
-            phone_type: "mobile",
-            number: userPhone,
+            phone_type: telefoneFormatado.length === 10 ? "landline" : "mobile",
+            number: telefoneFormatado,
           },
         ],
       };
-      console.log("oi");
+      console.log("oi22");
 
       // await axios.put<VindiCustomerResponse>(
       //   `https://app.vindi.com.br/api/v1/customers/${customerId}`,
@@ -334,6 +349,8 @@ const Dados: React.FC = () => {
       await api.put(
         `escritorio/${officeId}`,
         {
+          nome: name,
+          telefone: telefoneFormatado.replace(/[ ]|[()-]/g, ""),
           tipo_documento: documentType.toLowerCase(),
           documento: documentNumber.replace(/[/.-]/g, ""),
         },
@@ -361,7 +378,7 @@ const Dados: React.FC = () => {
         userId,
         userEmail,
         userPassword,
-        userPhone,
+        userPhone: telefoneFormatado,
         username,
         token,
         isPromo,
@@ -431,7 +448,7 @@ const Dados: React.FC = () => {
         .catch((e) => console.log("Deu Erro: " + e.message));
     });
   }
-
+  console.log("aqui telefone" + tel);
   const handleAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setAddress({
@@ -534,17 +551,42 @@ const Dados: React.FC = () => {
                 </div>
               </div>
               <div className="div2">
-                <div className="input3">
-                  <h2>CEP</h2>
-                  <Input
-                    className="input"
-                    maxLength={9}
-                    name="cep"
-                    id="cep"
-                    type="text"
-                    placeholder="CEP"
-                    onChange={handleCep}
-                  />
+                <div className="div3dois">
+                  <div className="input3dois">
+                    <h2>Telefone</h2>
+                    <Input
+                      className="input"
+                      name="telefone"
+                      type="text"
+                      value={tel}
+                      maxLength={15}
+                      onKeyUp={(e) => {
+                        const value = e.currentTarget.value
+                          .replace(/\D/g, "")
+                          .replace(/(\d{2})(\d)/, "($1) $2")
+                          .replace(/(\d{5})(\d)/, "$1-$2");
+
+                        e.currentTarget.value = value;
+                        return e;
+                      }}
+                      preffix
+                      placeholder="(xx) xxxxx-xxxx"
+                      onChange={(e) => setTelefone(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="input3tres">
+                    <h2>CEP</h2>
+                    <Input
+                      className="input"
+                      maxLength={9}
+                      name="cep"
+                      id="cep"
+                      type="text"
+                      placeholder="CEP"
+                      onChange={handleCep}
+                    />
+                  </div>
                 </div>
                 <div className="input4">
                   <h2>Logradouro</h2>

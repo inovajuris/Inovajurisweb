@@ -39,6 +39,7 @@ import * as Yup from "yup";
 
 import getValidationErrors from "../../utils/getValidationErros";
 import Input from "../../Components/Input";
+import Select from "../../Components/Select";
 import Button from "../../Components/Button";
 import { useToast } from "../../hooks/toast";
 import { useAuth } from "../../hooks/auth";
@@ -184,8 +185,12 @@ const Testenovocadastro: React.FC = () => {
 
         const schema = Yup.object().shape({
           nome: Yup.string().required("Nome é obrigatório"),
-          telefone: Yup.string().required("Telefone é obrigatório"),
+          telefone: Yup.string()
+            .required("Telefone é obrigatório")
+            .min(12, "Telefone tem que ter no minimo 8 dígitos"),
           email: Yup.string().required("E-mail é obrigatório"),
+          // tipoPerfil: Yup.string().required("Tipo do perfil é obrigatório"),
+          qtd: Yup.string().required("Tipo advogado é obrigatório"),
           senha: Yup.string()
             .trim()
             .matches(
@@ -205,9 +210,16 @@ const Testenovocadastro: React.FC = () => {
           email: data.email,
           nome: data.nome,
           senha: data.senha,
-          perfil,
+          perfil: perfil,
         });
 
+        if (!tipoPerfil) {
+          alert("Tipo advogado é obrigatório");
+          setLoading(false);
+          return;
+        }
+        console.log("veja esse console aqui e da data" + JSON.stringify(data));
+        console.log("veja esse console aqui e perfil" + perfil);
         const response = await api.post<{
           token: string;
           usuario: UserResponse;
@@ -217,6 +229,7 @@ const Testenovocadastro: React.FC = () => {
           senha: data.senha,
           perfil,
         });
+
         console.log("veja esse console aqui man" + response.data);
 
         const sendOfficeData = {
@@ -224,8 +237,8 @@ const Testenovocadastro: React.FC = () => {
           documento: "",
           nome: data.nome,
           plano: plano === "beta" ? "beta" : planos,
-          data_inicio_plano: startDate,
-          data_final_trial: plano === "beta" ? endBetaDate : endTrialDate,
+          // data_inicio_plano: startDate,
+          // data_final_trial: plano === "beta" ? endBetaDate : endTrialDate,
           tipo_pag: "cartao_credito",
           nick_name: data.nome,
           email: data.email,
@@ -266,7 +279,8 @@ const Testenovocadastro: React.FC = () => {
           title: "Cadastro realizado com sucesso",
         });
       } catch (err) {
-        console.log(err);
+        const { erro } = JSON.parse(err.response.request._response);
+        console.log("aquii o erroo" + erro);
         setLoading(false);
         if (err instanceof Yup.ValidationError) {
           console.log(err);
@@ -296,11 +310,20 @@ const Testenovocadastro: React.FC = () => {
   function handlePlano({ target }: React.ChangeEvent<HTMLSelectElement>) {
     switch (target.value) {
       case "1":
-        return setTipoPlanos("trial1"), setQtdAdvogados("1");
+        return (
+          setTipoPlanos("trial1"),
+          setQtdAdvogados("1"),
+          setTipoPerfl("autonomo")
+        );
+
       case "3":
-        return setTipoPlanos("trial2"), setQtdAdvogados("3");
+        return (
+          setTipoPlanos("trial2"), setQtdAdvogados("3"), setTipoPerfl("admin")
+        );
       case "6":
-        return setTipoPlanos("trial3"), setQtdAdvogados("6");
+        return (
+          setTipoPlanos("trial3"), setQtdAdvogados("6"), setTipoPerfl("admin")
+        );
       default:
         setTipoPlanos("");
     }
@@ -325,37 +348,16 @@ const Testenovocadastro: React.FC = () => {
     setGender(e.target.value);
   };
 
-  console.log("amountDays", amountDays);
-  const endBetaDate = amountDays
-    ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
-    : new Date(new Date().getTime() + 31_536_000_000).toISOString();
-  const endTrialDate = amountDays
-    ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
-    : new Date(new Date().getTime() + 1_209_600_000).toISOString();
+  // console.log("amountDays", amountDays);
+  // const endBetaDate = amountDays
+  //   ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
+  //   : new Date(new Date().getTime() + 31_536_000_000).toISOString();
+  // const endTrialDate = amountDays
+  //   ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
+  //   : new Date(new Date().getTime() + 1_814_400_000).toISOString();
 
-  const startDate = new Date(new Date()).toISOString();
+  // const startDate = new Date(new Date()).toISOString();
 
-  // console.log("startDate", startDate);
-  // console.log("endDate", endDate);
-
-  function converteData(
-    data: String,
-    divisorPraSeparar: String,
-    divisorPraColocar: String
-  ) {
-    const temp = data.split(`${divisorPraSeparar}`);
-    // console.log("data", temp);
-    const ano = temp[2].split(" ");
-    const dataBanco =
-      ano[0] +
-      `${divisorPraColocar}` +
-      temp[1] +
-      `${divisorPraColocar}` +
-      temp[0];
-    return dataBanco;
-  }
-  // console.log(dataFormatadaInicio + "esse");
-  // console.log(dataFormatadaFim + "esse");
   return (
     <div>
       <Header2 />
@@ -443,11 +445,11 @@ const Testenovocadastro: React.FC = () => {
                   placeholder="6 dígitos, mínimo uma letra e um número"
                   onChange={(e) => setSenha(e.target.value)}
                 />
+
                 <div className="div4">
                   <div className="input9">
                     <h2>Advogado</h2>
-
-                    <select
+                    <Select
                       onChange={handleEscritorio}
                       className="inputsel1"
                       name="qtd"
@@ -462,7 +464,7 @@ const Testenovocadastro: React.FC = () => {
                       <option id="admin" value="admin">
                         Escritorio
                       </option>
-                    </select>
+                    </Select>
                   </div>
 
                   <div className="input9">
@@ -519,9 +521,6 @@ const Testenovocadastro: React.FC = () => {
             </Form>
           </div>
         </Blue>
-        {/* <button onClick={togglePasswordVisiblity} type="button" className="eye">
-        {passwordShown ? <FiEye size={21} /> : <FiEyeOff size={21} />}
-      </button> */}
       </Container>
     </div>
   );

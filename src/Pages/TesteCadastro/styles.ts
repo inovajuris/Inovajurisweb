@@ -408,8 +408,16 @@ export const Blue = styled.div`
     width: 90%;
     height: 700px;
 
-    margin-top: 5px;
-
+    margin-top: 0px;
+    .inputsel1 {
+      width: 100%;
+      padding-top: 7px;
+      margin-right: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     .formBox {
       display: flex;
 
@@ -420,33 +428,8 @@ export const Blue = styled.div`
       background-color: #ffffff;
 
       border-radius: 0px 5px 5px 0px;
-
-      .redessociais {
-        position: relative;
-        display: flex;
-        align-items: center;
-
-        .btngoogle {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 60.5px;
-          margin-top: 8px;
-
-          cursor: pointer;
-        }
-
-        .facebook {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 8px;
-          width: 64.5px;
-
-          cursor: pointer;
-        }
-      }
     }
+
     h2 {
       color: #141414;
       width: 100%;
@@ -456,18 +439,17 @@ export const Blue = styled.div`
       margin-top: 13px;
     }
     h3 {
-      margin-top: 16px;
+      margin-top: 160px;
       font-size: 28px;
       text-align: center;
       font-weight: 400;
     }
     .radio {
       display: flex;
+      align-items: center;
       justify-content: center;
       flex-direction: row;
-      width: 100%;
-
-      margin-right: 0%;
+      width: 120%;
 
       margin-top: 40%;
       .pessoafisica {
@@ -498,12 +480,13 @@ export const Blue = styled.div`
     }
 
     form {
-      margin-top: -5%;
+      margin-top: -7%;
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
       height: 100%;
+
       .input1 {
         width: 100%;
         display: flex;
@@ -518,6 +501,7 @@ export const Blue = styled.div`
         height: 45px;
         text-align: center;
       }
+
       input {
         width: fit-content;
 
@@ -548,7 +532,7 @@ export const Blue = styled.div`
           }
         }
       }
-      .esqueci {
+      .possuilogin {
         width: 100%;
         margin-top: 0px;
         a {

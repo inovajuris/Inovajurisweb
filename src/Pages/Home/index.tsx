@@ -132,12 +132,12 @@ const Home: React.FC = () => {
   const [isTrial, setIsTrial] = useState(false);
   const [daysRemaining, setDaysRemaining] = useState(14);
   const [data, setData] = useState({});
+  const [qtadeDias, setqtadeDias] = useState(0);
   const [officeData, setOfficeData] = useState<{
     id_escritorio: number;
     telefone: number;
   }>();
 
-  const [endDate, setEndDate] = useState("");
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
@@ -149,14 +149,23 @@ const Home: React.FC = () => {
   async function fetchAPI() {
     const response = await api.get(`escritorios?email=${user?.email}`);
 
-    console.log("response", response.data[0]);
+    console.log("responsee2", response.data[0]);
+
     const {
       plano,
       id_escritorio,
       data_final_trial,
       telefone,
+      qtde_dias_faltando,
     } = response.data[0];
+    console.log("data finale igual ", data_final_trial);
+    console.log(
+      "quantidade de dias faltando e igual olha aqui",
+      qtde_dias_faltando
+    );
 
+    setqtadeDias(qtde_dias_faltando);
+    //date começa recebendo a data final
     console.log("plano", plano);
     const data_obj = {
       plano: plano ? plano : "plano1",
@@ -240,7 +249,9 @@ const Home: React.FC = () => {
     }
 
     // console.log("data_final_trial", data_final_trial);
-    setEndDate(data_final_trial);
+    // setEndDate(data_final_trial);
+    //denovo end date recebe data final
+    console.log("segunda vez que aparece" + qtde_dias_faltando);
   }
 
   useEffect(() => {
@@ -270,35 +281,35 @@ const Home: React.FC = () => {
   const plans = ["plano1", "plano2", "plano3", "promo1", "promo2", "promo3"];
 
   useEffect(() => {
-    if (isTrial && endDate.length !== 0) {
-      const today = new Date(
-        convertISOToFormattedDate(new Date(Date.now()).toISOString())
-      ).getTime();
+    if (qtadeDias === 0 && isTrial) {
+      console.log(data);
+      const plans2 = "plano2";
+      history.replace("/planos", [data, plans2]);
 
-      const formattedEndDate = new Date(endDate).getTime() + 3_600_000 * 3;
-      const difference = formattedEndDate - today;
-
-      const remaining =
-        difference < 0 ? 0 : Number((difference / 86_400_000).toFixed(0));
-      console.log("remaining", remaining);
-      setDaysRemaining(remaining);
-
-      if (remaining === 0 && isTrial) {
-        console.log(data);
-        const plans2 = "plano2";
-        history.replace("/planos", [data, plans2]);
-
-        addToast({
-          type: "info",
-          title: "Seu tempo de teste acabou",
-          description: "você será redirecionado para a tela de planos",
-        });
-      }
+      addToast({
+        type: "info",
+        title: "Seu tempo de teste acabou",
+        description: "você será redirecionado para a tela de planos",
+      });
     }
-  }, [isTrial, endDate, data]);
+    // if (isTrial && qtadeDias) {
+    //   // const today = new Date(
+    //   //   convertISOToFormattedDate(new Date(Date.now()).toISOString())
+    //   // ).getTime();
 
-  const convertISOToFormattedDate = (date: string) =>
-    `${date.split("T")[0]}T00:00:00Z`;
+    //   // const formattedEndDate = new Date(endDate).getTime() + 3_600_000 * 3;
+    //   // const difference = formattedEndDate - today;
+
+    //   // const remaining =
+    //   //   difference < 0 ? 0 : Number((difference / 86_400_000).toFixed(0));
+    //   // console.log("remaining", remaining);
+    //   // setDaysRemaining(remaining);
+
+    // }
+  }, [isTrial, qtadeDias, data]);
+
+  // const convertISOToFormattedDate = (date: string) =>
+  //   `${date.split("T")[0]}T00:00:00Z`;
 
   // console.log("isTrial", isTrial);
 
@@ -341,9 +352,9 @@ const Home: React.FC = () => {
       <Container>
         <Main>
           <MainHeader>
-            {daysRemaining !== 0 && isTrial && (
+            {qtadeDias !== 0 && isTrial && (
               <RemainingDaysText>
-                {daysRemaining} dias para o fim do Teste Grátis
+                {qtadeDias + 1} dias para o fim do Teste Grátis
               </RemainingDaysText>
             )}
             {isTrial && (

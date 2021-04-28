@@ -160,7 +160,31 @@ export const Blue = styled.div`
       align-items: stretch;
 
       width: 80%;
+      .div3dois {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
 
+        width: 85%;
+
+        .input3dois {
+          width: 47%;
+          margin-left: 80px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .input3tres {
+          width: 35.5%;
+          margin-right: 2px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
       .input3 {
         width: 30%;
         margin-left: 80px;
@@ -461,13 +485,31 @@ export const Blue = styled.div`
       }
 
       .div2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: stretch;
+        .div3dois {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
 
-        width: 80%;
+          width: 80%;
 
+          .input3dois {
+            width: 47%;
+            margin-left: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .input3tres {
+            width: 37%;
+            margin-right: -17px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+        }
         .input3 {
           width: 30%;
           margin-left: 80px;
@@ -650,6 +692,7 @@ export const Blue = styled.div`
       height: 940px;
 
       margin-top: 100px;
+      background-color: red;
       .radio {
         display: flex;
         justify-content: center;
@@ -662,34 +705,9 @@ export const Blue = styled.div`
 
         justify-content: center;
         flex-direction: column;
-        width: 100%;
+        width: 500px;
 
         border-radius: 0px 5px 5px 0px;
-
-        .redessociais {
-          position: relative;
-          display: flex;
-          align-items: center;
-
-          .btngoogle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60.5px;
-            margin-top: 8px;
-
-            cursor: pointer;
-          }
-          .facebook {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 8px;
-            width: 64.5px;
-
-            cursor: pointer;
-          }
-        }
       }
       h2 {
         color: #141414;
@@ -768,7 +786,55 @@ export const Blue = styled.div`
           align-items: stretch;
 
           width: 100%;
+          /* .div3dois {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
 
+            width: 100%;
+
+            .input3dois {
+              width: 100%;
+              margin-left: 0px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            }
+            .input3tres {
+              width: 100%;
+              margin-right: 0px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            }
+          } */
+          .div3dois {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+
+            width: 100%;
+            .input3dois {
+              width: 100%;
+              margin-left: 0px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: stretch;
+            }
+            .input3tres {
+              width: 100%;
+              margin-left: 0px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: stretch;
+            }
+          }
           .input3 {
             width: 100%;
             margin-left: 0px;

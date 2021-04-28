@@ -21,12 +21,26 @@ export const MainHeader = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 export const RemainingDaysText = styled.h2`
   font-size: 22px;
   margin-left: -1px;
   color: #fe2e2e;
   font-weight: 400;
+  @media (max-width: 576px) {
+    display: flex;
+    margin-top: -20px;
+    margin-left: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 export const ButtonCompra = styled.button`
   margin-left: 350px;
@@ -48,6 +62,25 @@ export const ButtonCompra = styled.button`
  -webkit-text-fill-color:transparent; */
 
   font-weight: 500;
+  @media (max-width: 576px) {
+    margin-left: 0px;
+    margin-top: 10px;
+    font-size: 22px;
+    color: #941af9;
+    cursor: pointer;
+    outline: 0;
+    width: 200px;
+    height: 45px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    /* box-shadow: 0px 0px 10px #000; */
+    border: 2px solid #941af9;
+    background: transparent;
+    /* -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent; */
+  }
   &:hover {
     /* background: -webkit-linear-gradient(left,#e95a0c, #e13d8d ,#694896,#2e1f43 ); */
     background-color: #941af9;
@@ -61,6 +94,12 @@ export const DateContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 export const DateText = styled.h3`
   font-size: 18px;
