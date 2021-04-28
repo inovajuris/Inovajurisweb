@@ -332,7 +332,7 @@ const Dados: React.FC = () => {
           },
         ],
       };
-      console.log("oi");
+      console.log("oi22");
 
       // await axios.put<VindiCustomerResponse>(
       //   `https://app.vindi.com.br/api/v1/customers/${customerId}`,

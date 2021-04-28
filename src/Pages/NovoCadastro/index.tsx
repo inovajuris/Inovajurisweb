@@ -1,29 +1,16 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import { FiArrowLeft } from "react-icons/fi";
+import React, { useState, useCallback, useRef } from "react";
+
 import { FiLock } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 import { FiPhoneCall } from "react-icons/fi";
 import { FiUser } from "react-icons/fi";
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
-import { FiEyeOff } from "react-icons/fi";
-import { FiEye } from "react-icons/fi";
+
 import Header2 from "../../Components/Header";
-import FacebookLogin from "react-facebook-login";
-import {
-  GoogleLoginResponse,
-  GoogleLoginResponseOffline,
-} from "react-google-login";
-import { Link, useHistory } from "react-router-dom";
-import {
-  Container,
-  Blue,
-  Lockicon1,
-  Draw,
-  GoogleLogin,
-  Googleicon,
-  Facebokcion,
-} from "./styles";
+
+import { useHistory } from "react-router-dom";
+import { Container, Blue } from "./styles";
 import api from "../../services/api";
 import * as Yup from "yup";
 
@@ -107,16 +94,16 @@ const NovoCadastro: React.FC = () => {
   const { signIn, setAuthData } = useAuth();
   console.log(useParams());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
   const [name, setName] = useState("");
   const [tel, setTelefone] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [url, setUrl] = useState("");
-  const [errorE, setErrorE] = useState([""]);
-  const [errorS, setErrorS] = useState([""]);
-  const [passwordError, setPasswordError] = useState("");
-  const [passwordShown, setPasswordShown] = useState(false);
+  // const [url, setUrl] = useState("");
+  // const [errorE, setErrorE] = useState([""]);
+  // const [errorS, setErrorS] = useState([""]);
+  // const [passwordError, setPasswordError] = useState("");
+  // const [passwordShown, setPasswordShown] = useState(false);
   const [inputType, setInputType] = useState("password");
   const [gender, setGender] = useState("cpf");
 
@@ -271,31 +258,31 @@ const NovoCadastro: React.FC = () => {
     [addToast]
   );
 
-  const endDate = new Date(
-    new Date().getTime() + 1_209_600_000
-  ).toLocaleString();
-  const startDate = new Date(new Date()).toLocaleString();
-  const dataFormatadaInicio = converteData(startDate, "/", "-");
-  const dataFormatadaFim = converteData(endDate, "/", "-");
-  // console.log(startDate);
-  // console.log(endDate);
+  // const endDate = new Date(
+  //   new Date().getTime() + 1_209_600_000
+  // ).toLocaleString();
+  // const startDate = new Date(new Date()).toLocaleString();
+  // const dataFormatadaInicio = converteData(startDate, "/", "-");
+  // const dataFormatadaFim = converteData(endDate, "/", "-");
+  // // console.log(startDate);
+  // // console.log(endDate);
 
-  function converteData(
-    data: String,
-    divisorPraSeparar: String,
-    divisorPraColocar: String
-  ) {
-    const temp = data.split(`${divisorPraSeparar}`);
-    // console.log("data", temp);
-    const ano = temp[2].split(" ");
-    const dataBanco =
-      ano[0] +
-      `${divisorPraColocar}` +
-      temp[1] +
-      `${divisorPraColocar}` +
-      temp[0];
-    return dataBanco;
-  }
+  // function converteData(
+  //   data: String,
+  //   divisorPraSeparar: String,
+  //   divisorPraColocar: String
+  // ) {
+  //   const temp = data.split(`${divisorPraSeparar}`);
+  //   // console.log("data", temp);
+  //   const ano = temp[2].split(" ");
+  //   const dataBanco =
+  //     ano[0] +
+  //     `${divisorPraColocar}` +
+  //     temp[1] +
+  //     `${divisorPraColocar}` +
+  //     temp[0];
+  //   return dataBanco;
+  // }
   // console.log(dataFormatadaInicio + "esse");
   // console.log(dataFormatadaFim + "esse");
 
