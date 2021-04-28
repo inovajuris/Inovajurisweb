@@ -281,7 +281,7 @@ const Home: React.FC = () => {
   const plans = ["plano1", "plano2", "plano3", "promo1", "promo2", "promo3"];
 
   useEffect(() => {
-    if (qtadeDias === 0 && isTrial) {
+    if (qtadeDias < 0 && isTrial) {
       console.log(data);
       const plans2 = "plano2";
       history.replace("/planos", [data, plans2]);
