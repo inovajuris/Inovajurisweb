@@ -189,8 +189,10 @@ const Testenovocadastro: React.FC = () => {
             .required("Telefone é obrigatório")
             .min(12, "Telefone tem que ter no minimo 8 dígitos"),
           email: Yup.string().required("E-mail é obrigatório"),
+
           // tipoPerfil: Yup.string().required("Tipo do perfil é obrigatório"),
           qtd: Yup.string().required("Tipo advogado é obrigatório"),
+
           senha: Yup.string()
             .trim()
             .matches(
@@ -230,7 +232,7 @@ const Testenovocadastro: React.FC = () => {
           perfil,
         });
 
-        console.log("veja esse console aqui man" + response.data);
+        console.log("veja esse console aqui man2" + response.data);
 
         const sendOfficeData = {
           tipo_documento: gender,
@@ -347,6 +349,9 @@ const Testenovocadastro: React.FC = () => {
   const handleGender = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGender(e.target.value);
   };
+
+  // console.log(dataFormatadaInicio + "esse");
+  // console.log(dataFormatadaFim + "esse");
 
   // console.log("amountDays", amountDays);
   // const endBetaDate = amountDays
