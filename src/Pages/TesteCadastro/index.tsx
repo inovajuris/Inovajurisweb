@@ -214,7 +214,7 @@ const Testenovocadastro: React.FC = () => {
         });
 
         if (!tipoPerfil) {
-          alert("Tipo advogado é obrigatório");
+          alert("Tipo advogado é obrigatório tester");
           setLoading(false);
           return;
         }
