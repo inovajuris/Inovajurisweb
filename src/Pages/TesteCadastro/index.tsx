@@ -191,7 +191,6 @@ const Testenovocadastro: React.FC = () => {
           email: Yup.string().required("E-mail é obrigatório"),
 
           // tipoPerfil: Yup.string().required("Tipo do perfil é obrigatório"),
-          qtd: Yup.string().required("Tipo advogado é obrigatório"),
 
           senha: Yup.string()
             .trim()
