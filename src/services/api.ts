@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let api = axios.create({
-  baseURL: "https://inova-backend-dev.azurewebsites.net/",
+  baseURL: "http://192.168.0.2:3333",
 
   headers: {
     "Access-Control-Allow-Origin": "*",
