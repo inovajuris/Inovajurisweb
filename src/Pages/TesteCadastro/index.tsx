@@ -260,18 +260,18 @@ const Testenovocadastro: React.FC = () => {
             Authorization: `Bearer ${response.data.token}`,
           },
         });
-        // await api.post(
-        //   `envioemail/bemvindo`,
-        //   {
-        //     email: email,
-        //   },
-        //   {
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       // Authorization: `Bearer ${response.data.token}`,
-        //     },
-        //   }
-        // );
+        await api.post(
+          `envioemail/bemvindo`,
+          {
+            email: email,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              // Authorization: `Bearer ${response.data.token}`,
+            },
+          }
+        );
         await signIn({
           email: data.email,
           senha: data.senha,
