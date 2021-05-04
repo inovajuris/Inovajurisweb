@@ -283,8 +283,8 @@ const Testenovocadastro: React.FC = () => {
           title: "Cadastro realizado com sucesso",
         });
       } catch (err) {
-        const { erro } = JSON.parse(err.response.request._response);
-        console.log("aquii o erroo" + erro);
+        // // const { erro } = JSON.parse(err.response.request._response);
+        // console.log("aquii o erroo" + erro);
         setLoading(false);
         if (err instanceof Yup.ValidationError) {
           console.log(err);
