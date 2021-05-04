@@ -174,7 +174,7 @@ const Testenovocadastro: React.FC = () => {
       senha: string;
       processos: string;
     }): Promise<void> => {
-      console.log("Data", data);
+      console.log("Dataa", data);
       console.log("tipoPerfil", tipoPerfil);
       console.log("qtdavogados", qtdAdvogados);
       console.log("Plano", planos);
