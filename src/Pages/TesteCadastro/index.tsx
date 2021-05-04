@@ -189,12 +189,12 @@ const Testenovocadastro: React.FC = () => {
             .required("Telefone é obrigatório")
             .min(12, "Telefone tem que ter no minimo 8 dígitos"),
           email: Yup.string().required("E-mail é obrigatório"),
-<<<<<<< HEAD
 
-=======
           // tipoPerfil: Yup.string().required("Tipo do perfil é obrigatório"),
           qtd: Yup.string().required("Tipo advogado é obrigatório"),
->>>>>>> main
+
+          // tipoPerfil: Yup.string().required("Tipo do perfil é obrigatório"),
+
           senha: Yup.string()
             .trim()
             .matches(
@@ -218,7 +218,7 @@ const Testenovocadastro: React.FC = () => {
         });
 
         if (!tipoPerfil) {
-          alert("Tipo advogado é obrigatório tester");
+          alert("Tipo advogado é obrigatório");
           setLoading(false);
           return;
         }
@@ -234,7 +234,7 @@ const Testenovocadastro: React.FC = () => {
           perfil,
         });
 
-        console.log("veja esse console aqui man" + response.data);
+        console.log("veja esse console aqui man2" + response.data);
 
         const sendOfficeData = {
           tipo_documento: gender,
@@ -260,18 +260,18 @@ const Testenovocadastro: React.FC = () => {
             Authorization: `Bearer ${response.data.token}`,
           },
         });
-        await api.post(
-          `envioemail/bemvindo`,
-          {
-            email: email,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              // Authorization: `Bearer ${response.data.token}`,
-            },
-          }
-        );
+        // await api.post(
+        //   `envioemail/bemvindo`,
+        //   {
+        //     email: email,
+        //   },
+        //   {
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       // Authorization: `Bearer ${response.data.token}`,
+        //     },
+        //   }
+        // );
         await signIn({
           email: data.email,
           senha: data.senha,
@@ -352,7 +352,6 @@ const Testenovocadastro: React.FC = () => {
     setGender(e.target.value);
   };
 
-<<<<<<< HEAD
   console.log("amountDays", amountDays);
   const endBetaDate = amountDays
     ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
@@ -384,7 +383,10 @@ const Testenovocadastro: React.FC = () => {
   }
   // console.log(dataFormatadaInicio + "esse");
   // console.log(dataFormatadaFim + "esse");
-=======
+
+  // console.log(dataFormatadaInicio + "esse");
+  // console.log(dataFormatadaFim + "esse");
+
   // console.log("amountDays", amountDays);
   // const endBetaDate = amountDays
   //   ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
@@ -395,7 +397,6 @@ const Testenovocadastro: React.FC = () => {
 
   // const startDate = new Date(new Date()).toISOString();
 
->>>>>>> main
   return (
     <div>
       <Header2 />
