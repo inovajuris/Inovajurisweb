@@ -203,7 +203,16 @@ const Testenovocadastro: React.FC = () => {
             )
             .min(6, "No minimo 6 dígitos"),
         });
-
+        if (!tipoPerfil) {
+          alert("Tipo advogado é obrigatório");
+          setLoading(false);
+          return;
+        }
+        if (!qtdAdvogados) {
+          alert("Quantidade de advogados é obrigatório");
+          setLoading(false);
+          return;
+        }
         await schema.validate(data, {
           abortEarly: false,
         });
@@ -217,11 +226,6 @@ const Testenovocadastro: React.FC = () => {
           perfil: perfil,
         });
 
-        if (!tipoPerfil) {
-          alert("Tipo advogado é obrigatório");
-          setLoading(false);
-          return;
-        }
         console.log("veja esse console aqui e da data" + JSON.stringify(data));
         console.log("veja esse console aqui e perfil" + perfil);
         const response = await api.post<{
