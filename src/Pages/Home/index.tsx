@@ -51,13 +51,26 @@ import Appstore from "../../assets/aple1.svg";
 import Playstore from "../../assets/play1.svg";
 import api from "../../services/api";
 import { useToast } from "../../hooks/toast";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
 
+import axios from "axios";
+import { useHistory, useLocation } from "react-router-dom";
 interface ReturnDate {
   time: string;
 }
-
+interface LocationProps {
+  customerId: number;
+  phoneId: number;
+  plano: string;
+  contractAccepted: boolean;
+  officeId: number;
+  token: string;
+  userId: number;
+  userPhone: string;
+  userPassword?: string;
+  userEmail: string;
+  username: string;
+  isPromo: boolean;
+}
 const qaData = [
   {
     id: "0",
@@ -133,6 +146,7 @@ const Home: React.FC = () => {
   const [daysRemaining, setDaysRemaining] = useState(14);
   const [data, setData] = useState({});
   const [qtadeDias, setqtadeDias] = useState(0);
+  const [beta, setBeta] = useState("");
   const [officeData, setOfficeData] = useState<{
     id_escritorio: number;
     telefone: number;
@@ -149,7 +163,7 @@ const Home: React.FC = () => {
   async function fetchAPI() {
     const response = await api.get(`escritorios?email=${user?.email}`);
 
-    console.log("responsee2", response.data[0]);
+    console.log("responsee22", response.data[0]);
 
     const {
       plano,
@@ -163,10 +177,13 @@ const Home: React.FC = () => {
       "quantidade de dias faltando e igual olha aqui",
       qtde_dias_faltando
     );
-
     setqtadeDias(qtde_dias_faltando);
-    //date começa recebendo a data final
+    console.log(beta);
     console.log("plano", plano);
+    if (plano === "beta") {
+      setBeta(plano);
+    }
+
     const data_obj = {
       plano: plano ? plano : "plano1",
       token,
@@ -312,7 +329,7 @@ const Home: React.FC = () => {
   //   `${date.split("T")[0]}T00:00:00Z`;
 
   // console.log("isTrial", isTrial);
-
+  console.log(beta);
   return (
     <Layout>
       <Header>
@@ -352,10 +369,15 @@ const Home: React.FC = () => {
       <Container>
         <Main>
           <MainHeader>
-            {qtadeDias !== 0 && isTrial && (
-              <RemainingDaysText>
-                {qtadeDias + 1} dias para o fim do Teste Grátis
-              </RemainingDaysText>
+            {beta ? (
+              <RemainingDaysText></RemainingDaysText>
+            ) : (
+              qtadeDias !== 0 &&
+              isTrial && (
+                <RemainingDaysText>
+                  {qtadeDias + 1} dias para o fim do Teste Grátis
+                </RemainingDaysText>
+              )
             )}
             {isTrial && (
               <ButtonCompra onClick={() => history.replace(`/planos`, data)}>
