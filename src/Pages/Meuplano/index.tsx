@@ -244,11 +244,24 @@ const MeuPlano: React.FC = () => {
 
       console.log("responseSubscriptions", responseSubscriptions.data);
 
+      // await api.put(
+      //   `escritorio/${officeId}`,
+      //   {
+      //     plano,
+      //     data_inicio_plano: new Date(),
+      //   },
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Bearer ${token}`,
+      //     },
+      //   }
+      // );
+
       await api.put(
-        `escritorio/${officeId}`,
+        `trocarPlano/${officeId}`,
         {
           plano,
-          data_inicio_plano: new Date(),
         },
         {
           headers: {
