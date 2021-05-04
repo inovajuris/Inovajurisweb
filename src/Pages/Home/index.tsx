@@ -288,7 +288,7 @@ const Home: React.FC = () => {
     fetchAPI();
 
     const script = document.createElement("script");
-    script.src = "https://embed.tawk.to/601a14c3c31c9117cb753836/1etiu274n";
+    script.src = "https://embed.tawk.to/6091c94db1d5182476b5a249/1f4snkm5v";
     script.async = true;
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
