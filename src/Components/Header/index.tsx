@@ -69,27 +69,28 @@ const Header: React.FC = ({ children }) => {
                   <DropdownMenu>
                     <DropdownItem>
                       <a
-                        href="/about"
+                        href="https://www.inovajuris.com.br/#planos"
                         className="cool-DropdownItDropdownItemnk1"
                       >
                         Planos
                       </a>
                       <hr className="linha" />
                     </DropdownItem>
+
                     <DropdownItem>
-                      <a href="/about" className="cool-link1">
-                        Casos de Sucesso
-                      </a>
-                      <hr className="linha" />
-                    </DropdownItem>
-                    <DropdownItem>
-                      <a href="/about" className="cool-link1">
+                      <a
+                        href="https://www.inovajuris.com.br/funcionalidades/#faq"
+                        className="cool-link1"
+                      >
                         Perguntas Frequentes
                       </a>
                       <hr className="linha" />
                     </DropdownItem>
                     <DropdownItem>
-                      <a href="/about" className="cool-link3">
+                      <a
+                        href="https://www.inovajuris.com.br/"
+                        className="cool-link3"
+                      >
                         Site da Empresa/Produto
                       </a>
                     </DropdownItem>
