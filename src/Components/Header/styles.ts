@@ -33,7 +33,7 @@ export const Nav = styled.nav`
   padding: 0 16px;
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled.a`
   color: #74469a;
   display: flex;
   align-items: center;

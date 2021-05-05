@@ -34,13 +34,22 @@ const Header: React.FC = ({ children }) => {
           </button>
 
           <NavMenu>
-            <NavLink to="#" className="cool-link1">
+            <NavLink
+              href="https://www.inovajuris.com.br/"
+              className="cool-link1"
+            >
               Site da Empresa/Produto
             </NavLink>
-            <NavLink to="#" className="cool-link">
+            <NavLink
+              href="https://www.inovajuris.com.br/#planos"
+              className="cool-link"
+            >
               Planos
             </NavLink>
-            <NavLink to="#" className="cool-link2">
+            <NavLink
+              href="https://www.inovajuris.com.br/funcionalidades/#faq"
+              className="cool-link2"
+            >
               Perguntas Frequentes
             </NavLink>
             {/* <NavLink to="#" className="cool-link3">
