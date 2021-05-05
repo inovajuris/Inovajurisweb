@@ -281,7 +281,7 @@ const Home: React.FC = () => {
     // console.log("data_final_trial", data_final_trial);
     // setEndDate(data_final_trial);
     //denovo end date recebe data final
-    console.log("segunda vez que aparece" + qtde_dias_faltando);
+    console.log("segunda vez que aparecee" + qtde_dias_faltando);
   }
 
   useEffect(() => {
