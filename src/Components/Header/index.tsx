@@ -37,18 +37,24 @@ const Header: React.FC = ({ children }) => {
             <NavLink
               href="https://www.inovajuris.com.br/"
               className="cool-link1"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Site da Empresa/Produto
             </NavLink>
             <NavLink
               href="https://www.inovajuris.com.br/#planos"
               className="cool-link"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Planos
             </NavLink>
             <NavLink
               href="https://www.inovajuris.com.br/funcionalidades/#faq"
               className="cool-link2"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Perguntas Frequentes
             </NavLink>
@@ -80,6 +86,8 @@ const Header: React.FC = ({ children }) => {
                       <a
                         href="https://www.inovajuris.com.br/#planos"
                         className="cool-DropdownItDropdownItemnk1"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Planos
                       </a>
@@ -90,6 +98,8 @@ const Header: React.FC = ({ children }) => {
                       <a
                         href="https://www.inovajuris.com.br/funcionalidades/#faq"
                         className="cool-link1"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Perguntas Frequentes
                       </a>
@@ -99,6 +109,8 @@ const Header: React.FC = ({ children }) => {
                       <a
                         href="https://www.inovajuris.com.br/"
                         className="cool-link3"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Site da Empresa/Produto
                       </a>
