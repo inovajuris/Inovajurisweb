@@ -100,8 +100,20 @@ const Planos: React.FC = () => {
       //   abortEarly: false,
       // });
 
+      // await api.put(
+      //   `escritorio/${officeId}`,
+      //   {
+      //     plano: planos,
+      //   },
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Bearer ${token}`,
+      //     },
+      //   }
+      // );
       await api.put(
-        `escritorio/${officeId}`,
+        `trocarPlano/${officeId}`,
         {
           plano: planos,
         },
