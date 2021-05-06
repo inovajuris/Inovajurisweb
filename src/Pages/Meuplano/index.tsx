@@ -218,9 +218,9 @@ const MeuPlano: React.FC = () => {
 
       console.log("ProductId", responseProduct.data.products[0].id);
       //deletar o id do produto na vindi
-      if (productItemId) {
-        await api.delete(`/vindi/planos/deletar/${productItemId}`);
-      }
+      // if (productItemId) {
+      //   await api.delete(`/vindi/planos/deletar/${productItemId}`);
+      // }
 
       console.log("product_id", responseProduct.data.products[0].id);
       const updatedSubscription = {
@@ -272,6 +272,9 @@ const MeuPlano: React.FC = () => {
           }
         )
         .then(async (response) => {
+          if (productItemId) {
+            await api.delete(`/vindi/planos/deletar/${productItemId}`);
+          }
           const responseSubscriptions = await api.post(
             `/vindi/produtos`,
             updatedSubscription,
