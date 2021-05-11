@@ -218,9 +218,9 @@ const MeuPlano: React.FC = () => {
 
       console.log("ProductId", responseProduct.data.products[0].id);
       //deletar o id do produto na vindi
-      if (productItemId) {
-        await api.delete(`/vindi/planos/deletar/${productItemId}`);
-      }
+      // if (productItemId) {
+      //   await api.delete(`/vindi/planos/deletar/${productItemId}`);
+      // }
 
       console.log("product_id", responseProduct.data.products[0].id);
       const updatedSubscription = {
@@ -231,18 +231,18 @@ const MeuPlano: React.FC = () => {
 
       console.log("updatedSubscription", updatedSubscription);
       //atualiza produto na vindi
-      const responseSubscriptions = await api.post(
-        `/vindi/produtos`,
-        updatedSubscription,
-        {
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   Authorization: `Basic ${token64}`,
-          // },
-        }
-      );
+      // const responseSubscriptions = await api.post(
+      //   `/vindi/produtos`,
+      //   updatedSubscription,
+      //   {
+      //     // headers: {
+      //     //   "Content-Type": "application/json",
+      //     //   Authorization: `Basic ${token64}`,
+      //     // },
+      //   }
+      // );
 
-      console.log("responseSubscriptions", responseSubscriptions.data);
+      // console.log("responseSubscriptions", responseSubscriptions.data);
 
       // await api.put(
       //   `escritorio/${officeId}`,
@@ -258,38 +258,62 @@ const MeuPlano: React.FC = () => {
       //   }
       // );
 
-      await api.put(
-        `trocarPlano/${officeId}`,
-        {
-          plano,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+      await api
+        .put(
+          `trocarPlano/${officeId}`,
+          {
+            plano,
           },
-        }
-      );
-      history.push("/home");
-      addToast({
-        type: "sucess",
-        title: "Plano atualizado com sucesso",
-      });
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then(async (response) => {
+          if (productItemId) {
+            await api.delete(`/vindi/planos/deletar/${productItemId}`);
+          }
+          const responseSubscriptions = await api.post(
+            `/vindi/produtos`,
+            updatedSubscription,
+            {
+              // headers: {
+              //   "Content-Type": "application/json",
+              //   Authorization: `Basic ${token64}`,
+              // },
+            }
+          );
+          history.push("/home");
+          addToast({
+            type: "sucess",
+            title: "Plano atualizado com sucesso",
+          });
+        });
+      // .catch((erro) => {
+      //   console.log("Errao", erro);
+      //   return addToast({
+      //     type: "error",
+      //     title: "Erro na escolha de plano",
+      //     description: `${erro.response}`,
+      //   });
+      // });
+
       setLoading(false);
     } catch (err) {
       setLoading(false);
       console.log("Error", err);
-      console.log("Error", err.response?.data);
+      console.log("Errao", err.response);
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
         formRef.current?.setErrors(errors);
-
-        // addToast({
-        //   type: "error",
-        //   title: "Erro na cadastro",
-        //   description: `Ocorreu um erro ao fazer cadastro, tente novamente.`,
-        // });
       }
+      addToast({
+        type: "error",
+        title: "Erro na escolha de plano",
+        description: `${err.response.data.erro}`,
+      });
     }
   };
 
