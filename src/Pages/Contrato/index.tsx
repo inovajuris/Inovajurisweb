@@ -15,49 +15,48 @@ const Contrato: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const formRef = useRef<FormHandles>(null);
 
-  // const {
-  //   state: {
-  //     plano,
-  //     officeId,
-  //     userId,
-  //     userEmail,
-  //     userPhone,
-  //     userPassword,
-  //     username,
-  //     token,
-  //     isPromo,
-  //   },
-  // } =
-  //   useLocation<{
-  //     officeId: number;
-  //     userId: number;
-  //     username: string;
-  //     userEmail: string;
-  //     userPhone: string;
-  //     userPassword?: string;
-  //     plano: string;
-  //     token: string;
-  //     isPromo: boolean;
-  //   }>();
+  const {
+    state: {
+      plano,
+      officeId,
+      userId,
+      userEmail,
+      userPhone,
+      userPassword,
+      username,
+      token,
+      isPromo,
+    },
+  } =
+    useLocation<{
+      officeId: number;
+      userId: number;
+      username: string;
+      userEmail: string;
+      userPhone: string;
+      userPassword?: string;
+      plano: string;
+      token: string;
+      isPromo: boolean;
+    }>();
 
-  // const handleSubmit = useCallback(async (): Promise<void> => {
-  //   setLoading(true);
+  const handleSubmit = useCallback(async (): Promise<void> => {
+    setLoading(true);
 
-  //   history.push("/dados", {
-  //     contractAccepted: true,
-  //     plano,
-  //     officeId,
-  //     userId,
-  //     userEmail,
-  //     userPhone,
-  //     userPassword,
-  //     username,
-  //     token,
-  //     isPromo,
-  //   });
-  // }, []);
+    history.push("/dados", {
+      contractAccepted: true,
+      plano,
+      officeId,
+      userId,
+      userEmail,
+      userPhone,
+      userPassword,
+      username,
+      token,
+      isPromo,
+    });
+  }, []);
 
-  function handleSubmit() {}
   return (
     <div>
       <Header />
