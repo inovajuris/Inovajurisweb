@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 
 import { FiLock } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
@@ -285,15 +285,29 @@ const NovoCadastro: React.FC = () => {
   // }
   // console.log(dataFormatadaInicio + "esse");
   // console.log(dataFormatadaFim + "esse");
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://d335luupugsy2.cloudfront.net/js/loader-scripts/f833fbca-f1e1-485f-8d50-3e15a3c158fc-loader.js";
+    script.async = true;
+
+    // script.setAttribute("crossorigin", "*");
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div>
       <Header2 />
+
       <Container>
         <Blue>
           <div className="formBox">
             <h3>Cadastrar</h3>
-
+            {console.log("Script", document.body.getElementsByTagName("email"))}
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="input1">
                 <h2>Nome</h2>
