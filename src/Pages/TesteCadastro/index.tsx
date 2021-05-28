@@ -400,6 +400,19 @@ const Testenovocadastro: React.FC = () => {
   //   : new Date(new Date().getTime() + 1_814_400_000).toISOString();
 
   // const startDate = new Date(new Date()).toISOString();
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://d335luupugsy2.cloudfront.net/js/loader-scripts/f833fbca-f1e1-485f-8d50-3e15a3c158fc-loader.js";
+    script.async = true;
+
+    // script.setAttribute("crossorigin", "*");
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div>
