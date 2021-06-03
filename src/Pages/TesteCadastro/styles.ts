@@ -8,19 +8,135 @@ import { face } from "../../styles/icons";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: row;
   height: 100%;
   max-width: 1350px;
   margin: 0 auto;
+  margin-left: 10%;
+  margin-top: 5%;
   width: 100%;
   z-index: 999;
-  @media (max-width: 601px) {
-    display: flex;
-    justify-content: center;
-    height: 100%;
 
-    margin: 0 auto;
+  @media (max-width: 1400px) {
+    margin-top: 20%;
+    height: 100%;
+    min-height: 100%;
     width: 100%;
-    z-index: 999;
+  }
+
+  @media (max-width: 600px) {
+    display: flex;
+    /* background-color: #000; */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding-top: 50px;
+    margin-top: 90%;
+    margin-left: 0%;
+    width: 100%;
+    z-index: 9999;
+  }
+  position: fixed;
+  /* background-color: #000; */
+`;
+
+export const Fundo = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const DivPrincipal = styled.div`
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+
+  position: fixed;
+
+  @media (max-width: 1400px) {
+    height: 100%;
+    /* min-height: 100%; */
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    /* overflow: auto; */
+  }
+  @media (max-width: 600px) {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+  }
+`;
+
+export const ContainerInfo = styled.div`
+  display: flex;
+
+  /* border-radius: 5px; */
+  padding: 10px;
+  justify-content: center;
+  background-color: #fff;
+  width: 30%;
+
+  /* border-radius: 2px; */
+
+  /* border-color: #e03f8e;
+  -webkit-box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
+  box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36); */
+  margin-right: 15%;
+  font-family: "Roboto", sans-serif;
+  flex-direction: column;
+  #titulo {
+    font-weight: bold;
+  }
+  @media (max-width: 600px) {
+    display: flex;
+
+    height: 70%;
+    margin-top: auto;
+    margin-bottom: 500px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 35%;
+    padding-bottom: 35%;
+    width: 100%;
+  }
+`;
+
+export const Cabe = styled.div`
+  #wave {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    background: #e0efe3;
+  }
+
+  #wave:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 900px;
+    height: 400px;
+    background-color: #fff;
+    right: 200px;
+    top: 150px;
+  }
+
+  #wave:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 965px;
+    height: 300px;
+    background-color: #e0efe3;
+    left: 0;
+    top: 0px;
   }
 `;
 
@@ -28,19 +144,23 @@ export const Blue = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
-  background-color: #fff;
+  background-color: #854;
+  border-radius: 6px;
 
-  border-radius: 5px 10px 10px 5px;
+  border: solid;
+  border-color: #f0f0eb;
+  -webkit-box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
+  box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
 
-  width: 70%;
-  height: 730px;
+  width: 30%;
+  height: 600px;
 
-  margin-top: 85px;
+  /* margin-top: 85px; */
   margin-left: 1%;
   .radiobtn {
-    color: #8a44c4;
+    color: #e03f8e;
     svg {
-      color: #8a44c4;
+      color: #e03f8e;
     }
   }
   .div4 {
@@ -79,9 +199,9 @@ export const Blue = styled.div`
     margin-right: 2%;
   }
   .radiocor {
-    color: #941af9;
+    color: #e03f8e;
     svg {
-      color: #941af9;
+      color: #e03f8e;
     }
   }
   .inputsel1 {
@@ -94,7 +214,7 @@ export const Blue = styled.div`
   }
   .policticablue {
     font-size: 17px;
-    color: #007aff;
+    color: #e03f8e;
     font-weight: 400;
     cursor: pointer;
     text-decoration: none;
@@ -103,10 +223,10 @@ export const Blue = styled.div`
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 145%;
+    width: 100%;
   }
   .inputsel2 {
     width: 95%;
@@ -131,7 +251,8 @@ export const Blue = styled.div`
 
     justify-content: center;
     flex-direction: column;
-    width: 39%;
+
+    width: 100%;
     background-color: #ffffff;
     border-radius: 0px 5px 5px 0px;
 
@@ -201,6 +322,7 @@ export const Blue = styled.div`
     .btnazul {
       text-align: center;
       margin-top: 24px;
+      background-color: #e03f8e;
     }
 
     .cadastre {
@@ -212,7 +334,7 @@ export const Blue = styled.div`
         color: #101010;
         text-decoration: none;
         &:hover {
-          color: #007aff;
+          color: #e03f8e;
         }
       }
     }
@@ -225,7 +347,7 @@ export const Blue = styled.div`
         color: #232326;
         text-decoration: none;
         &:hover {
-          color: #941af9;
+          color: #e03f8e;
         }
       }
     }
@@ -375,7 +497,7 @@ export const Blue = styled.div`
           color: #101010;
           text-decoration: none;
           &:hover {
-            color: #941af9;
+            color: #e03f8e;
           }
         }
       }
@@ -388,7 +510,7 @@ export const Blue = styled.div`
           color: #232326;
           text-decoration: none;
           &:hover {
-            color: #941af9;
+            color: #e03f8e;
           }
         }
       }
@@ -397,6 +519,7 @@ export const Blue = styled.div`
 
   @media screen and (max-width: 576px) {
     position: relative;
+    /* margin-top: 10px; */
 
     display: flex;
     justify-content: center;
@@ -405,7 +528,7 @@ export const Blue = styled.div`
 
     border-radius: 5px 10px 10px 5px;
 
-    width: 90%;
+    width: 100%;
     height: 700px;
 
     margin-top: 0px;
@@ -461,7 +584,7 @@ export const Blue = styled.div`
     }
     .policticablue {
       font-size: 17px;
-      color: #007aff;
+      color: #e03f8e;
       font-weight: 400;
       cursor: pointer;
       text-decoration: none;
@@ -528,7 +651,7 @@ export const Blue = styled.div`
           color: #101010;
           text-decoration: none;
           &:hover {
-            color: #941af9;
+            color: #e03f8e;
           }
         }
       }
@@ -541,7 +664,7 @@ export const Blue = styled.div`
           color: #232326;
           text-decoration: none;
           &:hover {
-            color: #941af9;
+            color: #e03f8e;
           }
         }
       }
@@ -569,10 +692,11 @@ export const Entra = styled.div`
     color: #000;
     font-size: 20px;
     &:hover {
-      color: #941af9;
+      color: #e03f8e;
     }
   }
 `;
+
 export const Draw = styled(DrawCadastro)``;
 export const Facebokcion = styled(face)``;
 export const Lockicon1 = styled(Lock)``;

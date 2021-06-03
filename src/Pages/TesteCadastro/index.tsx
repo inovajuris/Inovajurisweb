@@ -17,9 +17,10 @@ import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
 import { FiEyeOff } from "react-icons/fi";
 import { FiEye } from "react-icons/fi";
-import Header2 from "../../Components/Header";
+import Header2 from "../../Components/Header2";
 import FacebookLogin from "react-facebook-login";
 import { useParams } from "react-router-dom";
+import HeaderFundo from "../../assets/testebackground.jpg";
 import {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
@@ -33,6 +34,10 @@ import {
   GoogleLogin,
   Googleicon,
   Facebokcion,
+  Fundo,
+  Cabe,
+  ContainerInfo,
+  DivPrincipal,
 } from "./styles";
 import api from "../../services/api";
 import * as Yup from "yup";
@@ -184,7 +189,7 @@ const Testenovocadastro: React.FC = () => {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
-          nome: Yup.string().required("Nome é obrigatório"),
+          name: Yup.string().required("Nome é obrigatório"),
           telefone: Yup.string()
             .required("Telefone é obrigatório")
             .min(12, "Telefone tem que ter no minimo 8 dígitos"),
@@ -415,12 +420,68 @@ const Testenovocadastro: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <DivPrincipal>
       <Header2 />
       <Container>
+        <ContainerInfo>
+          <h1>
+            <span
+              style={{
+                backgroundColor: "#e03f8e",
+                color: "#fff",
+                textAlign: "justify",
+                textJustify: "inter-word",
+              }}
+            >
+              PARABÉNS, você acaba de receber um convite especial!
+            </span>
+          </h1>
+          <br></br>
+          <h1 id="titulo" style={{ marginBottom: 60, textAlign: "justify" }}>
+            Experimente agora o{" "}
+            <span style={{ backgroundColor: "#e03f8e", color: "#fff" }}>
+              Inova Juris Beta!
+            </span>
+          </h1>
+          <h3
+            style={{
+              fontWeight: "normal",
+              marginBottom: 60,
+              textAlign: "justify",
+              textJustify: "inter-word",
+            }}
+          >
+            <p>
+              Preencha o formulário e baixe agora mesmo a versão beta do app
+              <span> Inova Juris</span>.
+            </p>
+            <br></br>
+            <p>
+              Controle seu escritório através do seu smartphone e ao final da
+              jornada{" "}
+              <span style={{ fontWeight: "bold" }}>
+                receba uma oferta{" "}
+                <span style={{ backgroundColor: "#e03f8e", color: "#fff" }}>
+                  exclusiva!
+                </span>
+              </span>
+            </p>
+          </h3>
+          <br></br>
+          <h4
+            style={{
+              fontWeight: "bold",
+              fontStyle: "italic",
+              textAlign: "justify",
+              textJustify: "inter-word",
+            }}
+          >
+            Inova Juris, o seu escritório jurídico na palma de sua mão.
+          </h4>
+        </ContainerInfo>
         <Blue>
           <div className="formBox">
-            <h3 className="h1C">Cadastrar</h3>
+            {/* <h3 className="h1C">Cadastrar</h3> */}
 
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="radio">
@@ -543,7 +604,7 @@ const Testenovocadastro: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="div5">
+                {/* <div className="div5">
                   <h2>Quantidade estimada de processos</h2>
                   <Input
                     onChange={(e) => setQtdprocessos(e.target.value)}
@@ -552,7 +613,7 @@ const Testenovocadastro: React.FC = () => {
                     type="text"
                     placeholder="Quantidade de processos"
                   />
-                </div>
+                </div> */}
                 <Button className="btnazul" isLoading={loading} type="submit">
                   Cadastrar
                 </Button>
@@ -571,14 +632,14 @@ const Testenovocadastro: React.FC = () => {
                 </a>
               </div>
 
-              <button className="possuilogin">
+              {/* <button className="possuilogin">
                 <a href="/">Já possui login?</a>
-              </button>
+              </button> */}
             </Form>
           </div>
         </Blue>
       </Container>
-    </div>
+    </DivPrincipal>
   );
 };
 

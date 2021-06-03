@@ -285,19 +285,20 @@ const NovoCadastro: React.FC = () => {
   // }
   // console.log(dataFormatadaInicio + "esse");
   // console.log(dataFormatadaFim + "esse");
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://d335luupugsy2.cloudfront.net/js/loader-scripts/f833fbca-f1e1-485f-8d50-3e15a3c158fc-loader.js";
-    script.async = true;
 
-    // script.setAttribute("crossorigin", "*");
-    document.body.appendChild(script);
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+  //   script.src =
+  //     "https://d335luupugsy2.cloudfront.net/js/loader-scripts/f833fbca-f1e1-485f-8d50-3e15a3c158fc-loader.js";
+  //   script.async = true;
 
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  //   // script.setAttribute("crossorigin", "*");
+  //   document.body.appendChild(script);
+
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
 
   return (
     <div>
