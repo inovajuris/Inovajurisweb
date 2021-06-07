@@ -199,7 +199,7 @@ const Testenovocadastro: React.FC = () => {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
-          name: Yup.string().required("Nome é obrigatório"),
+          nome: Yup.string().required("Nome é obrigatório"),
           telefone: Yup.string()
             .required("Telefone é obrigatório")
             .min(12, "Telefone tem que ter no minimo 8 dígitos"),
@@ -314,6 +314,7 @@ const Testenovocadastro: React.FC = () => {
             type: "error",
             title: "Erro na cadastro",
             description: `Ocorreu um erro ao fazer cadastro, tente novamente.`,
+            telaBeta: true,
           });
         }
 
@@ -323,6 +324,7 @@ const Testenovocadastro: React.FC = () => {
             title: "Erro na cadastro",
             description: `Usuário já cadastrado.
             `,
+            telaBeta: true,
           });
         }
       }

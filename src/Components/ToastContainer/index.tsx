@@ -6,9 +6,13 @@ import Toast from "./Toast";
 import { ToastMessage } from "../../hooks/toast";
 interface ToastContainerProps {
   messages: ToastMessage[];
+  telaBeta?: boolean;
 }
 
-const ToastContainer: React.FC<ToastContainerProps> = ({ messages }) => {
+const ToastContainer: React.FC<ToastContainerProps> = ({
+  messages,
+  telaBeta,
+}) => {
   const messagesWithTransitions = useTransition(
     messages,
     (message) => message.id,
@@ -18,9 +22,9 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ messages }) => {
       leave: { right: "-120%", opacity: 0 },
     }
   );
-
+  console.log("TELAAAA CONTAINER ", telaBeta);
   return (
-    <Container>
+    <Container style={{ top: telaBeta ? "80%" : "9%" }}>
       {messagesWithTransitions.map(({ item, key, props }) => (
         <Toast key={key} message={item} style={props} />
       ))}
