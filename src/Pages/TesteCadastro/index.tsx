@@ -35,7 +35,6 @@ import {
   Googleicon,
   Facebokcion,
   Fundo,
-  Cabe,
   ContainerInfo,
   DivPrincipal,
 } from "./styles";
@@ -390,28 +389,13 @@ const Testenovocadastro: React.FC = () => {
       temp[0];
     return dataBanco;
   }
-  // console.log(dataFormatadaInicio + "esse");
-  // console.log(dataFormatadaFim + "esse");
 
-  // console.log(dataFormatadaInicio + "esse");
-  // console.log(dataFormatadaFim + "esse");
-
-  // console.log("amountDays", amountDays);
-  // const endBetaDate = amountDays
-  //   ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
-  //   : new Date(new Date().getTime() + 31_536_000_000).toISOString();
-  // const endTrialDate = amountDays
-  //   ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
-  //   : new Date(new Date().getTime() + 1_814_400_000).toISOString();
-
-  // const startDate = new Date(new Date()).toISOString();
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
       "https://d335luupugsy2.cloudfront.net/js/loader-scripts/f833fbca-f1e1-485f-8d50-3e15a3c158fc-loader.js";
     script.async = true;
 
-    // script.setAttribute("crossorigin", "*");
     document.body.appendChild(script);
 
     return () => {
@@ -437,25 +421,30 @@ const Testenovocadastro: React.FC = () => {
             </span>
           </h1>
           <br></br>
-          <h1 id="titulo" style={{ marginBottom: 60, textAlign: "justify" }}>
-            Experimente agora o{" "}
-            <span style={{ backgroundColor: "#e03f8e", color: "#fff" }}>
+          <h1 id="titulo" style={{ marginBottom: 20, textAlign: "justify" }}>
+            Experimente agora o <br />
+            <span
+              style={{
+                backgroundColor: "#e03f8e",
+                color: "#fff",
+              }}
+            >
               Inova Juris Beta!
             </span>
           </h1>
           <h3
             style={{
               fontWeight: "normal",
-              marginBottom: 60,
+              marginBottom: 30,
               textAlign: "justify",
               textJustify: "inter-word",
             }}
           >
             <p>
-              Preencha o formulário e baixe agora mesmo a versão beta do app
-              <span> Inova Juris</span>.
+              Preencha o formulário e baixe agora mesmo a versão beta
+              <br /> do app Inova Juris.
             </p>
-            <br></br>
+
             <p>
               Controle seu escritório através do seu smartphone e ao final da
               jornada{" "}
@@ -467,7 +456,7 @@ const Testenovocadastro: React.FC = () => {
               </span>
             </p>
           </h3>
-          <br></br>
+
           <h4
             style={{
               fontWeight: "bold",

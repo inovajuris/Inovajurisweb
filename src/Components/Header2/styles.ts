@@ -26,6 +26,7 @@ export const HeaderContainer = styled.header`
   position: absolute;
   position: fixed;
   top: 0;
+  padding-top: 10px;
   z-index: 9999;
 
   .btnimg {
