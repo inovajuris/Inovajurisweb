@@ -33,7 +33,11 @@ const Routes: React.FC = () => {
           exact
           component={NovoCadastro}
         />
-        <Route path="/cadastro/plano=:plano" exact component={TesteCadastro} />
+        <Route
+          path="/cadastro/plano=:plano/emailUser=:emailUser/nameUser=:nameUser"
+          exact
+          component={TesteCadastro}
+        />
 
         <Route path="/faq" exact component={Faq} />
         <Route path="/faq2" exact component={Faq2} />
