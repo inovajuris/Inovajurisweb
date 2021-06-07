@@ -12,22 +12,26 @@ export const Container = styled.div`
   flex-direction: row;
   height: 100%;
   max-width: 1350px;
-  margin: 0 auto;
-  margin-left: 10%;
-  margin-top: 5%;
-  width: 100%;
+  margin-left: 50%;
+  margin-top: 10%;
+  width: 2000px;
   z-index: 999;
-
+  /* background-color: #000; */
   @media (max-width: 1400px) {
-    margin-top: 20%;
+    /* margin-top: 20%; */
     height: 100%;
+    margin-top: 15%;
     min-height: 100%;
     width: 100%;
+    position: absolute;
+    z-index: 999;
+    margin-left: 25%;
+    /* background-color: #000; */
   }
 
   @media (max-width: 600px) {
     display: flex;
-    /* background-color: #000; */
+    /* background-color: #4343; */
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -35,12 +39,13 @@ export const Container = styled.div`
     width: 100%;
     position: relative;
     padding-top: 50px;
-    margin-top: 90%;
+    margin: 0%;
+    margin-top: 450px;
     margin-left: 0%;
     width: 100%;
-    z-index: 9999;
+    z-index: 999;
   }
-  position: fixed;
+  position: absolute;
   /* background-color: #000; */
 `;
 
@@ -52,23 +57,25 @@ export const Fundo = styled.div`
 export const DivPrincipal = styled.div`
   height: 100%;
   min-height: 100%;
-  width: 100%;
-
-  position: fixed;
+  justify-content: center;
+  width: 1000px;
+  /* background-color: #000; */
+  position: absolute;
 
   @media (max-width: 1400px) {
     height: 100%;
     /* min-height: 100%; */
     width: 100%;
-    position: fixed;
+    position: absolute;
     overflow: auto;
+    /* background-color: #000; */
     /* overflow: auto; */
   }
   @media (max-width: 600px) {
     height: 100%;
-    min-height: 100%;
-    width: 100%;
-    position: fixed;
+    /* min-height: 100%; */
+    width: 90%;
+    position: absolute;
     overflow: auto;
   }
 `;
@@ -81,13 +88,13 @@ export const ContainerInfo = styled.div`
   justify-content: center;
   background-color: #fff;
   width: 30%;
-
+  position: absolute;
   /* border-radius: 2px; */
 
   /* border-color: #e03f8e;
   -webkit-box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
   box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36); */
-  margin-right: 15%;
+  margin-right: 80%;
   font-family: "Roboto", sans-serif;
   flex-direction: column;
   #titulo {
@@ -146,7 +153,7 @@ export const Blue = styled.div`
   flex-direction: row;
   background-color: #854;
   border-radius: 6px;
-
+  position: absolute;
   border: solid;
   border-color: #f0f0eb;
   -webkit-box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
@@ -354,11 +361,11 @@ export const Blue = styled.div`
   }
   @media screen and (max-width: 900px) {
     position: relative;
-
+    background-color: #000;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: #fff;
+    /* background-color: #fff; */
 
     border-radius: 5px 10px 10px 5px;
 
