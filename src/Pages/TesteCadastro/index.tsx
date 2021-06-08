@@ -126,7 +126,7 @@ interface OfficeResponse {
 }
 
 const Testenovocadastro: React.FC = () => {
-  const { plano } = useParams<RouteParams>();
+  const { plano, nameUser, emailUser } = useParams<RouteParams>();
   console.log(useParams());
 
   // const {plano_usuario} = plano ? JSON.parse(plano) : ''
@@ -171,14 +171,14 @@ const Testenovocadastro: React.FC = () => {
       })
       .catch((err) => console.log("Error", err));
 
-    // if (nameUser) {
-    //   console.log(nameUser);
-    //   setName(nameUser);
-    // }
-    // if (emailUser) {
-    //   console.log(emailUser);
-    //   setEmail(emailUser);
-    // }
+    if (nameUser) {
+      console.log(nameUser);
+      setName(nameUser);
+    }
+    if (emailUser) {
+      console.log(emailUser);
+      setEmail(emailUser);
+    }
   }, []);
 
   const handleSubmit = useCallback(
