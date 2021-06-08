@@ -24,7 +24,7 @@ export const HeaderContainer = styled.header`
   justify-content: flex-start;
   /* box-shadow: 0px 0px 5px; */
   position: absolute;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   padding-top: 10px;
   z-index: 9999;
