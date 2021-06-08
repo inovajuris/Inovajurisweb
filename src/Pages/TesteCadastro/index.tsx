@@ -421,66 +421,138 @@ const Testenovocadastro: React.FC = () => {
       <Header2 />
       <Container>
         <ContainerInfo>
-          <h1>
-            <span
-              style={{
-                backgroundColor: "#e03f8e",
-                color: "#fff",
-                textAlign: "justify",
-                textJustify: "inter-word",
-              }}
-            >
-              PARABÉNS, você acaba de receber um convite especial!
-            </span>
-          </h1>
-          <br></br>
-          <h1 id="titulo" style={{ marginBottom: 20, textAlign: "justify" }}>
-            Experimente agora o <br />
-            <span
-              style={{
-                backgroundColor: "#e03f8e",
-                color: "#fff",
-              }}
-            >
-              Inova Juris Beta!
-            </span>
-          </h1>
-          <h3
-            style={{
-              fontWeight: "normal",
-              marginBottom: 30,
-              textAlign: "justify",
-              textJustify: "inter-word",
-            }}
-          >
-            <p>
-              Preencha o formulário e baixe agora mesmo a versão beta
-              {/* {plano.length > 4 ? "trial" : plano} */}
-              <br /> do app Inova Juris.
-            </p>
-
-            <p>
-              Controle seu escritório através do seu smartphone e ao final da
-              jornada{" "}
-              <span style={{ fontWeight: "bold" }}>
-                receba uma oferta{" "}
-                <span style={{ backgroundColor: "#e03f8e", color: "#fff" }}>
-                  exclusiva!
+          {plano === "beta" ? (
+            <>
+              {" "}
+              <h1>
+                <span
+                  style={{
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                    textAlign: "justify",
+                    textJustify: "inter-word",
+                  }}
+                >
+                  PARABÉNS, você acaba de receber um convite especial!
                 </span>
-              </span>
-            </p>
-          </h3>
+              </h1>
+              <br></br>
+              <h1
+                id="titulo"
+                style={{ marginBottom: 20, textAlign: "justify" }}
+              >
+                Experimente agora o <br />
+                <span
+                  style={{
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                  }}
+                >
+                  Inova Juris Beta!
+                </span>
+              </h1>
+              <h3
+                style={{
+                  fontWeight: "normal",
+                  marginBottom: 30,
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                }}
+              >
+                <p>
+                  Preencha o formulário e baixe agora mesmo a versão beta
+                  <br /> do app Inova Juris.
+                </p>
 
-          <h4
-            style={{
-              fontWeight: "bold",
-              fontStyle: "italic",
-              textAlign: "justify",
-              textJustify: "inter-word",
-            }}
-          >
-            Inova Juris, o seu escritório jurídico na palma de sua mão.
-          </h4>
+                <p>
+                  Controle seu escritório através do seu smartphone e ao final
+                  da jornada{" "}
+                  <span style={{ fontWeight: "bold" }}>
+                    receba uma oferta{" "}
+                    <span style={{ backgroundColor: "#e03f8e", color: "#fff" }}>
+                      exclusiva!
+                    </span>
+                  </span>
+                </p>
+              </h3>
+              <h4
+                style={{
+                  fontWeight: "bold",
+                  fontStyle: "italic",
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                }}
+              >
+                Inova Juris, o seu escritório jurídico na palma de sua mão.
+              </h4>{" "}
+            </>
+          ) : (
+            <>
+              <h1>
+                <span
+                  style={{
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                    textAlign: "justify",
+                    textJustify: "inter-word",
+                  }}
+                >
+                  EXPERIMENTE POR 30 DIAS O APP INOVA JURIS!
+                </span>
+              </h1>
+              <br></br>
+              {/* <h1
+                id="titulo"
+                style={{ marginBottom: 20, textAlign: "justify" }}
+              >
+                Experimente agora o <br />
+                <span
+                  style={{
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                  }}
+                >
+                  Inova Juris Beta!
+                </span>
+              </h1> */}
+              <h3
+                style={{
+                  fontWeight: "normal",
+                  marginBottom: 30,
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                }}
+              >
+                <p>
+                  Preencha o formulário e baixe agora mesmo e solicite o Trial
+                  do app.Utilize gratuitamente todas as funcionalidades e
+                  descubra como transformar o relacionamento com o seu cliente!
+                </p>
+                <p>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      backgroundColor: "#e03f8e",
+                      color: "#fff",
+                    }}
+                  >
+                    Controle seu escritório
+                  </span>{" "}
+                  através do seu smartphone e ao final da jornada
+                </p>
+              </h3>
+              <h4
+                style={{
+                  fontWeight: "bold",
+                  fontStyle: "italic",
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                }}
+              >
+                Inova Juris, o seu escritório jurídico na palma de sua mão.
+              </h4>
+            </>
+          )}
         </ContainerInfo>
         <Blue>
           <div className="formBox">
