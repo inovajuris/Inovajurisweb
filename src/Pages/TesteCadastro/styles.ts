@@ -49,13 +49,13 @@ export const ContainerInfo = styled.div`
   margin-bottom: 10%;
   line-height: 37px;
   padding: 5px 5px;
-
+  margin-right: 150px;
   justify-content: flex-start;
 
   width: 500px;
   height: 100%;
 
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Raleway", sans-serif; */
   flex-direction: column;
   h1 {
     line-height: 41px;
@@ -71,19 +71,20 @@ export const ContainerInfo = styled.div`
     margin-bottom: 10%;
     line-height: 37px;
     padding: 5px 5px;
-
+    margin-right: 0;
     justify-content: flex-start;
 
     width: 700px;
     height: 100%;
 
-    font-family: "Roboto", sans-serif;
     flex-direction: column;
     h1 {
       line-height: 41px;
+      font-family: "Raleway", sans-serif !important;
     }
     p {
       font-size: 25px;
+      font-family: "Raleway", sans-serif !important;
     }
     #titulo {
       font-weight: bold;
@@ -91,6 +92,7 @@ export const ContainerInfo = styled.div`
     }
     h4 {
       font-size: 22px;
+      font-family: "Raleway", sans-serif !important;
     }
   }
   @media (max-width: 600px) {
@@ -100,23 +102,24 @@ export const ContainerInfo = styled.div`
     margin-bottom: 10%;
     line-height: 28px;
     padding: 5px 5px;
-
+    margin-right: 0;
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 700px;
     height: 100%;
-
-    font-family: "Roboto", sans-serif;
+    font-family: "Raleway", sans-serif !important;
     flex-direction: column;
 
     h1 {
       line-height: 30px;
       font-size: 25px;
+      font-family: "Raleway", sans-serif !important;
     }
     p {
       font-size: 20px;
       margin-top: -9px !important;
       line-height: 30px;
+      font-family: "Raleway", sans-serif !important;
     }
     #titulo {
       font-weight: bold;
@@ -125,6 +128,7 @@ export const ContainerInfo = styled.div`
     h4 {
       font-size: 18px;
       margin-top: -10px !important;
+      font-family: "Raleway", sans-serif !important;
     }
   }
 `;
