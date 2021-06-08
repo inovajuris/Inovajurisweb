@@ -439,7 +439,11 @@ const Testenovocadastro: React.FC = () => {
               <br></br>
               <h1
                 id="titulo"
-                style={{ marginBottom: 20, textAlign: "justify" }}
+                style={{
+                  marginBottom: 20,
+                  textAlign: "justify",
+                  fontFamily: "Raleway",
+                }}
               >
                 Experimente agora o <br />
                 <span
@@ -495,6 +499,7 @@ const Testenovocadastro: React.FC = () => {
                     color: "#fff",
                     textAlign: "justify",
                     textJustify: "inter-word",
+                    fontFamily: "Raleway",
                   }}
                 >
                   EXPERIMENTE POR 30 DIAS O APP INOVA JURIS!
@@ -521,6 +526,7 @@ const Testenovocadastro: React.FC = () => {
                   marginBottom: 30,
                   textAlign: "justify",
                   textJustify: "inter-word",
+                  fontFamily: "Raleway",
                 }}
               >
                 <p>
@@ -534,6 +540,7 @@ const Testenovocadastro: React.FC = () => {
                       fontWeight: "bold",
                       backgroundColor: "#e03f8e",
                       color: "#fff",
+                      fontFamily: "Raleway",
                     }}
                   >
                     Controle seu escritório
@@ -547,6 +554,7 @@ const Testenovocadastro: React.FC = () => {
                   fontStyle: "italic",
                   textAlign: "justify",
                   textJustify: "inter-word",
+                  fontFamily: "Raleway",
                 }}
               >
                 Inova Juris, o seu escritório jurídico na palma de sua mão.
