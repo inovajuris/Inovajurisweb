@@ -163,7 +163,11 @@ const Home: React.FC = () => {
   const token = localStorage.getItem("@ActionLaw: token");
 
   async function fetchAPI() {
-    const response = await api.get(`escritorios?email=${user?.email}`);
+    const response = await api.get(`escritorios?email=${user?.email}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     console.log("responsee", response.data[0]);
 
@@ -287,6 +291,7 @@ const Home: React.FC = () => {
   }
 
   useEffect(() => {
+    console.log("teste TOKEN", token);
     fetchAPI();
 
     const script = document.createElement("script");
