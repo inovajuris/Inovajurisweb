@@ -9,7 +9,7 @@ export const DivPrincipal = styled.div`
   width: 100%;
   height: 100%;
   flex-direction: row;
-
+  /* background-color: #e03f8e; */
   padding-bottom: 20px;
 `;
 export const Container = styled.div`
@@ -142,7 +142,7 @@ export const Blue = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
-  background-color: #854;
+  /* background-color: #854; */
   border-radius: 6px;
 
   border: solid;
@@ -151,7 +151,7 @@ export const Blue = styled.div`
   box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
 
   width: 400px;
-  height: 600px;
+  height: 450px;
 
   margin-left: 1%;
   background: red;
@@ -228,6 +228,7 @@ export const Blue = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    font-size: 15 !important;
   }
   .inputsel2 {
     width: 95%;
@@ -288,7 +289,7 @@ export const Blue = styled.div`
     width: 100%;
     height: 20.7px;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 12px;
     margin-top: 13px;
   }
   h3 {
@@ -304,6 +305,7 @@ export const Blue = styled.div`
   form {
     margin-top: 4%;
     display: flex;
+
     flex-direction: column;
     align-items: center;
     height: 100%;
@@ -313,6 +315,37 @@ export const Blue = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      .tituloInput {
+        display: flex;
+        width: 100%;
+        /* background-color: #e03f8e; */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .inputNameTele {
+        display: flex;
+        width: 100%;
+        /* background-color: #232326; */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .inputTelefone {
+          display: flex;
+          width: 47%;
+          /* background-color: #854; */
+          .inputSenha {
+            display: flex;
+            width: 100%;
+            /* background-color: #854; */
+          }
+        }
+        .inputName {
+          width: 50%;
+          /* background-color: #9748; */
+        }
+      }
     }
 
     button {

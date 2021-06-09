@@ -432,6 +432,7 @@ const Testenovocadastro: React.FC = () => {
                     textAlign: "justify",
                     textJustify: "inter-word",
                     fontFamily: "Raleway",
+                    fontSize: 25,
                   }}
                 >
                   PARABÉNS, você acaba de receber um convite especial!
@@ -444,6 +445,7 @@ const Testenovocadastro: React.FC = () => {
                   marginBottom: 20,
                   textAlign: "justify",
                   fontFamily: "Raleway",
+                  fontSize: 25,
                 }}
               >
                 Experimente agora o <br />
@@ -464,6 +466,7 @@ const Testenovocadastro: React.FC = () => {
                   textAlign: "justify",
                   textJustify: "inter-word",
                   fontFamily: "Raleway",
+                  fontSize: 15,
                 }}
               >
                 <p>
@@ -489,6 +492,7 @@ const Testenovocadastro: React.FC = () => {
                   textAlign: "justify",
                   textJustify: "inter-word",
                   fontFamily: "Raleway",
+                  fontSize: 15,
                 }}
               >
                 Inova Juris, o seu escritório jurídico na palma de sua mão.
@@ -504,6 +508,7 @@ const Testenovocadastro: React.FC = () => {
                     textAlign: "justify",
                     textJustify: "inter-word",
                     fontFamily: "Raleway",
+                    fontSize: 25,
                   }}
                 >
                   EXPERIMENTE POR 30 DIAS O APP INOVA JURIS!
@@ -531,6 +536,7 @@ const Testenovocadastro: React.FC = () => {
                   textAlign: "justify",
                   textJustify: "inter-word",
                   fontFamily: "Raleway",
+                  fontSize: 15,
                 }}
               >
                 <p>
@@ -559,6 +565,7 @@ const Testenovocadastro: React.FC = () => {
                   textAlign: "justify",
                   textJustify: "inter-word",
                   fontFamily: "Raleway",
+                  fontSize: 15,
                 }}
               >
                 Inova Juris, o seu escritório jurídico na palma de sua mão.
@@ -573,7 +580,9 @@ const Testenovocadastro: React.FC = () => {
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="radio">
                 <div>
-                  <span className="pessoafisica">Pessoa Física</span>
+                  <span className="pessoafisica" style={{ fontSize: 15 }}>
+                    Pessoa Física
+                  </span>
                   <Radio
                     className="radiobtn"
                     value="cpf"
@@ -583,7 +592,9 @@ const Testenovocadastro: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <span className="pessoajuridica">Pessoa Jurídica</span>
+                  <span className="pessoajuridica" style={{ fontSize: 15 }}>
+                    Pessoa Jurídica
+                  </span>
                   <Radio
                     className="radiobtn"
                     value="cnpj"
@@ -594,63 +605,77 @@ const Testenovocadastro: React.FC = () => {
                 </div>
               </div>
               <div className="input1">
-                <h2>Nome</h2>
+                <div className="tituloInput">
+                  <h2>Nome</h2>
+                  <h2 style={{ marginLeft: "10%" }}>Telefone</h2>
+                </div>
 
-                <Input
-                  id="nome"
-                  className="input"
-                  name="nome"
-                  value={name}
-                  icon={FiUser}
-                  type="text"
-                  placeholder="nome"
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <h2>Telefone</h2>
+                <div className="inputNameTele">
+                  <div className="inputName">
+                    <Input
+                      id="nome"
+                      className="input"
+                      name="nome"
+                      value={name}
+                      icon={FiUser}
+                      type="text"
+                      placeholder="nome"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  {/* <h2>Telefone</h2> */}
+                  <div className="inputTelefone">
+                    <Input
+                      className="input"
+                      name="telefone"
+                      icon={FiPhoneCall}
+                      type="text"
+                      value={tel}
+                      maxLength={15}
+                      onKeyUp={(e) => {
+                        const value = e.currentTarget.value
+                          .replace(/\D/g, "")
+                          .replace(/(\d{2})(\d)/, "($1) $2")
+                          .replace(/(\d{5})(\d)/, "$1-$2");
 
-                <Input
-                  className="input"
-                  name="telefone"
-                  icon={FiPhoneCall}
-                  type="text"
-                  value={tel}
-                  maxLength={15}
-                  onKeyUp={(e) => {
-                    const value = e.currentTarget.value
-                      .replace(/\D/g, "")
-                      .replace(/(\d{2})(\d)/, "($1) $2")
-                      .replace(/(\d{5})(\d)/, "$1-$2");
-
-                    e.currentTarget.value = value;
-                    return e;
-                  }}
-                  preffix
-                  placeholder="(xx) xxxxx-xxxx"
-                  onChange={(e) => setTelefone(e.target.value)}
-                />
-                <h2>Email</h2>
-
-                <Input
-                  id="email"
-                  className="input"
-                  name="email"
-                  value={email}
-                  icon={FiMail}
-                  type="email"
-                  placeholder="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <h2>Senha</h2>
-
-                <Input
-                  className="input"
-                  name="senha"
-                  icon={FiLock}
-                  type={inputType}
-                  placeholder="6 dígitos, mínimo uma letra e um número"
-                  onChange={(e) => setSenha(e.target.value)}
-                />
+                        e.currentTarget.value = value;
+                        return e;
+                      }}
+                      preffix
+                      placeholder="(xx) xxxxx-xxxx"
+                      onChange={(e) => setTelefone(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="tituloInput">
+                  <h2>Email</h2>
+                  <h2 style={{ marginLeft: "10%" }}>Senha</h2>
+                </div>
+                <div className="inputNameTele">
+                  <div className="inputName">
+                    <Input
+                      id="email"
+                      className="input"
+                      name="email"
+                      value={email}
+                      icon={FiMail}
+                      type="email"
+                      placeholder="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  {/* <h2>Senha</h2> */}
+                  <div className="inputTelefone">
+                    <Input
+                      className="inputSenha"
+                      name="senha"
+                      icon={FiLock}
+                      type={inputType}
+                      placeholder="6 dígitos"
+                      onChange={(e) => setSenha(e.target.value)}
+                    />
+                  </div>
+                </div>
 
                 <div className="div4">
                   <div className="input9">
@@ -707,7 +732,7 @@ const Testenovocadastro: React.FC = () => {
                   Cadastrar
                 </Button>
               </div>
-              <div className="politica">
+              <div className="politica" style={{ fontSize: 15 }}>
                 <h4>Ao continuar, você concorda com a&nbsp;</h4>
 
                 <a
@@ -715,6 +740,7 @@ const Testenovocadastro: React.FC = () => {
                   href="https://www.notion.so/Pol-tica-de-Privacidade-Inova-Juris-6bb6ba55e47a4dc2b35cd4401dd74252"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ fontSize: 15 }}
                 >
                   {" "}
                   Política de Privacidade
