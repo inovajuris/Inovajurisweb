@@ -493,6 +493,7 @@ const Testenovocadastro: React.FC = () => {
                   textJustify: "inter-word",
                   fontFamily: "Raleway",
                   fontSize: 15,
+                  marginTop: -10,
                 }}
               >
                 Inova Juris, o seu escritório jurídico na palma de sua mão.

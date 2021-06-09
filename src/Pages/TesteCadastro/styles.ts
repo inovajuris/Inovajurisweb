@@ -18,7 +18,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
 
-  margin-top: 15%;
+  margin-top: 14%;
   justify-content: center;
   flex-wrap: wrap;
   @media (max-width: 900px) {
@@ -36,7 +36,9 @@ export const Container = styled.div`
     flex-direction: row;
     width: 100%;
     height: 100%;
-
+    align-items: center;
+    align-self: center;
+    align-content: center;
     margin-top: 30%;
     justify-content: center;
     flex-wrap: wrap;
@@ -46,10 +48,10 @@ export const ContainerInfo = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: row;
-  margin-bottom: 10%;
+
   line-height: 37px;
   padding: 5px 5px;
-  margin-right: 150px;
+  /* margin-right: 150px; */
   justify-content: flex-start;
 
   width: 500px;
@@ -74,7 +76,7 @@ export const ContainerInfo = styled.div`
     margin-right: 0;
     justify-content: flex-start;
 
-    width: 700px;
+    width: 100%;
     height: 100%;
 
     flex-direction: column;
@@ -101,11 +103,11 @@ export const ContainerInfo = styled.div`
     flex-direction: row;
     margin-bottom: 10%;
     line-height: 28px;
-    padding: 5px 5px;
+    padding: 8px 5px;
     margin-right: 0;
     justify-content: flex-start;
     flex-wrap: wrap;
-    width: 700px;
+    width: 100%;
     height: 100%;
     font-family: "Raleway", sans-serif !important;
     flex-direction: column;
@@ -152,9 +154,9 @@ export const Blue = styled.div`
 
   width: 400px;
   height: 450px;
-
+  margin-top: -1%;
   margin-left: 1%;
-  background: red;
+
   .radiobtn {
     color: #e03f8e;
     svg {
@@ -392,7 +394,7 @@ export const Blue = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: #854;
+
     border-radius: 6px;
 
     border: solid;
@@ -405,7 +407,7 @@ export const Blue = styled.div`
     margin-top: -50px;
     /* margin-top: 85px; */
     margin-left: 1%;
-    background: red;
+
     font-size: 22px;
 
     .radiobtn {
@@ -614,7 +616,7 @@ export const Blue = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: #854;
+    align-items: center;
     border-radius: 6px;
     flex-wrap: wrap;
 
@@ -623,11 +625,11 @@ export const Blue = styled.div`
     -webkit-box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
     box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
 
-    width: 450px;
-    height: 650px;
+    width: 100%;
+    height: 500px;
     margin-top: 10px;
 
-    margin-left: 1%;
+    /* margin-left: 2%; */
 
     font-size: 17px;
 
@@ -835,12 +837,10 @@ export const Blue = styled.div`
 `;
 
 export const GoogleLogin = styled(CustomGoogleLogin)`
-  background-color: red;
   margin-left: 200px;
   margin-top: -20%;
   position: fixed;
   > button {
-    background-color: red;
     margin-top: -30%;
   }
 `;
