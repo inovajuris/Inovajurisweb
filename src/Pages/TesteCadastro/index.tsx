@@ -431,6 +431,7 @@ const Testenovocadastro: React.FC = () => {
                     color: "#fff",
                     textAlign: "justify",
                     textJustify: "inter-word",
+                    fontFamily: "Raleway",
                   }}
                 >
                   PARABÉNS, você acaba de receber um convite especial!
@@ -450,6 +451,7 @@ const Testenovocadastro: React.FC = () => {
                   style={{
                     backgroundColor: "#e03f8e",
                     color: "#fff",
+                    fontFamily: "Raleway",
                   }}
                 >
                   Inova Juris Beta!
@@ -461,6 +463,7 @@ const Testenovocadastro: React.FC = () => {
                   marginBottom: 30,
                   textAlign: "justify",
                   textJustify: "inter-word",
+                  fontFamily: "Raleway",
                 }}
               >
                 <p>
@@ -471,7 +474,7 @@ const Testenovocadastro: React.FC = () => {
                 <p>
                   Controle seu escritório através do seu smartphone e ao final
                   da jornada{" "}
-                  <span style={{ fontWeight: "bold" }}>
+                  <span style={{ fontWeight: "bold", fontFamily: "Raleway" }}>
                     receba uma oferta{" "}
                     <span style={{ backgroundColor: "#e03f8e", color: "#fff" }}>
                       exclusiva!
@@ -485,6 +488,7 @@ const Testenovocadastro: React.FC = () => {
                   fontStyle: "italic",
                   textAlign: "justify",
                   textJustify: "inter-word",
+                  fontFamily: "Raleway",
                 }}
               >
                 Inova Juris, o seu escritório jurídico na palma de sua mão.

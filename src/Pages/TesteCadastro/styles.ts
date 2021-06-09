@@ -314,6 +314,7 @@ export const Blue = styled.div`
       justify-content: center;
       align-items: center;
     }
+
     button {
       width: fit-content;
       padding: 0 16px;
