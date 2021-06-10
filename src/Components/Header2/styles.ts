@@ -23,7 +23,7 @@ export const HeaderContainer = styled.header`
   align-items: flex-start;
   justify-content: flex-start;
   /* box-shadow: 0px 0px 5px; */
-  position: absolute;
+  position: fixed;
   /* position: fixed; */
   top: 0;
   padding-top: 10px;
@@ -34,19 +34,16 @@ export const HeaderContainer = styled.header`
     cursor: pointer;
   }
   @media screen and (max-width: 900px) {
-    width: 100%;
     height: 20%;
-
-    max-width: 100%;
 
     background: url(${wave2}) no-repeat;
     background-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    position: relative;
     position: fixed;
+    /* position: absolute; */
+
     top: 0;
     z-index: 9999;
 
@@ -56,19 +53,16 @@ export const HeaderContainer = styled.header`
     }
   }
   @media screen and (max-width: 600px) {
-    width: 100%;
     height: 30%;
-
-    max-width: 100%;
 
     background: url(${wave3}) no-repeat;
     background-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    position: relative;
     position: fixed;
+    /* position: relative; */
+
     top: 0;
     z-index: 9999;
 

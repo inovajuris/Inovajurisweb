@@ -500,22 +500,23 @@ const Testenovocadastro: React.FC = () => {
             </>
           ) : (
             <>
-              <h1>
-                <span
-                  style={{
-                    backgroundColor: "#e03f8e",
-                    color: "#fff",
-                    textAlign: "justify",
-                    textJustify: "inter-word",
-                    fontFamily: "Raleway",
-                    fontSize: 25,
-                  }}
-                >
-                  EXPERIMENTE POR 30 DIAS O APP INOVA JURIS!
-                </span>
-              </h1>
-              <br></br>
-              {/* <h1
+              <div style={{ marginTop: "10%" }}>
+                <h1>
+                  <span
+                    style={{
+                      backgroundColor: "#e03f8e",
+                      color: "#fff",
+                      textAlign: "justify",
+                      textJustify: "inter-word",
+                      fontFamily: "Raleway",
+                      fontSize: 25,
+                    }}
+                  >
+                    EXPERIMENTE POR 30 DIAS O APP INOVA JURIS!
+                  </span>
+                </h1>
+                <br></br>
+                {/* <h1
                 id="titulo"
                 style={{ marginBottom: 20, textAlign: "justify" }}
               >
@@ -529,47 +530,49 @@ const Testenovocadastro: React.FC = () => {
                   Inova Juris Beta!
                 </span>
               </h1> */}
-              <h3
-                style={{
-                  fontWeight: "normal",
-                  marginBottom: 30,
-                  textAlign: "justify",
-                  textJustify: "inter-word",
-                  fontFamily: "Raleway",
-                  fontSize: 15,
-                }}
-              >
-                <p>
-                  Preencha o formulário e baixe agora mesmo e solicite o Trial
-                  do app.Utilize gratuitamente todas as funcionalidades e
-                  descubra como transformar o relacionamento com o seu cliente!
-                </p>
-                <p>
-                  <span
-                    style={{
-                      fontWeight: "bold",
-                      backgroundColor: "#e03f8e",
-                      color: "#fff",
-                      fontFamily: "Raleway",
-                    }}
-                  >
-                    Controle seu escritório
-                  </span>{" "}
-                  através do seu smartphone e ao final da jornada
-                </p>
-              </h3>
-              <h4
-                style={{
-                  fontWeight: "bold",
-                  fontStyle: "italic",
-                  textAlign: "justify",
-                  textJustify: "inter-word",
-                  fontFamily: "Raleway",
-                  fontSize: 15,
-                }}
-              >
-                Inova Juris, o seu escritório jurídico na palma de sua mão.
-              </h4>
+                <h3
+                  style={{
+                    fontWeight: "normal",
+                    marginBottom: 30,
+                    textAlign: "justify",
+                    textJustify: "inter-word",
+                    fontFamily: "Raleway",
+                    fontSize: 15,
+                  }}
+                >
+                  <p>
+                    Preencha o formulário e baixe agora mesmo e solicite o Trial
+                    do app.Utilize gratuitamente todas as funcionalidades e
+                    descubra como transformar o relacionamento com o seu
+                    cliente!
+                  </p>
+                  <p>
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        backgroundColor: "#e03f8e",
+                        color: "#fff",
+                        fontFamily: "Raleway",
+                      }}
+                    >
+                      Controle seu escritório
+                    </span>{" "}
+                    através do seu smartphone e ao final da jornada
+                  </p>
+                </h3>
+                <h4
+                  style={{
+                    fontWeight: "bold",
+                    fontStyle: "italic",
+                    textAlign: "justify",
+                    textJustify: "inter-word",
+                    fontFamily: "Raleway",
+                    fontSize: 15,
+                  }}
+                >
+                  Inova Juris, o seu escritório jurídico na palma de sua mão.
+                </h4>
+              </div>
             </>
           )}
         </ContainerInfo>
@@ -580,9 +583,7 @@ const Testenovocadastro: React.FC = () => {
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="radio">
                 <div>
-                  <span className="pessoafisica" style={{ fontSize: 15 }}>
-                    Pessoa Física
-                  </span>
+                  <span className="pessoafisica">Pessoa Física</span>
                   <Radio
                     className="radiobtn"
                     value="cpf"
@@ -592,9 +593,7 @@ const Testenovocadastro: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <span className="pessoajuridica" style={{ fontSize: 15 }}>
-                    Pessoa Jurídica
-                  </span>
+                  <span className="pessoajuridica">Pessoa Jurídica</span>
                   <Radio
                     className="radiobtn"
                     value="cnpj"
@@ -732,7 +731,7 @@ const Testenovocadastro: React.FC = () => {
                   Cadastrar
                 </Button>
               </div>
-              <div className="politica" style={{ fontSize: 15 }}>
+              <div className="politica">
                 <h4>Ao continuar, você concorda com a&nbsp;</h4>
 
                 <a
@@ -740,7 +739,6 @@ const Testenovocadastro: React.FC = () => {
                   href="https://www.notion.so/Pol-tica-de-Privacidade-Inova-Juris-6bb6ba55e47a4dc2b35cd4401dd74252"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontSize: 15 }}
                 >
                   {" "}
                   Política de Privacidade
