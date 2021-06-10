@@ -470,8 +470,8 @@ const Testenovocadastro: React.FC = () => {
                 }}
               >
                 <p>
-                  Preencha o formulário e baixe agora mesmo a versão beta
-                  <br /> do app Inova Juris.
+                  Preencha o formulário e baixe agora mesmo a versão beta do app
+                  Inova Juris.
                 </p>
 
                 <p>
