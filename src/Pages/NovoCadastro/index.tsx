@@ -17,6 +17,7 @@ import * as Yup from "yup";
 import getValidationErrors from "../../utils/getValidationErros";
 import Input from "../../Components/Input";
 import { useParams } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 import Button from "../../Components/Button";
 import { useToast } from "../../hooks/toast";
 import { useAuth } from "../../hooks/auth";
@@ -258,6 +259,10 @@ const NovoCadastro: React.FC = () => {
     [addToast]
   );
 
+  function onChange(value: any) {
+    console.log("Captcha value:", value);
+  }
+
   // const endDate = new Date(
   //   new Date().getTime() + 1_209_600_000
   // ).toLocaleString();
@@ -384,6 +389,11 @@ const NovoCadastro: React.FC = () => {
                   Política de Privacidade
                 </a>
               </div>
+              <ReCAPTCHA
+                sitekey="6LdL1CQbAAAAACVq8HqHeMJJ9BejuQiW8Rd1nj6o"
+                onChange={onChange}
+                hl="pt"
+              />
 
               <button type="button" className="possuilogin">
                 <a href={`/`}>Já possui login?</a>
