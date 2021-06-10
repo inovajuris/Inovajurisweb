@@ -447,9 +447,10 @@ const Testenovocadastro: React.FC = () => {
                   textAlign: "justify",
                   fontFamily: "Raleway",
                   fontSize: 25,
+                  color: "#646363",
                 }}
               >
-                Experimente agora o <br />
+                Experimente agora o{" "}
                 <span
                   style={{
                     backgroundColor: "#e03f8e",
