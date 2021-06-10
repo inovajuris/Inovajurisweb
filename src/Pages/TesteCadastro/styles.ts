@@ -7,13 +7,16 @@ import { face } from "../../styles/icons";
 export const DivPrincipal = styled.div`
   display: flex;
   width: 100%;
+
   height: 100%;
   flex-direction: row;
-  /* background-color: #e03f8e; */
+
   padding-bottom: 20px;
 `;
 export const Container = styled.div`
   display: flex;
+
+  justify-content: center;
   flex-direction: row;
   width: 100%;
   height: 100%;
@@ -21,6 +24,7 @@ export const Container = styled.div`
   margin-top: 14%;
   justify-content: center;
   flex-wrap: wrap;
+
   @media (max-width: 900px) {
     display: flex;
     flex-direction: row;
@@ -50,31 +54,25 @@ export const ContainerInfo = styled.div`
   flex-direction: row;
 
   line-height: 37px;
-  padding: 5px 5px;
-  /* margin-right: 150px; */
-  justify-content: flex-start;
 
-  width: 500px;
+  /* margin-right: 150px; */
+  justify-content: center;
+
+  width: 38%;
   height: 100%;
 
   /* font-family: "Raleway", sans-serif; */
   flex-direction: column;
-  h1 {
-    line-height: 41px;
-  }
-  #titulo {
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
+
   @media (max-width: 900px) {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     margin-bottom: 10%;
     line-height: 37px;
     padding: 5px 5px;
-    margin-right: 0;
-    justify-content: flex-start;
+
+    justify-content: center;
 
     width: 100%;
     height: 100%;
@@ -99,13 +97,13 @@ export const ContainerInfo = styled.div`
   }
   @media (max-width: 600px) {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     margin-bottom: 10%;
     line-height: 28px;
     padding: 8px 5px;
-    margin-right: 0;
-    justify-content: flex-start;
+
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
@@ -142,9 +140,9 @@ export const Fundo = styled.div`
 
 export const Blue = styled.div`
   display: flex;
-  justify-content: center;
+
   flex-direction: row;
-  /* background-color: #854; */
+
   border-radius: 6px;
 
   border: solid;
@@ -152,10 +150,10 @@ export const Blue = styled.div`
   -webkit-box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
   box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
 
-  width: 400px;
-  height: 450px;
-  margin-top: -1%;
-  margin-left: 1%;
+  width: 335px;
+  height: 470px;
+
+  margin-top: -2%;
 
   .radiobtn {
     color: #e03f8e;
@@ -183,7 +181,7 @@ export const Blue = styled.div`
 
     margin-top: 5px;
     width: 100%;
-    height: 40px;
+    height: 35px;
     border-radius: 5px;
 
     outline: 0;
@@ -197,7 +195,6 @@ export const Blue = styled.div`
   }
   .radio {
     display: flex;
-    justify-content: center;
 
     margin-right: 2%;
   }
@@ -251,9 +248,9 @@ export const Blue = styled.div`
   }
   .formBox {
     display: flex;
-    padding: 17px;
+    padding: 0px 12px;
 
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
 
     width: 100%;
@@ -275,24 +272,15 @@ export const Blue = styled.div`
 
         cursor: pointer;
       }
-      .facebook {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 8px;
-        width: 64.5px;
-
-        cursor: pointer;
-      }
     }
   }
   h2 {
     color: #141414;
     width: 100%;
-    height: 20.7px;
-    font-weight: 400;
-    font-size: 12px;
-    margin-top: 13px;
+    height: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 7px;
   }
   h3 {
     margin-top: 6px;
@@ -312,40 +300,41 @@ export const Blue = styled.div`
     align-items: center;
     height: 100%;
     .input1 {
+      margin-top: -2%;
       width: 100%;
+      height: 90%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+
       align-items: center;
 
       .tituloInput {
         display: flex;
         width: 100%;
-        /* background-color: #e03f8e; */
-        flex-direction: row;
-        justify-content: space-between;
+
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
       }
       .inputNameTele {
         display: flex;
         width: 100%;
-        /* background-color: #232326; */
+
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         .inputTelefone {
           display: flex;
           width: 47%;
-          /* background-color: #854; */
+
           .inputSenha {
             display: flex;
             width: 100%;
-            /* background-color: #854; */
           }
         }
         .inputName {
           width: 50%;
-          /* background-color: #9748; */
         }
       }
     }
@@ -353,13 +342,13 @@ export const Blue = styled.div`
     button {
       width: fit-content;
       padding: 0 16px;
-      width: 65%;
-      height: 40px;
+      width: 64%;
+      height: 38px;
       text-align: center;
     }
     .btnazul {
       text-align: center;
-      margin-top: 24px;
+      margin-top: 17px;
       background-color: #e03f8e;
     }
 
@@ -626,7 +615,7 @@ export const Blue = styled.div`
     box-shadow: 4px 9px 12px 5px rgba(0, 0, 0, 0.36);
 
     width: 100%;
-    height: 500px;
+    height: 620px;
     margin-top: 10px;
 
     /* margin-left: 2%; */
