@@ -476,8 +476,8 @@ const Testenovocadastro: React.FC = () => {
                 </p>
 
                 <p>
-                  Controle seu escritório através do seu smartphone e ao final
-                  da jornada{" "}
+                  Controle seu escritório através do seu smartphone e, ao final
+                  da jornada,{" "}
                   <span style={{ fontWeight: "bold", fontFamily: "Raleway" }}>
                     receba uma oferta{" "}
                     <span style={{ backgroundColor: "#e03f8e", color: "#fff" }}>
@@ -542,7 +542,7 @@ const Testenovocadastro: React.FC = () => {
                   }}
                 >
                   <p>
-                    Preencha o formulário e baixe agora mesmo e o Trial do app.
+                    Preencha o formulário e baixe agora mesmo o Trial do app.
                     Utilize gratuitamente todas as funcionalidades e descubra
                     como transformar o relacionamento com o seu cliente!
                   </p>
