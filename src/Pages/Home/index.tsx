@@ -147,10 +147,11 @@ const Home: React.FC = () => {
   const [data, setData] = useState({});
   const [qtadeDias, setqtadeDias] = useState(0);
   const [beta, setBeta] = useState("");
-  const [officeData, setOfficeData] = useState<{
-    id_escritorio: number;
-    telefone: number;
-  }>();
+  const [officeData, setOfficeData] =
+    useState<{
+      id_escritorio: number;
+      telefone: number;
+    }>();
 
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -161,7 +162,11 @@ const Home: React.FC = () => {
   const token = localStorage.getItem("@ActionLaw: token");
 
   async function fetchAPI() {
-    const response = await api.get(`escritorios?email=${user?.email}`);
+    const response = await api.get(`escritorios?email=${user?.email}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     console.log("responsee", response.data[0]);
 
