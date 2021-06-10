@@ -649,7 +649,14 @@ const Testenovocadastro: React.FC = () => {
                 </div>
                 <div className="tituloInput">
                   <h2>Email</h2>
-                  <h2 style={{ marginLeft: "10%" }}>
+                  <h2
+                    style={{
+                      marginLeft: "10%",
+                      // backgroundColor: "#545",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
                     Senha
                     <AiOutlineInfoCircle
                       size={15}
@@ -657,6 +664,7 @@ const Testenovocadastro: React.FC = () => {
                       // color="#e03f8e"
                       style={{
                         marginLeft: "2%",
+                        // backgroundColor: "#015",
                       }}
                     />
                     <ReactTooltip
