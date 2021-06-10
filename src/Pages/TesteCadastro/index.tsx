@@ -7,7 +7,7 @@ import React, {
   InputHTMLAttributes,
 } from "react";
 
-import { FiArrowLeft } from "react-icons/fi";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Radio } from "@material-ui/core";
 import { FiLock } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
@@ -21,6 +21,7 @@ import Header2 from "../../Components/Header2";
 import FacebookLogin from "react-facebook-login";
 import { useParams } from "react-router-dom";
 import HeaderFundo from "../../assets/testebackground.jpg";
+import ReactTooltip from "react-tooltip";
 import {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
@@ -647,7 +648,22 @@ const Testenovocadastro: React.FC = () => {
                 </div>
                 <div className="tituloInput">
                   <h2>Email</h2>
-                  <h2 style={{ marginLeft: "10%" }}>Senha</h2>
+                  <h2 style={{ marginLeft: "10%" }}>
+                    Senha
+                    <AiOutlineInfoCircle
+                      size={15}
+                      data-tip="A senha tem que ter 6 dígitos, um número e uma letra"
+                      // color="#e03f8e"
+                      style={{
+                        marginLeft: "2%",
+                      }}
+                    />
+                    <ReactTooltip
+                      place="right"
+                      type="info"
+                      backgroundColor="#e03f8e"
+                    />
+                  </h2>
                 </div>
                 <div className="inputNameTele">
                   <div className="inputName">
@@ -669,7 +685,7 @@ const Testenovocadastro: React.FC = () => {
                       name="senha"
                       icon={FiLock}
                       type={inputType}
-                      placeholder="6 dígitos"
+                      placeholder="Senha"
                       onChange={(e) => setSenha(e.target.value)}
                     />
                   </div>
