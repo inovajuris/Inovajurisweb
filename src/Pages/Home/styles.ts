@@ -1,8 +1,12 @@
 import styled, { css } from "styled-components";
-
 export const Layout = styled.div`
   padding-top: 120px;
   padding-bottom: 48px;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Fundo = styled.div`
   display: flex;
   justify-content: center;
 `;

@@ -7,6 +7,7 @@ export interface ToastMessage {
   type?: "sucess" | "error" | "info";
   title: string;
   description?: string;
+  telaBeta?: boolean;
 }
 
 interface ToastContextData {
@@ -16,20 +17,24 @@ interface ToastContextData {
 const ToastContext = createContext<ToastContextData>({} as ToastContextData);
 const ToastProvider: React.FC = ({ children }) => {
   const [messages, setMessages] = useState<ToastMessage[]>([]);
+  const [tela, setTela] = useState(false);
   const addToast = useCallback(
-    ({ type, title, description }: Omit<ToastMessage, "id">) => {
+    ({ type, title, description, telaBeta }: Omit<ToastMessage, "id">) => {
       const id = uuid();
       const toast = {
         id,
         type,
         title,
         description,
+        telaBeta,
       };
-
+      console.log("Dentro", telaBeta);
+      setTela(telaBeta);
       setMessages((state) => [...state, toast]);
     },
     []
   );
+  console.log("teste dd", tela);
   const removeToast = useCallback((id: string) => {
     setMessages((state) => state.filter((message) => message.id !== id));
   }, []);
@@ -37,7 +42,7 @@ const ToastProvider: React.FC = ({ children }) => {
     <ToastContext.Provider value={{ addToast, removeToast }}>
       {children}
 
-      <ToastContainer messages={messages} />
+      <ToastContainer messages={messages} telaBeta={tela} />
     </ToastContext.Provider>
   );
 };

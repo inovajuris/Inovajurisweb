@@ -44,6 +44,7 @@ import {
   QuestionContent,
   DropdownToggle,
   ButtonCompra,
+  Fundo,
 } from "./styles";
 
 import Person from "../../assets/person.svg";
@@ -51,7 +52,7 @@ import Appstore from "../../assets/aple1.svg";
 import Playstore from "../../assets/play1.svg";
 import api from "../../services/api";
 import { useToast } from "../../hooks/toast";
-
+import HeaderFundo from "../../assets/headerFundo.png";
 import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
 interface ReturnDate {
@@ -290,6 +291,7 @@ const Home: React.FC = () => {
   }
 
   useEffect(() => {
+    console.log("teste TOKEN", token);
     fetchAPI();
 
     const script = document.createElement("script");
@@ -363,6 +365,7 @@ const Home: React.FC = () => {
   //   `${date.split("T")[0]}T00:00:00Z`;
 
   // console.log("isTrial", isTrial);
+
   console.log(beta);
   return (
     <Layout>

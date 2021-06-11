@@ -7,7 +7,7 @@ import React, {
   InputHTMLAttributes,
 } from "react";
 
-import { FiArrowLeft } from "react-icons/fi";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Radio } from "@material-ui/core";
 import { FiLock } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
@@ -17,9 +17,11 @@ import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
 import { FiEyeOff } from "react-icons/fi";
 import { FiEye } from "react-icons/fi";
-import Header2 from "../../Components/Header";
+import Header2 from "../../Components/Header2";
 import FacebookLogin from "react-facebook-login";
 import { useParams } from "react-router-dom";
+import HeaderFundo from "../../assets/testebackground.jpg";
+import ReactTooltip from "react-tooltip";
 import {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
@@ -33,6 +35,9 @@ import {
   GoogleLogin,
   Googleicon,
   Facebokcion,
+  Fundo,
+  ContainerInfo,
+  DivPrincipal,
 } from "./styles";
 import api from "../../services/api";
 import * as Yup from "yup";
@@ -88,6 +93,8 @@ interface SigInFormData {
 }
 interface RouteParams {
   plano: string;
+  nameUser: string;
+  emailUser: string;
 }
 interface Datecount {
   date1: number;
@@ -120,7 +127,7 @@ interface OfficeResponse {
 }
 
 const Testenovocadastro: React.FC = () => {
-  const { plano } = useParams<RouteParams>();
+  const { plano, nameUser, emailUser } = useParams<RouteParams>();
   console.log(useParams());
 
   // const {plano_usuario} = plano ? JSON.parse(plano) : ''
@@ -164,6 +171,15 @@ const Testenovocadastro: React.FC = () => {
         setAmountDays(response.data[0].qtde_dias);
       })
       .catch((err) => console.log("Error", err));
+
+    if (nameUser) {
+      console.log(nameUser);
+      setName(nameUser);
+    }
+    if (emailUser) {
+      console.log(emailUser);
+      setEmail(emailUser);
+    }
   }, []);
 
   const handleSubmit = useCallback(
@@ -299,6 +315,7 @@ const Testenovocadastro: React.FC = () => {
             type: "error",
             title: "Erro na cadastro",
             description: `Ocorreu um erro ao fazer cadastro, tente novamente.`,
+            telaBeta: true,
           });
         }
 
@@ -308,6 +325,7 @@ const Testenovocadastro: React.FC = () => {
             title: "Erro na cadastro",
             description: `Usuário já cadastrado.
             `,
+            telaBeta: true,
           });
         }
       }
@@ -385,28 +403,13 @@ const Testenovocadastro: React.FC = () => {
       temp[0];
     return dataBanco;
   }
-  // console.log(dataFormatadaInicio + "esse");
-  // console.log(dataFormatadaFim + "esse");
 
-  // console.log(dataFormatadaInicio + "esse");
-  // console.log(dataFormatadaFim + "esse");
-
-  // console.log("amountDays", amountDays);
-  // const endBetaDate = amountDays
-  //   ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
-  //   : new Date(new Date().getTime() + 31_536_000_000).toISOString();
-  // const endTrialDate = amountDays
-  //   ? new Date(new Date().getTime() + 86_400_000 * amountDays).toISOString()
-  //   : new Date(new Date().getTime() + 1_814_400_000).toISOString();
-
-  // const startDate = new Date(new Date()).toISOString();
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
       "https://d335luupugsy2.cloudfront.net/js/loader-scripts/f833fbca-f1e1-485f-8d50-3e15a3c158fc-loader.js";
     script.async = true;
 
-    // script.setAttribute("crossorigin", "*");
     document.body.appendChild(script);
 
     return () => {
@@ -415,12 +418,168 @@ const Testenovocadastro: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <DivPrincipal>
       <Header2 />
       <Container>
+        <ContainerInfo>
+          {plano === "beta" ? (
+            <>
+              {" "}
+              <h1>
+                <span
+                  style={{
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                    textAlign: "justify",
+                    textJustify: "inter-word",
+                    fontFamily: "Raleway",
+                    fontSize: 25,
+                  }}
+                >
+                  PARABÉNS, você acaba de receber um convite especial!
+                </span>
+              </h1>
+              <br></br>
+              <h1
+                id="titulo"
+                style={{
+                  marginBottom: 20,
+                  textAlign: "justify",
+                  fontFamily: "Raleway",
+                  fontSize: 25,
+                  color: "#646363",
+                }}
+              >
+                Experimente agora o{" "}
+                <span
+                  style={{
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                    fontFamily: "Raleway",
+                  }}
+                >
+                  Inova Juris Beta!
+                </span>
+              </h1>
+              <h3
+                style={{
+                  fontWeight: "normal",
+                  marginBottom: 30,
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                  fontFamily: "Raleway",
+                  fontSize: 15,
+                }}
+              >
+                <p>
+                  Preencha o formulário e baixe agora mesmo a versão beta do app
+                  Inova Juris.
+                </p>
+
+                <p>
+                  Controle seu escritório através do seu smartphone e, ao final
+                  da jornada,{" "}
+                  <span style={{ fontWeight: "bold", fontFamily: "Raleway" }}>
+                    receba uma oferta{" "}
+                    <span style={{ backgroundColor: "#e03f8e", color: "#fff" }}>
+                      exclusiva!
+                    </span>
+                  </span>
+                </p>
+              </h3>
+              <h4
+                style={{
+                  fontWeight: "bold",
+                  fontStyle: "italic",
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                  fontFamily: "Raleway",
+                  fontSize: 15,
+                }}
+              >
+                Inova Juris, o seu escritório jurídico na palma de sua mão.
+              </h4>{" "}
+            </>
+          ) : (
+            <>
+              <div style={{ marginTop: "10%" }}>
+                <h1>
+                  <span
+                    style={{
+                      backgroundColor: "#e03f8e",
+                      color: "#fff",
+                      textAlign: "justify",
+                      textJustify: "inter-word",
+                      fontFamily: "Raleway",
+                      fontSize: 25,
+                    }}
+                  >
+                    EXPERIMENTE POR 30 DIAS O APP INOVA JURIS!
+                  </span>
+                </h1>
+                <br></br>
+                {/* <h1
+                id="titulo"
+                style={{ marginBottom: 20, textAlign: "justify" }}
+              >
+                Experimente agora o <br />
+                <span
+                  style={{
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                  }}
+                >
+                  Inova Juris Beta!
+                </span>
+              </h1> */}
+                <h3
+                  style={{
+                    fontWeight: "normal",
+                    marginBottom: 30,
+                    textAlign: "justify",
+                    textJustify: "inter-word",
+                    fontFamily: "Raleway",
+                    fontSize: 15,
+                  }}
+                >
+                  <p>
+                    Preencha o formulário e baixe agora mesmo o Trial do app.
+                    Utilize gratuitamente todas as funcionalidades e descubra
+                    como transformar o relacionamento com o seu cliente!
+                  </p>
+                  <p>
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        backgroundColor: "#e03f8e",
+                        color: "#fff",
+                        fontFamily: "Raleway",
+                      }}
+                    >
+                      Controle seu escritório
+                    </span>{" "}
+                    através do seu smartphone.
+                  </p>
+                </h3>
+                <h4
+                  style={{
+                    fontWeight: "bold",
+                    fontStyle: "italic",
+                    textAlign: "justify",
+                    textJustify: "inter-word",
+                    fontFamily: "Raleway",
+                    fontSize: 15,
+                  }}
+                >
+                  Inova Juris, o seu escritório jurídico na palma de sua mão.
+                </h4>
+              </div>
+            </>
+          )}
+        </ContainerInfo>
         <Blue>
           <div className="formBox">
-            <h3 className="h1C">Cadastrar</h3>
+            {/* <h3 className="h1C">Cadastrar</h3>  */}
 
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="radio">
@@ -446,61 +605,100 @@ const Testenovocadastro: React.FC = () => {
                 </div>
               </div>
               <div className="input1">
-                <h2>Nome</h2>
+                <div className="tituloInput">
+                  <h2>Nome</h2>
+                  <h2 style={{ marginLeft: "10%" }}>Telefone</h2>
+                </div>
 
-                <Input
-                  className="input"
-                  name="nome"
-                  value={name}
-                  icon={FiUser}
-                  type="text"
-                  placeholder="nome"
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <h2>Telefone</h2>
+                <div className="inputNameTele">
+                  <div className="inputName">
+                    <Input
+                      id="nome"
+                      className="input"
+                      name="nome"
+                      value={name}
+                      icon={FiUser}
+                      type="text"
+                      placeholder="nome"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  {/* <h2>Telefone</h2> */}
+                  <div className="inputTelefone">
+                    <Input
+                      className="input"
+                      name="telefone"
+                      icon={FiPhoneCall}
+                      type="text"
+                      value={tel}
+                      maxLength={15}
+                      onKeyUp={(e) => {
+                        const value = e.currentTarget.value
+                          .replace(/\D/g, "")
+                          .replace(/(\d{2})(\d)/, "($1) $2")
+                          .replace(/(\d{5})(\d)/, "$1-$2");
 
-                <Input
-                  className="input"
-                  name="telefone"
-                  icon={FiPhoneCall}
-                  type="text"
-                  value={tel}
-                  maxLength={15}
-                  onKeyUp={(e) => {
-                    const value = e.currentTarget.value
-                      .replace(/\D/g, "")
-                      .replace(/(\d{2})(\d)/, "($1) $2")
-                      .replace(/(\d{5})(\d)/, "$1-$2");
-
-                    e.currentTarget.value = value;
-                    return e;
-                  }}
-                  preffix
-                  placeholder="(xx) xxxxx-xxxx"
-                  onChange={(e) => setTelefone(e.target.value)}
-                />
-                <h2>Email</h2>
-
-                <Input
-                  className="input"
-                  name="email"
-                  value={email}
-                  icon={FiMail}
-                  type="email"
-                  placeholder="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <h2>Senha</h2>
-
-                <Input
-                  className="input"
-                  name="senha"
-                  icon={FiLock}
-                  type={inputType}
-                  placeholder="6 dígitos, mínimo uma letra e um número"
-                  onChange={(e) => setSenha(e.target.value)}
-                />
+                        e.currentTarget.value = value;
+                        return e;
+                      }}
+                      preffix
+                      placeholder="(xx) xxxxx-xxxx"
+                      onChange={(e) => setTelefone(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="tituloInput">
+                  <h2>Email</h2>
+                  <h2
+                    style={{
+                      marginLeft: "10%",
+                      // backgroundColor: "#545",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    Senha
+                    <AiOutlineInfoCircle
+                      size={15}
+                      data-tip="A senha tem que ter 6 dígitos, um número e uma letra"
+                      // color="#e03f8e"
+                      style={{
+                        marginLeft: "2%",
+                        // backgroundColor: "#015",
+                      }}
+                    />
+                    <ReactTooltip
+                      place="right"
+                      type="info"
+                      backgroundColor="#e03f8e"
+                    />
+                  </h2>
+                </div>
+                <div className="inputNameTele">
+                  <div className="inputName">
+                    <Input
+                      id="email"
+                      className="input"
+                      name="email"
+                      value={email}
+                      icon={FiMail}
+                      type="email"
+                      placeholder="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  {/* <h2>Senha</h2> */}
+                  <div className="inputTelefone">
+                    <Input
+                      className="inputSenha"
+                      name="senha"
+                      icon={FiLock}
+                      type={inputType}
+                      placeholder="Senha"
+                      onChange={(e) => setSenha(e.target.value)}
+                    />
+                  </div>
+                </div>
 
                 <div className="div4">
                   <div className="input9">
@@ -543,7 +741,7 @@ const Testenovocadastro: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="div5">
+                {/* <div className="div5">
                   <h2>Quantidade estimada de processos</h2>
                   <Input
                     onChange={(e) => setQtdprocessos(e.target.value)}
@@ -552,7 +750,7 @@ const Testenovocadastro: React.FC = () => {
                     type="text"
                     placeholder="Quantidade de processos"
                   />
-                </div>
+                </div> */}
                 <Button className="btnazul" isLoading={loading} type="submit">
                   Cadastrar
                 </Button>
@@ -571,14 +769,14 @@ const Testenovocadastro: React.FC = () => {
                 </a>
               </div>
 
-              <button className="possuilogin">
+              {/* <button className="possuilogin">
                 <a href="/">Já possui login?</a>
-              </button>
+              </button> */}
             </Form>
           </div>
         </Blue>
       </Container>
-    </div>
+    </DivPrincipal>
   );
 };
 

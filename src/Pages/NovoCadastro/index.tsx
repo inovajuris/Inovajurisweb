@@ -285,6 +285,7 @@ const NovoCadastro: React.FC = () => {
   // }
   // console.log(dataFormatadaInicio + "esse");
   // console.log(dataFormatadaFim + "esse");
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -312,6 +313,7 @@ const NovoCadastro: React.FC = () => {
               <div className="input1">
                 <h2>Nome</h2>
                 <Input
+                  id="nome"
                   className="input"
                   name="nome"
                   value={name}
@@ -344,6 +346,7 @@ const NovoCadastro: React.FC = () => {
                 />
                 <h2>Email</h2>
                 <Input
+                  id="email"
                   className="input"
                   name="email"
                   value={email}
