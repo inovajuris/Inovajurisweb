@@ -23,7 +23,7 @@ export const HeaderContainer = styled.header`
   align-items: flex-start;
   justify-content: flex-start;
   /* box-shadow: 0px 0px 5px; */
-  position: fixed;
+  position: absolute;
   /* position: fixed; */
   top: 0;
   padding-top: 10px;

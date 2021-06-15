@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { BsFillQuestionOctagonFill } from "react-icons/bs";
 // import DownLoadFile,{DownloadFileProps} from 'react-downloader-file';
-import Header from "../../Components/Header";
+import Header from "../../Components/Header2";
 import { FiPlus } from "react-icons/fi";
 import { useAuth } from "../../hooks/auth";
 import { FiMinus } from "react-icons/fi";
@@ -49,7 +49,7 @@ import {
 
 import Person from "../../assets/person.svg";
 import Appstore from "../../assets/aple1.svg";
-import Playstore from "../../assets/play1.svg";
+import Playstore from "../../assets/googkePlay.svg";
 import api from "../../services/api";
 import { useToast } from "../../hooks/toast";
 import HeaderFundo from "../../assets/headerFundo.png";
@@ -291,7 +291,6 @@ const Home: React.FC = () => {
   }
 
   useEffect(() => {
-    console.log("teste TOKEN", token);
     fetchAPI();
 
     const script = document.createElement("script");
@@ -371,7 +370,7 @@ const Home: React.FC = () => {
     <Layout>
       <Header>
         <DropdownToggle onClick={() => setIsShowMenu(!isShowMenu)}>
-          <FiUser size={24} className="logo2" />
+          <FiUser size={24} color="#f1f1f1" className="logo2" />
         </DropdownToggle>
         {isShowMenu && (
           <DropdownContainer>
@@ -406,16 +405,14 @@ const Home: React.FC = () => {
       <Container>
         <Main>
           <MainHeader>
-            {beta ? (
-              <RemainingDaysText></RemainingDaysText>
-            ) : (
-              qtadeDias !== 0 &&
-              isTrial && (
-                <RemainingDaysText>
-                  {qtadeDias + 1} dias para o fim do Teste Grátis
-                </RemainingDaysText>
-              )
-            )}
+            {beta
+              ? null
+              : qtadeDias !== 0 &&
+                isTrial && (
+                  <RemainingDaysText>
+                    {qtadeDias + 1} dias para o fim do Teste Grátis
+                  </RemainingDaysText>
+                )}
             {isTrial && (
               <ButtonCompra onClick={() => history.replace(`/planos`, data)}>
                 Adquira seu plano
@@ -429,10 +426,28 @@ const Home: React.FC = () => {
 
           <Content>
             <TextContainer>
-              <Title>Bem-Vindo</Title>
+              <Title>
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                    fontFamily: "Raleway",
+                  }}
+                >
+                  Bem-Vindo ao APP Inova Juris
+                </span>
+              </Title>
+
               <Subtitle>
-                Faça o download do app InovaJuris no seu celular e personalize
-                seu escritório.
+                <span
+                  style={{
+                    fontFamily: "Raleway",
+                  }}
+                >
+                  Faça o download do app InovaJuris no seu celular e personalize
+                  seu escritório.
+                </span>
               </Subtitle>
             </TextContainer>
             <ButtonsContainer>
