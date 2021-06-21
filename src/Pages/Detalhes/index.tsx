@@ -5,7 +5,7 @@ import { FormHandles } from "@unform/core";
 
 import CVVImage2 from "../../assets/ccvcard.png";
 import { FiEyeOff } from "react-icons/fi";
-import Header2 from "../../Components/Header";
+import Header2 from "../../Components/Header2";
 import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
 import { Container, Blue } from "./styles";
@@ -424,7 +424,16 @@ const Detalhes: React.FC = () => {
       <Container>
         <Blue>
           <div className="formBox">
-            <h3>Detalhe do Pagamento</h3>
+            <h3>
+              <span
+                style={{
+                  fontFamily: "Raleway",
+                  fontSize: 25,
+                }}
+              >
+                Detalhe do Pagamento
+              </span>
+            </h3>
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="envolta">
                 <div className="div1">

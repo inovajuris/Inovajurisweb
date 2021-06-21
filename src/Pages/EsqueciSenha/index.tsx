@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Header from "../../Components/Header";
+import Header from "../../Components/Header2";
 import { FiMail } from "react-icons/fi";
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
@@ -77,6 +77,7 @@ const EsqueciSenha: React.FC = () => {
         type: "error",
         title: "Erro na cadastro",
         description: `Ocorreu um erro ao informar o e-mail, tente novamente`,
+        telaBeta: true,
       });
     }
   };
@@ -88,7 +89,9 @@ const EsqueciSenha: React.FC = () => {
       <Container>
         <Blue>
           <div className="formBox">
-            <h3>Redefinir Senha</h3>
+            <h3>
+              <span style={{ fontFamily: "Raleway" }}>Redefinir Senha</span>
+            </h3>
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="input1">
                 <h2>Email</h2>

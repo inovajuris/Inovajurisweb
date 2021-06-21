@@ -27,7 +27,7 @@ export const HeaderContainer = styled.header`
   /* position: fixed; */
   top: 0;
   padding-top: 10px;
-  z-index: 9999;
+  z-index: 998;
 
   .btnimg {
     outline: 0;
@@ -75,7 +75,7 @@ export const HeaderContainer = styled.header`
 
 export const Nav = styled.nav`
   width: 100%;
-  height: 100%;
+  /* height: 40%; */
   margin-top: 1%;
   margin-left: 2%;
   max-width: 1440px;

@@ -10,7 +10,7 @@ export const Container = styled.div`
   justify-content: center;
   height: 100%;
   max-width: 1350px;
-  margin: 0 auto;
+  margin: 3% auto;
   width: 100%;
   z-index: 999;
 
@@ -34,7 +34,7 @@ export const Blue = styled.div`
   border-radius: 5px 10px 10px 5px;
 
   width: 70%;
-  height: 540px;
+  height: 500px;
 
   margin-top: 100px;
 
@@ -53,6 +53,7 @@ export const Blue = styled.div`
     width: 90%;
     margin-top: 10px;
     border-radius: 0px 5px 5px 0px;
+    /* background-color: #8a44c4; */
 
     h2 {
       color: #141414;
@@ -80,6 +81,7 @@ export const Blue = styled.div`
       margin-left: 1%;
       height: 100%;
       width: 100%;
+      /* background-color: #897; */
     }
     .envolta {
       display: flex;
@@ -257,8 +259,8 @@ export const Blue = styled.div`
       align-items: center;
 
       width: 80%;
-      height: 500px;
-
+      /* height: 200px; */
+      /* background-color: #232326; */
       margin-top: 0%;
       margin-right: 3%;
     }

@@ -120,32 +120,32 @@ export const Blue = styled.div`
       margin-top: 11%;
       background-color: #e03f8e;
     }
+  }
 
-    .cadastre {
-      width: 100%;
-      margin-top: 0px;
-      a {
-        font-weight: 400;
-        font-size: 20px;
-        color: #101010;
-        text-decoration: none;
-        &:hover {
-          color: #941af9;
-        }
+  .cadastre {
+    width: 100%;
+    margin-top: 0px;
+    a {
+      font-weight: 400;
+      font-size: 20px;
+      color: #101010;
+      text-decoration: none;
+      &:hover {
+        color: #941af9;
       }
     }
+  }
 
-    .esqueci {
-      width: 100%;
-      margin-top: 0px;
-      a {
-        font-weight: 400;
-        font-size: 20px;
-        color: #232326;
-        text-decoration: none;
-        &:hover {
-          color: #941af9;
-        }
+  .esqueci {
+    width: 100%;
+    margin-top: 0px;
+    a {
+      font-weight: 400;
+      font-size: 20px;
+      color: #232326;
+      text-decoration: none;
+      &:hover {
+        color: #941af9;
       }
     }
   }

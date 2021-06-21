@@ -1,6 +1,6 @@
 //2846445278933444
 import React, { useState, useRef, useEffect } from "react";
-import Header2 from "../../Components/Header";
+import Header2 from "../../Components/Header2";
 import { useLocation } from "react-router-dom";
 
 import {
@@ -54,20 +54,21 @@ const Planos: React.FC = () => {
       userPassword,
       isPromo,
     },
-  } = useLocation<{
-    officeId: number;
-    plano: string;
-    token: string;
-    userId: number;
-    userPhone: string;
-    userEmail: string;
-    userPassword: string;
-    username: string;
-    contractAccepted?: boolean;
-    customerId?: number;
-    phoneId?: number;
-    isPromo: boolean;
-  }>();
+  } =
+    useLocation<{
+      officeId: number;
+      plano: string;
+      token: string;
+      userId: number;
+      userPhone: string;
+      userEmail: string;
+      userPassword: string;
+      username: string;
+      contractAccepted?: boolean;
+      customerId?: number;
+      phoneId?: number;
+      isPromo: boolean;
+    }>();
 
   useEffect(() => {
     setPlanos(plano);
@@ -197,7 +198,10 @@ const Planos: React.FC = () => {
           <Main>
             <FormContainer ref={formRef} onSubmit={handleSubmit}>
               <PricingContainer>
-                <PricingContainerTitle>Planos e Preços</PricingContainerTitle>
+                <PricingContainerTitle>
+                  {" "}
+                  <span style={{ fontFamily: "Raleway" }}>Planos e Preços</span>
+                </PricingContainerTitle>
 
                 <PlansContainer>
                   {getFormattedPlansData(isPromo).map((plan) => (

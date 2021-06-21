@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Header from "../../Components/Header";
+import Header from "../../Components/Header2";
 import { FiMail } from "react-icons/fi";
 import { FiLock } from "react-icons/fi";
 

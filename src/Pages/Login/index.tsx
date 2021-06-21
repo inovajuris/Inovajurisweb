@@ -178,7 +178,8 @@ const Login: React.FC = () => {
                   Entrar
                 </Button>
               </div>
-
+            </Form>
+            <div className="cadastros">
               <button className="cadastre">
                 <a href={`/novocadastro/plano=plano1`}>
                   <span
@@ -203,7 +204,7 @@ const Login: React.FC = () => {
                   </span>
                 </a>
               </button>
-            </Form>
+            </div>
           </div>
         </Blue>
       </Container>

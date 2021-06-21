@@ -10,17 +10,110 @@ export const Container = styled.div`
   justify-content: center;
   height: 100%;
   max-width: 1350px;
-  margin: 0 auto;
+  margin: 5% auto;
   width: 100%;
   z-index: 999;
+  /* background-color: #000; */
   @media (max-width: 601px) {
     display: flex;
     justify-content: center;
     height: 100%;
-
+    /* align-content: center; */
+    flex-direction: column;
     margin: 0 auto;
     width: 100%;
     z-index: 999;
+  }
+`;
+
+export const ContainerInfo = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+
+  line-height: 37px;
+  padding: 5px 5px;
+  /* margin-right: 150px; */
+  justify-content: flex-start;
+  margin-top: 12%;
+  width: 500px;
+  height: 100%;
+  margin-left: 10%;
+  /* font-family: "Raleway", sans-serif; */
+  /* background-color: #000; */
+  flex-direction: column;
+  h1 {
+    line-height: 41px;
+  }
+  #titulo {
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  @media (max-width: 900px) {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-bottom: 10%;
+    line-height: 37px;
+    padding: 5px 5px;
+    margin-right: 0;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+    h1 {
+      line-height: 41px;
+      font-family: "Raleway", sans-serif !important;
+    }
+    p {
+      font-size: 25px;
+      font-family: "Raleway", sans-serif !important;
+    }
+    #titulo {
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    h4 {
+      font-size: 22px;
+      font-family: "Raleway", sans-serif !important;
+    }
+  }
+  @media (max-width: 600px) {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    line-height: 28px;
+    padding: 8px 5px;
+    margin: 20% auto;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    height: 100%;
+    font-family: "Raleway", sans-serif !important;
+    flex-direction: column;
+
+    h1 {
+      line-height: 30px;
+      font-size: 25px;
+      font-family: "Raleway", sans-serif !important;
+    }
+    p {
+      font-size: 20px;
+      margin-top: -9px !important;
+      line-height: 30px;
+      font-family: "Raleway", sans-serif !important;
+    }
+    #titulo {
+      font-weight: bold;
+      margin-top: -20px !important;
+    }
+    h4 {
+      font-size: 18px;
+      margin-top: -10px !important;
+      font-family: "Raleway", sans-serif !important;
+    }
   }
 `;
 
@@ -33,8 +126,8 @@ export const Blue = styled.div`
   border-radius: 5px 10px 10px 5px;
 
   width: 70%;
-  height: 480px;
-
+  height: 400px;
+  /* background-color: #232326; */
   margin-top: 100px;
 
   .formBox {
@@ -97,12 +190,48 @@ export const Blue = styled.div`
     flex-direction: column;
     align-items: center;
     height: 100%;
+    width: 350px;
+    padding: 2%;
+    /* background-color: #232326; */
     .input1 {
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      svg {
+        margin-left: -3px;
+      }
+      .tituloInput {
+        display: flex;
+        width: 100%;
+        /* background-color: #e03f8e; */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .inputNameTele {
+        display: flex;
+        width: 100%;
+
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .inputTelefone {
+          display: flex;
+          width: 47%;
+          /* background-color: #854; */
+          .inputSenha {
+            display: flex;
+            width: 100%;
+            /* background-color: #854; */
+          }
+        }
+        .inputName {
+          width: 50%;
+          /* background-color: #9748; */
+        }
+      }
     }
     button {
       width: fit-content;
@@ -112,7 +241,8 @@ export const Blue = styled.div`
       text-align: center;
     }
     .policticablue {
-      font-size: 17px;
+      font-size: 14px;
+      margin-top: 1%;
       cursor: pointer;
       color: #007aff;
       font-weight: 400;
@@ -124,7 +254,7 @@ export const Blue = styled.div`
       display: flex;
       flex-direction: row;
       outline: none;
-
+      font-size: 13px;
       margin-top: 3px;
       align-items: center;
       justify-content: center;
@@ -135,6 +265,7 @@ export const Blue = styled.div`
     .btnazul {
       text-align: center;
       margin-top: 24px;
+      background-color: #e03f8e;
     }
 
     .cadastre {
@@ -152,7 +283,6 @@ export const Blue = styled.div`
     }
     .possuilogin {
       width: 100%;
-      margin-top: 16px;
       a {
         font-weight: 400;
         font-size: 20px;
@@ -177,7 +307,7 @@ export const Blue = styled.div`
     width: 50%;
     height: 600px;
 
-    margin-top: 100px;
+    margin-top: 10px;
 
     .formBox {
       display: flex;
@@ -295,8 +425,6 @@ export const Blue = styled.div`
 
     width: 100%;
     height: 560px;
-
-    margin-top: 90px;
 
     .formBox {
       display: flex;

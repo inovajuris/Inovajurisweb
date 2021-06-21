@@ -3,11 +3,11 @@ import React, { useState, useEffect, useRef, ChangeEvent } from "react";
 import { Radio } from "@material-ui/core";
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
-import Header2 from "../../Components/Header";
+import Header2 from "../../Components/Header2";
 import axios from "axios";
 
 import { useHistory, useLocation } from "react-router-dom";
-import { Container, Blue } from "./styles";
+import { Container, Blue, ContainerInfo } from "./styles";
 import api from "../../services/api";
 import * as Yup from "yup";
 import { encode as btoa } from "base-64";
@@ -88,20 +88,21 @@ const Dados: React.FC = () => {
       phoneId,
       isPromo,
     },
-  } = useLocation<{
-    customerId?: number;
-    phoneId?: number;
-    contractAccepted: boolean;
-    officeId: number;
-    plano: string;
-    token: string;
-    userId: number;
-    userPhone: string;
-    userEmail: string;
-    userPassword?: string;
-    username: string;
-    isPromo: boolean;
-  }>();
+  } =
+    useLocation<{
+      customerId?: number;
+      phoneId?: number;
+      contractAccepted: boolean;
+      officeId: number;
+      plano: string;
+      token: string;
+      userId: number;
+      userPhone: string;
+      userEmail: string;
+      userPassword?: string;
+      username: string;
+      isPromo: boolean;
+    }>();
 
   console.log(
     "Params Dados",
@@ -461,9 +462,53 @@ const Dados: React.FC = () => {
     <div>
       <Header2 />
       <Container>
+        <ContainerInfo>
+          <h1>
+            <span
+              style={{
+                backgroundColor: "#e03f8e",
+                color: "#fff",
+                textAlign: "justify",
+                textJustify: "inter-word",
+                fontFamily: "Raleway",
+                fontSize: 25,
+              }}
+            >
+              Complete o seu cadastro!
+            </span>
+          </h1>
+          <br></br>
+          <h3
+            style={{
+              fontWeight: "normal",
+              marginBottom: 30,
+              textAlign: "justify",
+              textJustify: "inter-word",
+              fontFamily: "Raleway",
+              fontSize: 15,
+            }}
+          >
+            <p>
+              Os dados serão utilizados para envio das notas fiscais de serviços
+              prestados pela INOVA JURIS.
+            </p>
+          </h3>
+          <h4
+            style={{
+              fontWeight: "bold",
+              fontStyle: "italic",
+              textAlign: "justify",
+              textJustify: "inter-word",
+              fontFamily: "Raleway",
+              fontSize: 15,
+            }}
+          >
+            Inova Juris, o seu escritório jurídico na palma de sua mão.
+          </h4>
+        </ContainerInfo>
         <Blue>
           <div className="formBox">
-            <h3>Dados de indentificação</h3>
+            {/* <h3>Dados de indentificação</h3> */}
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="radio">
                 <div>
@@ -588,29 +633,35 @@ const Dados: React.FC = () => {
                     />
                   </div>
                 </div>
-                <div className="input4">
-                  <h2>Logradouro</h2>
-                  <Input
-                    className="input"
-                    name="logradouro"
-                    id="logradouro"
-                    type="text"
-                    placeholder="logradouro"
-                    value={address.logradouro}
-                    onChange={handleAddress}
-                  />
-                </div>
-                <div className="input5">
-                  <h2>Bairro</h2>
-                  <Input
-                    className="input"
-                    id="bairro"
-                    name="bairro"
-                    type="text"
-                    placeholder="bairro"
-                    value={address.bairro}
-                    onChange={handleAddress}
-                  />
+                <div className="div3dois">
+                  <div className="div3dois">
+                    <div className="input3dois" style={{ width: "73%" }}>
+                      <h2>Logradouro</h2>
+                      <Input
+                        className="input"
+                        name="logradouro"
+                        id="logradouro"
+                        type="text"
+                        placeholder="logradouro"
+                        value={address.logradouro}
+                        onChange={handleAddress}
+                      />
+                    </div>
+                  </div>
+                  {/* </div>
+                <div className="input5"> */}
+                  <div className="input3tres" style={{ width: "48%" }}>
+                    <h2>Bairro</h2>
+                    <Input
+                      className="input"
+                      id="bairro"
+                      name="bairro"
+                      type="text"
+                      placeholder="bairro"
+                      value={address.bairro}
+                      onChange={handleAddress}
+                    />
+                  </div>
                 </div>
                 <div className="div3">
                   <div className="input6">

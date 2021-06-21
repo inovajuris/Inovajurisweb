@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   height: 100%;
   max-width: 1350px;
-  margin: 0 auto;
+  margin: 8% auto;
   width: 100%;
   z-index: 999;
   @media (max-width: 576px) {
@@ -32,7 +32,7 @@ export const Blue = styled.div`
   border-radius: 5px 10px 10px 5px;
 
   width: 70%;
-  height: 480px;
+  height: 390px;
 
   margin-top: 100px;
 
@@ -117,6 +117,7 @@ export const Blue = styled.div`
     .btnazul {
       text-align: center;
       margin-top: 11%;
+      background-color: #e03f8e;
     }
 
     .cadastre {
@@ -363,7 +364,7 @@ export const Blue = styled.div`
       }
 
       .input1 {
-        margin-top:-5%;
+        margin-top: -5%;
         height: 50%;
         display: flex;
         flex-direction: column;

@@ -7,13 +7,13 @@ import { FiUser } from "react-icons/fi";
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
 
-import Header2 from "../../Components/Header";
-
+import Header2 from "../../Components/Header2";
+import ReactTooltip from "react-tooltip";
 import { useHistory } from "react-router-dom";
-import { Container, Blue } from "./styles";
+import { Container, Blue, ContainerInfo } from "./styles";
 import api from "../../services/api";
 import * as Yup from "yup";
-
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import getValidationErrors from "../../utils/getValidationErros";
 import Input from "../../Components/Input";
 import { useParams } from "react-router-dom";
@@ -305,45 +305,104 @@ const NovoCadastro: React.FC = () => {
       <Header2 />
 
       <Container>
+        <ContainerInfo>
+          <>
+            <div style={{ marginTop: "10%" }}>
+              <h1>
+                <span
+                  style={{
+                    backgroundColor: "#e03f8e",
+                    color: "#fff",
+                    textAlign: "justify",
+                    textJustify: "inter-word",
+                    fontFamily: "Raleway",
+                    fontSize: 25,
+                  }}
+                >
+                  Faça seu cadastro!
+                </span>
+              </h1>
+              <br></br>
+
+              <h3
+                style={{
+                  fontWeight: "normal",
+                  marginBottom: 30,
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                  fontFamily: "Raleway",
+                  fontSize: 15,
+                }}
+              >
+                <p>
+                  É muito simples, basta preencher o formulário Ao lado com as
+                  suas informações e seguir os próximos, passos.
+                </p>
+              </h3>
+              <h4
+                style={{
+                  fontWeight: "bold",
+                  fontStyle: "italic",
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                  fontFamily: "Raleway",
+                  fontSize: 15,
+                }}
+              >
+                Inova Juris, o seu escritório jurídico na palma de sua mão.
+              </h4>
+            </div>
+          </>
+        </ContainerInfo>
         <Blue>
           <div className="formBox">
-            <h3>Cadastrar</h3>
+            {/* <h3>Cadastrar</h3> */}
             {console.log("Script", document.body.getElementsByTagName("email"))}
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="input1">
-                <h2>Nome</h2>
-                <Input
-                  id="nome"
-                  className="input"
-                  name="nome"
-                  value={name}
-                  icon={FiUser}
-                  type="text"
-                  placeholder="nome"
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <h2>Telefone</h2>
+                <div className="tituloInput">
+                  <h2>Nome</h2>
+                  <h2 style={{ marginLeft: "10%" }}>Telefone</h2>
+                </div>
+                {/* <h2>Nome</h2> */}
+                <div className="inputNameTele">
+                  <div className="inputName">
+                    <Input
+                      id="nome"
+                      className="input1"
+                      name="nome"
+                      value={name}
+                      icon={FiUser}
+                      type="text"
+                      placeholder="nome"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  {/* <h2>Telefone</h2> */}
 
-                <Input
-                  className="input"
-                  name="telefone"
-                  icon={FiPhoneCall}
-                  type="text"
-                  value={tel}
-                  maxLength={15}
-                  onKeyUp={(e) => {
-                    const value = e.currentTarget.value
-                      .replace(/\D/g, "")
-                      .replace(/(\d{2})(\d)/, "($1) $2")
-                      .replace(/(\d{5})(\d)/, "$1-$2");
+                  <div className="inputTelefone">
+                    <Input
+                      className="input1"
+                      name="telefone"
+                      icon={FiPhoneCall}
+                      type="text"
+                      value={tel}
+                      maxLength={15}
+                      onKeyUp={(e) => {
+                        const value = e.currentTarget.value
+                          .replace(/\D/g, "")
+                          .replace(/(\d{2})(\d)/, "($1) $2")
+                          .replace(/(\d{5})(\d)/, "$1-$2");
 
-                    e.currentTarget.value = value;
-                    return e;
-                  }}
-                  preffix
-                  placeholder="(xx) xxxxx-xxxx"
-                  onChange={(e) => setTelefone(e.target.value)}
-                />
+                        e.currentTarget.value = value;
+                        return e;
+                      }}
+                      preffix
+                      placeholder="(xx) xxxxx-xxxx"
+                      onChange={(e) => setTelefone(e.target.value)}
+                    />
+                  </div>
+                </div>
                 <h2>Email</h2>
                 <Input
                   id="email"
@@ -356,14 +415,30 @@ const NovoCadastro: React.FC = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
 
-                <h2>Senha</h2>
+                <h2 style={{ display: "flex", alignItems: "center" }}>
+                  Senha
+                  <AiOutlineInfoCircle
+                    size={15}
+                    data-tip="A senha tem que ter 6 dígitos, um número e uma letra"
+                    // color="#e03f8e"
+                    style={{
+                      marginLeft: "2%",
+                      // backgroundColor: "#015",
+                    }}
+                  />
+                  <ReactTooltip
+                    place="right"
+                    type="info"
+                    backgroundColor="#e03f8e"
+                  />
+                </h2>
                 <Input
                   className="input"
                   name="senha"
                   icon={FiLock}
                   value={senha}
                   type={inputType}
-                  placeholder="6 dígitos, mínimo uma letra e um número"
+                  placeholder="Senha"
                   onChange={(e) => setSenha(e.target.value)}
                 />
 
@@ -380,7 +455,6 @@ const NovoCadastro: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {" "}
                   Política de Privacidade
                 </a>
               </div>
