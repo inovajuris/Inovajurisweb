@@ -336,7 +336,7 @@ const NovoCadastro: React.FC = () => {
               >
                 <p>
                   É muito simples, basta preencher o formulário ao lado com as
-                  suas informações e seguir os próximos, passos.
+                  suas informações e seguir os próximos passos.
                 </p>
               </h3>
               <h4
