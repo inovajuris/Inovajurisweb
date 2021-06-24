@@ -12,6 +12,7 @@ export const Fundo = styled.div`
 `;
 
 export const Container = styled.div`
+  margin-top: 10%;
   width: 100%;
   display: flex;
   justify-content: center;

@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import Logo from "../../assets/logolaw.svg";
-import Header2 from "../../Components/Header";
+import Header2 from "../../Components/Header2";
 import { FiUser } from "react-icons/fi";
 import {
   GoogleLoginResponse,

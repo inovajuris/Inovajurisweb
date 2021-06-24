@@ -13,7 +13,7 @@ import api from "../../services/api";
 import * as Yup from "yup";
 import axios from "axios";
 import { FiEyeOff } from "react-icons/fi";
-import Header from "../../Components/Header";
+import Header from "../../Components/Header2";
 import Button from "../../Components/Button";
 import { FormHandles } from "@unform/core";
 import Input from "../../Components/Input";
@@ -139,7 +139,15 @@ const Login: React.FC = () => {
       <Container>
         <Blue>
           <div className="formBox">
-            <h3>Entrar</h3>
+            <h3>
+              <span
+                style={{
+                  fontFamily: "Raleway",
+                }}
+              >
+                Entrar
+              </span>
+            </h3>
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="input1">
                 <h2>Email</h2>
@@ -170,14 +178,33 @@ const Login: React.FC = () => {
                   Entrar
                 </Button>
               </div>
-
+            </Form>
+            <div className="cadastros">
               <button className="cadastre">
-                <a href={`/novocadastro/plano=plano1`}>Cadastre-se</a>
+                <a href={`/novocadastro/plano=plano1`}>
+                  <span
+                    style={{
+                      fontFamily: "Raleway",
+                      fontSize: 15,
+                    }}
+                  >
+                    Cadastre-se
+                  </span>
+                </a>
               </button>
               <button className="esqueci">
-                <a href="esquecisenha">Esqueceu sua senha?</a>
+                <a href="esquecisenha">
+                  <span
+                    style={{
+                      fontFamily: "Raleway",
+                      fontSize: 15,
+                    }}
+                  >
+                    Esqueceu sua senha?
+                  </span>
+                </a>
               </button>
-            </Form>
+            </div>
           </div>
         </Blue>
       </Container>

@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { FiLock } from "react-icons/fi";
-import Header from "../../Components/Header";
+import Header from "../../Components/Header2";
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
 import { FiEyeOff } from "react-icons/fi";
@@ -171,7 +171,15 @@ const NovoCadastro: React.FC = () => {
       <Container>
         <Blue>
           <div className="formBox">
-            <h3>Alterar Senha</h3>
+            <h3>
+              <span
+                style={{
+                  fontFamily: "Raleway",
+                }}
+              >
+                Alterar Senha
+              </span>
+            </h3>
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="input1">
                 <h2>Nova Senha</h2>
@@ -197,7 +205,7 @@ const NovoCadastro: React.FC = () => {
 
                 <Button
                   isLoading={loading}
-                  className="btn"
+                  className="btnazul"
                   type="submit"
                   onClick={() => handleSubmit}
                 >

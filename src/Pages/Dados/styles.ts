@@ -10,18 +10,123 @@ export const Container = styled.div`
   justify-content: center;
   height: 100%;
   max-width: 1350px;
-  margin: 0 auto;
+  margin: 10% auto;
   width: 100%;
   z-index: 999;
+
+  /* background-color: #343; */
+
+  /* @media (max-width: 1024px) and (min-width: 800px) {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    margin: 9% auto;
+    width: 100%;
+    z-index: 999;
+  } */
 
   @media (max-width: 601px) {
     display: flex;
     justify-content: center;
     height: 100%;
-
+    flex-direction: column;
     margin: 0 auto;
     width: 100%;
     z-index: 999;
+  }
+`;
+
+export const ContainerInfo = styled.div`
+  display: flex;
+  align-items: flex-start;
+
+  /* background-color: #648; */
+  line-height: 37px;
+  padding: 5px 5px;
+  /* margin-right: 150px; */
+  justify-content: flex-start;
+  margin-top: 12%;
+  width: 30%;
+  height: 100%;
+  margin-left: 10%;
+  /* font-family: "Raleway", sans-serif; */
+  flex-direction: column;
+  h1 {
+    line-height: 41px;
+  }
+  #titulo {
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  /* @media (max-width: 900px) and (min-width: 601px) {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10%;
+    line-height: 37px;
+    padding: 5px 5px;
+    margin-right: 0;
+    justify-content: flex-start;
+    background-color: #6546;
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+    h1 {
+      line-height: 41px;
+      font-family: "Raleway", sans-serif !important;
+    }
+    p {
+      font-size: 25px;
+      font-family: "Raleway", sans-serif !important;
+    }
+    #titulo {
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    h4 {
+      font-size: 22px;
+      font-family: "Raleway", sans-serif !important;
+    }
+  } */
+  @media (max-width: 600px) {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-bottom: 2%;
+    line-height: 28px;
+    padding: 8px 5px;
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 95%;
+    height: 100%;
+    font-family: "Raleway", sans-serif !important;
+    flex-direction: column;
+    margin-top: 40%;
+    /* background-color: #687; */
+
+    h1 {
+      line-height: 30px;
+      font-size: 25px;
+      font-family: "Raleway", sans-serif !important;
+    }
+    p {
+      font-size: 20px;
+      margin-top: -9px !important;
+      line-height: 30px;
+      font-family: "Raleway", sans-serif !important;
+    }
+    #titulo {
+      font-weight: bold;
+      margin-top: -20px !important;
+    }
+    h4 {
+      font-size: 18px;
+      margin-top: -10px !important;
+      font-family: "Raleway", sans-serif !important;
+    }
   }
 `;
 
@@ -29,14 +134,14 @@ export const Blue = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
-  background-color: #fff;
+  /* background-color: #000;  */
 
   border-radius: 5px 10px 10px 5px;
 
   width: 70%;
-  height: 650px;
+  height: 510px;
 
-  margin-top: 100px;
+  margin-top: 2%;
   .radiocor {
     color: #941af9;
     svg {
@@ -55,8 +160,8 @@ export const Blue = styled.div`
 
     justify-content: center;
     flex-direction: column;
-    width: 90%;
-
+    width: 100%;
+    z-index: 999;
     border-radius: 0px 5px 5px 0px;
 
     .redessociais {
@@ -103,18 +208,20 @@ export const Blue = styled.div`
     font-weight: 400;
   }
   form {
-    margin-top: 1%;
+    /* margin-top: 2%; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 1%;
+    /* margin-left: 1%; */
     height: 100%;
     width: 100%;
+    /* background-color: #8930d4; */
 
+    /* margin-left: 30%; */
     .div1 {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      /* justify-content: space-between; */
       align-items: center;
 
       width: 80%;
@@ -130,7 +237,7 @@ export const Blue = styled.div`
     .div1 {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      /* justify-content: space-between; */
       align-items: center;
 
       width: 80%;
@@ -146,7 +253,7 @@ export const Blue = styled.div`
     }
     .input2 {
       width: 30%;
-      margin-right: 100px;
+      margin-left: 1%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -239,7 +346,7 @@ export const Blue = styled.div`
       }
     }
     .input6 {
-      width: 45.2%;
+      width: 39.2%;
 
       margin-left: 80px;
 
@@ -257,12 +364,13 @@ export const Blue = styled.div`
     }
 
     .input7 {
-      width: 25%;
+      width: 29%;
       margin-right: 101px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin-left: 1%;
     }
     .input8 {
       width: 35%;
@@ -288,10 +396,11 @@ export const Blue = styled.div`
       align-items: center;
 
       width: 80%;
-      height: 500px;
+      height: 50px;
 
       margin-top: 0%;
       margin-right: 5%;
+      /* background-color: #232326; */
     }
     button {
       width: fit-content;
@@ -372,7 +481,7 @@ export const Blue = styled.div`
     width: 635px;
     height: 650px;
 
-    margin-top: 100px;
+    margin-top: 50px;
     .radio {
       display: flex;
       justify-content: center;
@@ -381,7 +490,7 @@ export const Blue = styled.div`
     }
     .formBox {
       display: flex;
-      padding: 17px;
+      padding: 15px;
 
       justify-content: center;
       flex-direction: column;
@@ -437,7 +546,7 @@ export const Blue = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: -12%;
+      margin-right: 2%;
       height: 100%;
 
       width: 125%;
@@ -692,11 +801,7 @@ export const Blue = styled.div`
       height: 940px;
 
       margin-top: 100px;
-<<<<<<< HEAD
-
-=======
-      background-color: red;
->>>>>>> main
+      /* background-color: red; */
       .radio {
         display: flex;
         justify-content: center;

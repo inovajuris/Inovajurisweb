@@ -315,17 +315,16 @@ const Testenovocadastro: React.FC = () => {
             type: "error",
             title: "Erro na cadastro",
             description: `Ocorreu um erro ao fazer cadastro, tente novamente.`,
-            telaBeta: true,
           });
         }
 
         if (err.response?.data) {
+          console.log("Erro", err);
           addToast({
             type: "error",
             title: "Erro na cadastro",
             description: `Usuário já cadastrado.
             `,
-            telaBeta: true,
           });
         }
       }

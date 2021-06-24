@@ -9,8 +9,9 @@ export const Container = styled.div`
   justify-content: center;
   height: 100%;
   max-width: 1350px;
-  margin: 0 auto;
+  margin: 5% auto;
   width: 100%;
+  /* background-color: #000; */
   z-index: 999;
   @media (max-width: 576px) {
     display: flex;
@@ -31,7 +32,7 @@ export const Blue = styled.div`
   border-radius: 5px 10px 10px 5px;
 
   width: 70%;
-  height: 480px;
+  height: 410px;
 
   margin-top: 100px;
 
@@ -117,33 +118,34 @@ export const Blue = styled.div`
     .btnazul {
       text-align: center;
       margin-top: 11%;
+      background-color: #e03f8e;
     }
+  }
 
-    .cadastre {
-      width: 100%;
-      margin-top: 0px;
-      a {
-        font-weight: 400;
-        font-size: 20px;
-        color: #101010;
-        text-decoration: none;
-        &:hover {
-          color: #941af9;
-        }
+  .cadastre {
+    width: 100%;
+    margin-top: 0px;
+    a {
+      font-weight: 400;
+      font-size: 20px;
+      color: #101010;
+      text-decoration: none;
+      &:hover {
+        color: #941af9;
       }
     }
+  }
 
-    .esqueci {
-      width: 100%;
-      margin-top: 0px;
-      a {
-        font-weight: 400;
-        font-size: 20px;
-        color: #232326;
-        text-decoration: none;
-        &:hover {
-          color: #941af9;
-        }
+  .esqueci {
+    width: 100%;
+    margin-top: 0px;
+    a {
+      font-weight: 400;
+      font-size: 20px;
+      color: #232326;
+      text-decoration: none;
+      &:hover {
+        color: #941af9;
       }
     }
   }

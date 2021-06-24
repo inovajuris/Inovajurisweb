@@ -1,6 +1,6 @@
 //2846445278933444
 import React, { useState, useCallback, useRef } from "react";
-import Header from "../../Components/Header";
+import Header from "../../Components/Header2";
 
 import { useHistory, useLocation } from "react-router-dom";
 
@@ -58,13 +58,18 @@ const Contrato: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
 
       <Container>
         <Blue>
           <div className="formBox">
-            <h3 className="h3">Contrato de Assinatura</h3>
+            <h3
+              className="h3"
+              style={{ fontFamily: "Raleway", fontWeight: "bold" }}
+            >
+              Contrato de Assinatura
+            </h3>
             <Form ref={formRef} onSubmit={handleSubmit}>
               <div className="box">
                 <div className="input1">
@@ -859,7 +864,7 @@ const Contrato: React.FC = () => {
           </div>
         </Blue>
       </Container>
-    </div>
+    </>
   );
 };
 

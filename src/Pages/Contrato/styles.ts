@@ -7,17 +7,18 @@ import { GoogleLogin as CustomGoogleLogin } from "react-google-login";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 585px;
+  height: 480px;
   max-width: 1350px;
   margin: 0 auto;
   width: 100%;
+  margin-top: 5%;
 
   @media (max-width: 576px) {
     display: flex;
     justify-content: center;
     height: 100%;
 
-    margin: 0 auto;
+    margin: 20% auto;
     width: 370px;
     z-index: 999;
   }
@@ -32,7 +33,7 @@ export const Blue = styled.div`
   border-radius: 5px 10px 10px 5px;
 
   width: 100%;
-  height: 500px;
+  height: 300px;
 
   margin-top: 60px;
 
@@ -44,8 +45,8 @@ export const Blue = styled.div`
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    height: 540px;
-    background-color: #ffffff;
+    height: 410px;
+    background-color: #fff;
     border-radius: 0px 5px 5px 0px;
 
     h2 {
