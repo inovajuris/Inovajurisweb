@@ -143,7 +143,14 @@ const NovoCadastro: React.FC = () => {
           abortEarly: false,
         });
 
-        const isPromo = !!plano.match(/(promo[1-3])/);
+        // const isPromo = !!plano.match(/(promo[1-3])/);
+        const isPromo = !!plano.match(/(promo)/);
+        // if(promo)
+        // const promocaoTest = "promoFENALAW5021";
+
+        // //chamada da api
+        // await api.get(`/planos/promo?id_plano=${promocaoTest}`);
+
         const plansData = getPlanData(plano, isPromo);
 
         console.log("PlansData", plansData);
@@ -192,19 +199,19 @@ const NovoCadastro: React.FC = () => {
           .replace(/\D/g, "")
           .replace(/(\d{2})(\d)/, "($1) $2")
           .replace(/(\d{5})(\d)/, "$1-$2");
-        if (isPromo) {
-          return history.push("/contrato", {
-            plano,
-            token: response.data.token,
-            officeId: responseOffice.data.id_escritorio,
-            userId: response.data.usuario.id_usuario,
-            username: response.data.usuario.nome,
-            userEmail: data.email,
-            userPhone: telefoneFormatado,
-            userPassword: data.senha,
-            isPromo,
-          });
-        }
+        // if (isPromo) {
+        //   return history.push("/contrato", {
+        //     plano,
+        //     token: response.data.token,
+        //     officeId: responseOffice.data.id_escritorio,
+        //     userId: response.data.usuario.id_usuario,
+        //     username: response.data.usuario.nome,
+        //     userEmail: data.email,
+        //     userPhone: telefoneFormatado,
+        //     userPassword: data.senha,
+        //     isPromo,
+        //   });
+        // }
         history.push("/planos", {
           plano: plano,
           token: response.data.token,

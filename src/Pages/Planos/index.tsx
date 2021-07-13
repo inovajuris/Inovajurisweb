@@ -16,6 +16,8 @@ import {
   OffersContainer,
   Layout,
   ConfirmButton,
+  InputCupom,
+  ButtonCupom,
 } from "./styles";
 import { useHistory } from "react-router-dom";
 import { Form } from "@unform/web";
@@ -35,6 +37,12 @@ interface SigInFormData {
 const Planos: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [planos, setPlanos] = useState("");
+  const [promoPlanoId, setPromoPlanoId] = useState("");
+  const [textoPromo, setTextoPromo] = useState("");
+  const [valorPlano, setValorPlano] = useState(null);
+  const [valorPlanoPromo, setValorPlanoPromo] = useState(null);
+  const [promoNome, setPromoNome] = useState("");
+  const [descontoPromo, setDescontoPromo] = useState(null);
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
   const { addToast } = useToast();
@@ -54,24 +62,24 @@ const Planos: React.FC = () => {
       userPassword,
       isPromo,
     },
-  } =
-    useLocation<{
-      officeId: number;
-      plano: string;
-      token: string;
-      userId: number;
-      userPhone: string;
-      userEmail: string;
-      userPassword: string;
-      username: string;
-      contractAccepted?: boolean;
-      customerId?: number;
-      phoneId?: number;
-      isPromo: boolean;
-    }>();
+  } = useLocation<{
+    officeId: number;
+    plano: string;
+    token: string;
+    userId: number;
+    userPhone: string;
+    userEmail: string;
+    userPassword: string;
+    username: string;
+    contractAccepted?: boolean;
+    customerId?: number;
+    phoneId?: number;
+    isPromo: boolean;
+  }>();
 
   useEffect(() => {
     setPlanos(plano);
+    setPromoNome(plano);
   }, []);
 
   console.log("Planos", planos);
@@ -79,44 +87,61 @@ const Planos: React.FC = () => {
   console.log("officeId", officeId);
   console.log("contractAccepted", contractAccepted);
 
+  async function getPromo() {
+    const { data } = await api.get("planos/promo", {
+      params: { id_plano: promoPlanoId },
+
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (data && data.length > 0) {
+      console.log("Teste pomo", data[0]);
+      setTextoPromo(data[0].descricao);
+      setDescontoPromo(data[0].promocao_percent_desconto);
+    }
+    if (!data || data.length === 0) {
+      return alert("Cupom invalido");
+    }
+  }
+
+  function calculoPromo(plano: string): void {
+    const valor = parseFloat(plano.replace(/\s/g, "").replace(",", "."));
+    const desconto = (descontoPromo * valor) / 100;
+    var valorFinal = valor - desconto;
+    setValorPlanoPromo(valorFinal);
+  }
+
+  useEffect(() => {
+    if (descontoPromo && valorPlano) {
+      calculoPromo(valorPlano);
+    }
+  }, [valorPlano, descontoPromo]);
+
   const handleSubmit = async () => {
     setLoading(true);
     try {
       formRef.current?.setErrors({});
+      var promoNomeFinal;
+      if (isPromo) {
+        const numeroPlanoPromo = planos.substring(5);
 
-      // const schema = Yup.object().shape({
-      //   nome: Yup.string().required("Nome obrigatório"),
-      //   email: Yup.string().required("E-mail obrigatório"),
+        const promoNomeSemPromo = promoNome.substring(5);
 
-      //   senha: Yup.string()
-      //     .trim()
-      //     .matches(
-      //       /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
-      //       "senha deve conter pelo menos 8 caracteres, um número e um caractere especial"
-      //     )
-      //     .min(8, "No minimo 8 dígitos"),
-      // });
+        promoNomeFinal =
+          promoNomeSemPromo != promoPlanoId
+            ? promoPlanoId.concat("_" + numeroPlanoPromo)
+            : promoNome.concat("_" + numeroPlanoPromo);
 
-      // await schema.validate(data, {
-      //   abortEarly: false,
-      // });
-
-      // await api.put(
-      //   `escritorio/${officeId}`,
-      //   {
-      //     plano: planos,
-      //   },
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: `Bearer ${token}`,
-      //     },
-      //   }
-      // );
+        if (promoPlanoId != promoNomeSemPromo) {
+          promoNomeFinal = "promo" + promoNomeFinal;
+        }
+      }
       await api.put(
         `trocarPlano/${officeId}`,
         {
-          plano: planos,
+          plano: isPromo && descontoPromo ? promoNomeFinal : planos,
         },
         {
           headers: {
@@ -126,40 +151,40 @@ const Planos: React.FC = () => {
         }
       );
 
-      if (!contractAccepted) {
-        return history.push({
-          pathname: "/contrato",
-          state: {
-            officeId,
-            userId,
-            userEmail,
-            userPhone,
-            username,
-            plano: planos,
-            token,
-            userPassword,
-            isPromo,
-          },
-        });
-      }
+      // if (!contractAccepted) {
+      //   return history.push({
+      //     pathname: "/contrato",
+      //     state: {
+      //       officeId,
+      //       userId,
+      //       userEmail,
+      //       userPhone,
+      //       username,
+      //       plano: planos,
+      //       token,
+      //       userPassword,
+      //       isPromo,
+      //     },
+      //   });
+      // }
 
-      history.push({
-        pathname: "/dados",
-        state: {
-          officeId,
-          userId,
-          userEmail,
-          userPhone,
-          username,
-          plano: planos,
-          token,
-          contractAccepted,
-          customerId,
-          phoneId,
-          userPassword,
-          isPromo,
-        },
-      });
+      // history.push({
+      //   pathname: "/dados",
+      //   state: {
+      //     officeId,
+      //     userId,
+      //     userEmail,
+      //     userPhone,
+      //     username,
+      //     plano: planos,
+      //     token,
+      //     contractAccepted,
+      //     customerId,
+      //     phoneId,
+      //     userPassword,
+      //     isPromo,
+      //   },
+      // });
 
       // addToast({
       //   type: "sucess",
@@ -199,7 +224,6 @@ const Planos: React.FC = () => {
             <FormContainer ref={formRef} onSubmit={handleSubmit}>
               <PricingContainer>
                 <PricingContainerTitle>
-                  {" "}
                   <span style={{ fontFamily: "Raleway" }}>Planos e Preços</span>
                 </PricingContainerTitle>
 
@@ -209,7 +233,10 @@ const Planos: React.FC = () => {
                       key={plan.id}
                       code={plan.code}
                       plano={planos}
-                      onClick={() => setPlanos(plan.code)}
+                      onClick={() => {
+                        setPlanos(plan.code);
+                        setValorPlano(plan.value);
+                      }}
                     >
                       <GradientText
                         style={{ fontSize: 19 }}
@@ -243,6 +270,60 @@ const Planos: React.FC = () => {
                 Confirmar
               </ConfirmButton>
             </FormContainer>
+            {isPromo && (
+              <Plan code={"promo"} plano={planos}>
+                <GradientText
+                  style={{ fontSize: 19 }}
+                  code={"promo"}
+                  plano={planos}
+                >
+                  Cupom promocional
+                </GradientText>
+                <InputCupom
+                  placeholder="FLW7468"
+                  onChange={(text) => {
+                    setPromoPlanoId(text.target.value);
+                  }}
+                />
+
+                <ButtonCupom
+                  onClick={() => {
+                    if (!valorPlano) {
+                      return alert("Selecione um plano");
+                    }
+                    if (!promoPlanoId) {
+                      return alert("Insira um cupom valído");
+                    }
+                    getPromo();
+                  }}
+                >
+                  <text>Validar cupom</text>
+                </ButtonCupom>
+                <GradientText code={"promo"} plano={planos}>
+                  {valorPlanoPromo
+                    ? valorPlanoPromo.toLocaleString("pt-br", {
+                        minimumFractionDigits: 0,
+                        style: "currency",
+                        currency: "BRL",
+                      })
+                    : valorPlanoPromo === 0
+                    ? `R$ 00,0`
+                    : null}
+                </GradientText>
+
+                <OffersContainer>
+                  {textoPromo ? (
+                    <>
+                      <text>{textoPromo}</text>
+                      <br />
+                      <text>Cancele quando quiser!</text>
+                    </>
+                  ) : (
+                    "Cupom não aplicado."
+                  )}
+                </OffersContainer>
+              </Plan>
+            )}
           </Main>
         </Container>
       </Layout>

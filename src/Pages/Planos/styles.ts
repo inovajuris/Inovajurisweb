@@ -10,15 +10,16 @@ interface GradientConfig {
 export const Layout = styled.div`
   margin-top: 95px;
   display: flex;
-
+  background-color: #8979;
   justify-content: center;
 `;
 
 export const Container = styled.div`
   width: 100%;
-
+  background-color: #121;
   display: flex;
   justify-content: center;
+  flex-direction: row;
   max-width: 1050px;
   max-height: 700px;
   height: 560px;
@@ -37,7 +38,8 @@ export const Container = styled.div`
 
 export const Main = styled.main`
   width: 100%;
-
+  background-color: #998;
+  /* flex-direction: row; */
   margin-bottom: 29px;
 
   @media (min-width: 900px) {
@@ -162,6 +164,38 @@ export const ConfirmButton = styled(Button)`
   width: 50%;
   max-width: 219px;
   margin-top: -1%;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    max-width: 370px;
+
+    height: 40px;
+  }
+`;
+
+export const InputCupom = styled.input`
+  /* text-transform: uppercase; */
+  height: 45px;
+  max-height: 45px;
+  max-width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  border: 1px solid;
+  border-color: #f0f0eb;
+  border-radius: 4px;
+  background-color: #f0f0eb;
+`;
+
+export const ButtonCupom = styled(Button)`
+  /* text-transform: uppercase; */
+  height: 40px;
+  width: 50%;
+  max-width: 219px;
+
+  margin-top: 3%;
+  margin-bottom: 3%;
 
   @media (max-width: 576px) {
     width: 100%;
